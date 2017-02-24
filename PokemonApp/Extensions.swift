@@ -11,6 +11,6 @@ import Foundation
 extension Int {
     
     func outputFormat() -> String {
-        return String(format: "%03d", self)
+        return String(format: "#%03d", self)
     }
 }

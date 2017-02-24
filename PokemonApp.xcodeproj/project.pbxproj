@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		535F23311E60A640005FCF34 /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F23301E60A640005FCF34 /* PokeCell.swift */; };
 		53ECC89A1E600DB50095D5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECC8991E600DB50095D5C9 /* AppDelegate.swift */; };
 		53ECC89F1E600DB50095D5C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53ECC89D1E600DB50095D5C9 /* Main.storyboard */; };
 		53ECC8A11E600DB50095D5C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53ECC8A01E600DB50095D5C9 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		535F23301E60A640005FCF34 /* PokeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCell.swift; sourceTree = "<group>"; };
 		53ECC8961E600DB50095D5C9 /* PokemonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53ECC8991E600DB50095D5C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53ECC89E1E600DB50095D5C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				53ECC8C31E6010F60095D5C9 /* Pokemon.swift */,
 				53ECC8C51E6011380095D5C9 /* PokemonType.swift */,
 				53ECC8C71E6016AD0095D5C9 /* PokemonTypes.swift */,
+				535F23301E60A640005FCF34 /* PokeCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				53ECC8C01E60100F0095D5C9 /* Constants.swift in Sources */,
 				53ECC8C61E6011380095D5C9 /* PokemonType.swift in Sources */,
 				53ECC8B81E600F010095D5C9 /* PokemonInfoVC.swift in Sources */,
+				535F23311E60A640005FCF34 /* PokeCell.swift in Sources */,
 				53ECC8BA1E600FD00095D5C9 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +391,7 @@
 				53ECC8AA1E600DB50095D5C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

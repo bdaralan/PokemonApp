@@ -8,19 +8,59 @@
 
 import UIKit
 
-class PokedexVC: UIViewController {
-
+class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var pokemon = [Pokemon]()
+    var allPokemon = [Pokemon]()
+    var inSearchMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+        tableView.dataSource = self
+        searchBar.delegate = self
         
+        allPokemon = ParsePokemonCSV()
+        pokemon = allPokemon
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pokemon.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let pokeCell = tableView.dequeueReusableCell(withIdentifier: "PokeCell") as? PokeCell {
+            pokeCell.configureCell(pokemon: pokemon[indexPath.row])
+            
+            return pokeCell
+        }
+        
+        return PokeCell()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            inSearchMode = true
+            pokemon = allPokemon.filter({ $0.name.range(of: searchText) != nil })
+        } else {
+            inSearchMode = false
+            pokemon = allPokemon
+        }
+        
+        tableView.reloadData()
     }
 
 }
