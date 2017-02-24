@@ -27,6 +27,14 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         allPokemon = ParsePokemonCSV()
         pokemon = allPokemon
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PokemonInfoVC" {
+            if let sender = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {
+                pokemonInfoVC.pokemon = sender
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -34,7 +42,7 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "PokemonInfoVC", sender: pokemon[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

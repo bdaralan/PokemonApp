@@ -9,6 +9,8 @@
 import UIKit
 
 class PokemonInfoVC: UIViewController {
+    
+    var pokemon: Pokemon! //will be passed in when perform segue
 
     override func viewDidLoad() {
         super.viewDidLoad()
