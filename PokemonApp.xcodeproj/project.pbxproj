@@ -42,7 +42,6 @@
 		53ECC8C31E6010F60095D5C9 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		53ECC8C51E6011380095D5C9 /* PokemonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonType.swift; sourceTree = "<group>"; };
 		53ECC8C71E6016AD0095D5C9 /* PokemonTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonTypes.swift; sourceTree = "<group>"; };
-		53ECC8CA1E601A090095D5C9 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +84,6 @@
 				53ECC89D1E600DB50095D5C9 /* Main.storyboard */,
 				53ECC8A21E600DB50095D5C9 /* LaunchScreen.storyboard */,
 				53ECC8A51E600DB50095D5C9 /* Info.plist */,
-				53ECC8CA1E601A090095D5C9 /* MyPlayground.playground */,
 			);
 			path = PokemonApp;
 			sourceTree = "<group>";
