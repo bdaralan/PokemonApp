@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>api_base_url</key>
+	<string>https://pokeapi.co</string>
+	<key>api_version_url</key>
+	<string>/api/v2</string>
+	<key>api_pokemon_url</key>
+	<string>/pokemon</string>
+</dict>
+</plist>
