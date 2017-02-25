@@ -56,7 +56,6 @@ extension String {
             return typeColor.Water
             
         case PokemonTypes.Grass.rawValue:
-            print(PokemonTypes.Grass.rawValue)
             return typeColor.Grass
             
         case PokemonTypes.Electric.rawValue:

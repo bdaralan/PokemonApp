@@ -34,7 +34,9 @@ class PokemonInfoVC: UIViewController {
         updateUIWithLocalData()
         
         self.pokemon.requestPokemonData {
-            self.updateUIWithRmoteData()
+            DispatchQueue.main.async {
+                self.updateUIWithRmoteData()
+            }
         }
     }
 
