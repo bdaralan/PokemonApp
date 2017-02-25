@@ -10,7 +10,7 @@ import Foundation
 
 class PokemonType {
     
-    private var _types = ["Unknown", "Unknown"]
+    private var _types = ["", ""]
     
     var primary: String {
         return _types[0]
@@ -24,12 +24,10 @@ class PokemonType {
         
     }
     
-    init(primary: String, secondary: String) {
+    init(primary: String, secondary: String = "") {
         self._types[0] = primary
         
-        if secondary == "Unknown" {
-            self._types[1] = ""
-        } else {
+        if secondary != "" {
             self._types[1] = secondary
         }
     }
