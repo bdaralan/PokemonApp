@@ -10,14 +10,35 @@ import Foundation
 
 class PokemonType {
     
-    private var _primary: PokemonTypes
-    private var _secondary: PokemonTypes
+    private var _types = ["Unknown", "Unknown"]
     
-    var primary: PokemonTypes { return _primary }
-    var secondary: PokemonTypes { return _secondary }
+    var primary: String {
+        return _types[0]
+    }
     
-    init(primary: PokemonTypes, secondary: PokemonTypes) {
-        self._primary = primary
-        self._secondary = secondary
+    var secondary: String {
+        return _types[1]
+    }
+    
+    init() {
+        
+    }
+    
+    init(primary: String, secondary: String) {
+        self._types[0] = primary
+        
+        if secondary == "Unknown" {
+            self._types[1] = ""
+        } else {
+            self._types[1] = secondary
+        }
+    }
+    
+    func setPrimaryType(type: String) {
+        _types[0] = type.capitalized
+    }
+    
+    func setSecondaryType(type: String) {
+        _types[1] = type.capitalized
     }
 }

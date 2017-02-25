@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530450401E61238D00A8F0E9 /* ralts-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5304503F1E61238D00A8F0E9 /* ralts-icon.icns */; };
+		530450421E613A7C00A8F0E9 /* PokemonTypeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530450411E613A7C00A8F0E9 /* PokemonTypeColor.swift */; };
+		530450441E6149C400A8F0E9 /* PokemonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530450431E6149C400A8F0E9 /* PokemonTypes.swift */; };
 		535F23311E60A640005FCF34 /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F23301E60A640005FCF34 /* PokeCell.swift */; };
 		535F23331E60BC05005FCF34 /* pokemon-types.csv in Resources */ = {isa = PBXBuildFile; fileRef = 535F23321E60BC05005FCF34 /* pokemon-types.csv */; };
 		53ECC89A1E600DB50095D5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECC8991E600DB50095D5C9 /* AppDelegate.swift */; };
@@ -23,10 +26,12 @@
 		53ECC8C01E60100F0095D5C9 /* CONSTANTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECC8BF1E60100F0095D5C9 /* CONSTANTS.swift */; };
 		53ECC8C41E6010F60095D5C9 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECC8C31E6010F60095D5C9 /* Pokemon.swift */; };
 		53ECC8C61E6011380095D5C9 /* PokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECC8C51E6011380095D5C9 /* PokemonType.swift */; };
-		53ECC8C81E6016AD0095D5C9 /* PokemonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECC8C71E6016AD0095D5C9 /* PokemonTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5304503F1E61238D00A8F0E9 /* ralts-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "ralts-icon.icns"; sourceTree = "<group>"; };
+		530450411E613A7C00A8F0E9 /* PokemonTypeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonTypeColor.swift; sourceTree = "<group>"; };
+		530450431E6149C400A8F0E9 /* PokemonTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonTypes.swift; sourceTree = "<group>"; };
 		535F23301E60A640005FCF34 /* PokeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCell.swift; sourceTree = "<group>"; };
 		535F23321E60BC05005FCF34 /* pokemon-types.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "pokemon-types.csv"; sourceTree = "<group>"; };
 		53ECC8961E600DB50095D5C9 /* PokemonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,7 +50,6 @@
 		53ECC8BF1E60100F0095D5C9 /* CONSTANTS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CONSTANTS.swift; sourceTree = "<group>"; };
 		53ECC8C31E6010F60095D5C9 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		53ECC8C51E6011380095D5C9 /* PokemonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonType.swift; sourceTree = "<group>"; };
-		53ECC8C71E6016AD0095D5C9 /* PokemonTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		53ECC8AB1E600DBF0095D5C9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5304503F1E61238D00A8F0E9 /* ralts-icon.icns */,
 				53ECC8B31E600E590095D5C9 /* pokemon.csv */,
 				535F23321E60BC05005FCF34 /* pokemon-types.csv */,
 				53ECC8B51E600EA60095D5C9 /* pokeapi-data.plist */,
@@ -106,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				53ECC8BF1E60100F0095D5C9 /* CONSTANTS.swift */,
+				530450431E6149C400A8F0E9 /* PokemonTypes.swift */,
+				530450411E613A7C00A8F0E9 /* PokemonTypeColor.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -135,7 +142,6 @@
 				53ECC8BD1E600FF00095D5C9 /* APIData.swift */,
 				53ECC8C31E6010F60095D5C9 /* Pokemon.swift */,
 				53ECC8C51E6011380095D5C9 /* PokemonType.swift */,
-				53ECC8C71E6016AD0095D5C9 /* PokemonTypes.swift */,
 				535F23301E60A640005FCF34 /* PokeCell.swift */,
 			);
 			name = Model;
@@ -180,6 +186,7 @@
 				TargetAttributes = {
 					53ECC8951E600DB50095D5C9 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = J58QF9TXDQ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -211,6 +218,7 @@
 				53ECC8A41E600DB50095D5C9 /* LaunchScreen.storyboard in Resources */,
 				53ECC8B61E600EA60095D5C9 /* pokeapi-data.plist in Resources */,
 				53ECC8A11E600DB50095D5C9 /* Assets.xcassets in Resources */,
+				530450401E61238D00A8F0E9 /* ralts-icon.icns in Resources */,
 				53ECC8B41E600E590095D5C9 /* pokemon.csv in Resources */,
 				53ECC89F1E600DB50095D5C9 /* Main.storyboard in Resources */,
 			);
@@ -224,12 +232,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				53ECC8BE1E600FF00095D5C9 /* APIData.swift in Sources */,
+				530450421E613A7C00A8F0E9 /* PokemonTypeColor.swift in Sources */,
 				53ECC8C41E6010F60095D5C9 /* Pokemon.swift in Sources */,
 				53ECC8BC1E600FD80095D5C9 /* ParsePokemonCSV.swift in Sources */,
-				53ECC8C81E6016AD0095D5C9 /* PokemonTypes.swift in Sources */,
 				53ECC8B21E600E250095D5C9 /* PokedexVC.swift in Sources */,
 				53ECC89A1E600DB50095D5C9 /* AppDelegate.swift in Sources */,
 				53ECC8C01E60100F0095D5C9 /* CONSTANTS.swift in Sources */,
+				530450441E6149C400A8F0E9 /* PokemonTypes.swift in Sources */,
 				53ECC8C61E6011380095D5C9 /* PokemonType.swift in Sources */,
 				53ECC8B81E600F010095D5C9 /* PokemonInfoVC.swift in Sources */,
 				535F23311E60A640005FCF34 /* PokeCell.swift in Sources */,
@@ -356,6 +365,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J58QF9TXDQ;
 				INFOPLIST_FILE = PokemonApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.idara09.PokemonApp;
@@ -368,6 +378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J58QF9TXDQ;
 				INFOPLIST_FILE = PokemonApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.idara09.PokemonApp;

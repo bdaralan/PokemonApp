@@ -24,6 +24,9 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         tableView.dataSource = self
         searchBar.delegate = self
         
+        searchBar.returnKeyType = .done
+        searchBar.enablesReturnKeyAutomatically = false
+        
         allPokemon = ParsePokemonCSV()
         pokemon = allPokemon
     }
@@ -71,4 +74,7 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         tableView.reloadData()
     }
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }

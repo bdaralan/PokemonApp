@@ -22,7 +22,7 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokemonHpLbl: UILabel!
     @IBOutlet weak var pokemonSpdLbl: UILabel!
     @IBOutlet weak var pokemonAttlbl: UILabel!
-    @IBOutlet weak var poemonSpAttLbl: UILabel!
+    @IBOutlet weak var pokemonSpAttLbl: UILabel!
     @IBOutlet weak var pokemonDefLbl: UILabel!
     @IBOutlet weak var pokemonSpDefLbl: UILabel!
     
@@ -31,9 +31,10 @@ class PokemonInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.pokemon.requestPokemonData { 
-            self.updateUI()
-            
+        updateUIWithLocalData()
+        
+        self.pokemon.requestPokemonData {
+            self.updateUIWithRmoteData()
         }
     }
 
@@ -42,11 +43,23 @@ class PokemonInfoVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func updateUI() {
-        self.navigationItem.title = pokemon.name
+    func updateUIWithLocalData() {
+        self.navigationItem.title = self.pokemon.name
+        self.pokemonImg.image = UIImage(named: "\(self.pokemon.pokedexID)")
+    }
+    
+    func updateUIWithRmoteData() {
+        self.pokemonHpLbl.text = pokemon.hp
+        self.pokemonSpdLbl.text = pokemon.speed
+        self.pokemonAttlbl.text = pokemon.attack
+        self.pokemonSpAttLbl.text = pokemon.spAttack
+        self.pokemonDefLbl.text = pokemon.defend
+        self.pokemonSpDefLbl.text = pokemon.spDefend
+        self.pokemonTypeLbl01.text = pokemon.types.primary
+        self.pokemonTypeLbl02.text = pokemon.types.secondary
         
-        print(self.pokemon.speed)
-        self.pokemonSpdLbl.text = self.pokemon.speed
+        self.pokemonTypeLbl01.backgroundColor = self.pokemon.types.primary.toUIColor()
+        self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
     }
     
     /*
