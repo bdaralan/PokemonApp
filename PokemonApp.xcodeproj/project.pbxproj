@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		535F23311E60A640005FCF34 /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F23301E60A640005FCF34 /* PokeCell.swift */; };
+		535F23331E60BC05005FCF34 /* pokemon-types.csv in Resources */ = {isa = PBXBuildFile; fileRef = 535F23321E60BC05005FCF34 /* pokemon-types.csv */; };
 		53ECC89A1E600DB50095D5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ECC8991E600DB50095D5C9 /* AppDelegate.swift */; };
 		53ECC89F1E600DB50095D5C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53ECC89D1E600DB50095D5C9 /* Main.storyboard */; };
 		53ECC8A11E600DB50095D5C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53ECC8A01E600DB50095D5C9 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		535F23301E60A640005FCF34 /* PokeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCell.swift; sourceTree = "<group>"; };
+		535F23321E60BC05005FCF34 /* pokemon-types.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "pokemon-types.csv"; sourceTree = "<group>"; };
 		53ECC8961E600DB50095D5C9 /* PokemonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53ECC8991E600DB50095D5C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53ECC89E1E600DB50095D5C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				53ECC8B31E600E590095D5C9 /* pokemon.csv */,
+				535F23321E60BC05005FCF34 /* pokemon-types.csv */,
 				53ECC8B51E600EA60095D5C9 /* pokeapi-data.plist */,
 			);
 			name = Resources;
@@ -204,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				535F23331E60BC05005FCF34 /* pokemon-types.csv in Resources */,
 				53ECC8A41E600DB50095D5C9 /* LaunchScreen.storyboard in Resources */,
 				53ECC8B61E600EA60095D5C9 /* pokeapi-data.plist in Resources */,
 				53ECC8A11E600DB50095D5C9 /* Assets.xcassets in Resources */,

@@ -10,6 +10,7 @@ import Foundation
 
 
 let POKEMON_CSV_PATH = Bundle.main.path(forResource: "pokemon", ofType: "csv")
+let POKEMON_TYPES_CSV_PATH = Bundle.main.path(forResource: "pokemon-types", ofType: "csv")
 let API = APIData()
 
 typealias DownloadComplete = () -> ()

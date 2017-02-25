@@ -10,12 +10,31 @@ import UIKit
 
 class PokemonInfoVC: UIViewController {
     
+    @IBOutlet weak var pokemonImg: UIImageView!
+    @IBOutlet weak var evolutionImg01: UIImageView!
+    @IBOutlet weak var evolutionImg02: UIImageView!
+    @IBOutlet weak var evolutionImg03: UIImageView!
+    
+    @IBOutlet weak var pokemonTypeLbl01: UILabel!
+    @IBOutlet weak var pokemonTypeLbl02: UILabel!
+    @IBOutlet weak var pokmeonSummaryLbl: UILabel!
+    
+    @IBOutlet weak var pokemonHpLbl: UILabel!
+    @IBOutlet weak var pokemonSpdLbl: UILabel!
+    @IBOutlet weak var pokemonAttlbl: UILabel!
+    @IBOutlet weak var poemonSpAttLbl: UILabel!
+    @IBOutlet weak var pokemonDefLbl: UILabel!
+    @IBOutlet weak var pokemonSpDefLbl: UILabel!
+    
     var pokemon: Pokemon! //will be passed in when perform segue
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.pokemon.requestPokemonData { 
+            self.updateUI()
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,7 +42,13 @@ class PokemonInfoVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func updateUI() {
+        self.navigationItem.title = pokemon.name
+        
+        print(self.pokemon.speed)
+        self.pokemonSpdLbl.text = self.pokemon.speed
+    }
+    
     /*
     // MARK: - Navigation
 
