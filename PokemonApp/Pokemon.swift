@@ -18,6 +18,7 @@ class Pokemon {
     private var _spAttack: String!
     private var _defend: String!
     private var _spDefend: String!
+    private var _summary: String!
     private var _types = PokemonTypes()
     private var _abilities = PokemonAbilities()
     
@@ -32,6 +33,7 @@ class Pokemon {
     var spAttack: String { return self._spAttack }
     var defend: String { return self._defend }
     var spDefend: String { return self._spDefend }
+    var summary: String { return self._summary }
     var types: PokemonTypes { return self._types }
     var abilities: PokemonAbilities { return self._abilities }
     
@@ -111,18 +113,28 @@ class Pokemon {
                                             if slotNum == 1 {
                                                 if let ability = ability["name"] as? String {
                                                     self._abilities.setFirstAbility(to: ability)
-                                                    print("1st: \(ability)")
                                                 }
                                             } else if slotNum == 2 {
                                                 if let ability = ability["name"] as? String {
                                                     self._abilities.setSecondAbility(to: ability)
-                                                    print("2nd: \(ability)")
                                                 }
                                             } else { //slot 3 (hidden ability)
                                                 if let ability = ability["name"] as? String {
                                                     self._abilities.setHiddenAbility(to: ability)
-                                                    print("3rd: \(ability)")
                                                 }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                // Parse Summary
+                                if let species = pokeJson["species"] as? SADictionary {
+                                    if let url = species["url"] as? String {
+                                        if let url = URL(string: url) {
+                                            let data = try Data(contentsOf: url)
+                                            let speciesJson = try JSONSerialization.jsonObject(with: data, options: []) as! SADictionary
+                                            if let summaries = speciesJson["flavor_text_entries"] as? [SADictionary], let summary = summaries[1]["flavor_text"] as? String {
+                                                self._summary = summary.replacingOccurrences(of: "\n", with: " ")
                                             }
                                         }
                                     }

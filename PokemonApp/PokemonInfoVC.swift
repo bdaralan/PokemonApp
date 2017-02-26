@@ -17,7 +17,7 @@ class PokemonInfoVC: UIViewController {
     
     @IBOutlet weak var pokemonTypeLbl01: UILabel!
     @IBOutlet weak var pokemonTypeLbl02: UILabel!
-    @IBOutlet weak var pokmeonSummaryLbl: UILabel!
+    @IBOutlet weak var pokemonSummaryLbl: UILabel!
     
     @IBOutlet weak var pokemonHpLbl: UILabel!
     @IBOutlet weak var pokemonSpdLbl: UILabel!
@@ -37,17 +37,16 @@ class PokemonInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pokemonTypeLbl01.toPokeTypeLbl()
-        pokemonTypeLbl02.toPokeTypeLbl()
-        
         updateUIWithLocalData()
         updateUIWithRmoteData()
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     func updateUIWithLocalData() {
         self.navigationItem.title = self.pokemon.name
@@ -63,6 +62,8 @@ class PokemonInfoVC: UIViewController {
                 self.pokemonSpAttLbl.text = self.pokemon.spAttack
                 self.pokemonDefLbl.text = self.pokemon.defend
                 self.pokemonSpDefLbl.text = self.pokemon.spDefend
+                self.pokemonSummaryLbl.text = self.pokemon.summary
+                self.pokemonSummaryLbl.isHidden = false
                 
                 self.pokemonTypeLbl01.text = self.pokemon.types.primary
                 self.pokemonTypeLbl01.isHidden = false
@@ -75,11 +76,14 @@ class PokemonInfoVC: UIViewController {
                 self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
                 
                 self.pokemonAbilLbl01.text = self.pokemon.abilities.firstAbility
+                self.pokemonAbilLbl01.isHidden = false
                 if self.pokemon.abilities.hasSecondAbility {
                     self.pokemonAbilLbl02.text = self.pokemon.abilities.secondAbility
+                    self.pokemonAbilLbl02.isHidden = false
                 }
                 if self.pokemon.abilities.hasHiddenAbility {
                     self.pokemonHiddenAbilLbl.text = "\(self.pokemon.abilities.hiddenAbility) (H)"
+                    self.pokemonHiddenAbilLbl.isHidden = false
                 }
                 
             }

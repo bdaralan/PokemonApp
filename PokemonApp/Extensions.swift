@@ -38,76 +38,65 @@ extension String {
     }
     
     func toUIColor() -> UIColor {
-        let typeColor = PokemonTypeColor()
         
-        switch self as PokeTypes.RawValue {
+        switch self {
             
         case PokeTypes.Normal.rawValue:
-            return typeColor.Normal
+            return pokeTypeColor.Normal
             
         case PokeTypes.Fighting.rawValue:
-            return typeColor.Fighting
+            return pokeTypeColor.Fighting
             
         case PokeTypes.Flying.rawValue:
-            return typeColor.Flying
+            return pokeTypeColor.Flying
             
         case PokeTypes.Poison.rawValue:
-            return typeColor.Poison
+            return pokeTypeColor.Poison
             
         case PokeTypes.Ground.rawValue:
-            return typeColor.Ground
+            return pokeTypeColor.Ground
         
         case PokeTypes.Rock.rawValue:
-            return typeColor.Rock
+            return pokeTypeColor.Rock
             
         case PokeTypes.Bug.rawValue:
-            return typeColor.Bug
+            return pokeTypeColor.Bug
             
         case PokeTypes.Ghost.rawValue:
-            return typeColor.Ghost
+            return pokeTypeColor.Ghost
             
         case PokeTypes.Steel.rawValue:
-            return typeColor.Steel
+            return pokeTypeColor.Steel
             
         case PokeTypes.Fire.rawValue:
-            return typeColor.Fire
+            return pokeTypeColor.Fire
             
         case PokeTypes.Water.rawValue:
-            return typeColor.Water
+            return pokeTypeColor.Water
             
         case PokeTypes.Grass.rawValue:
-            return typeColor.Grass
+            return pokeTypeColor.Grass
             
         case PokeTypes.Electric.rawValue:
-            return typeColor.Electric
+            return pokeTypeColor.Electric
             
         case PokeTypes.Psychic.rawValue:
-            return typeColor.Psychic
+            return pokeTypeColor.Psychic
             
         case PokeTypes.Ice.rawValue:
-            return typeColor.Ice
+            return pokeTypeColor.Ice
             
         case PokeTypes.Dragon.rawValue:
-            return typeColor.Dragon
+            return pokeTypeColor.Dragon
             
         case PokeTypes.Dark.rawValue:
-            return typeColor.Dark
+            return pokeTypeColor.Dark
             
         case PokeTypes.Fairy.rawValue:
-            return typeColor.Fairy
+            return pokeTypeColor.Fairy
             
         default:
-            return typeColor.Unknown
+            return pokeTypeColor.Unknown
         }
-    }
-}
-
-extension UILabel {
-    
-    func toPokeTypeLbl() {
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.borderWidth = 1.0
-        self.layer.cornerRadius = 10.0
-        self.clipsToBounds = true
     }
 }
