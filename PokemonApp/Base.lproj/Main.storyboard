@@ -88,7 +88,7 @@
             </objects>
             <point key="canvasLocation" x="853.60000000000002" y="688.60569715142435"/>
         </scene>
-        <!--Ralts Info-->
+        <!--Ralts #280-->
         <scene sceneID="6p1-aH-3Dk">
             <objects>
                 <viewController id="6fH-JT-nEc" customClass="PokemonInfoVC" customModule="PokemonApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -113,7 +113,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ability" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHV-tB-esW">
-                                <rect key="frame" x="16" y="243" width="343" height="21"/>
+                                <rect key="frame" x="129" y="72" width="230" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -146,7 +146,7 @@
                                 <rect key="frame" x="16" y="72" width="105" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Psyhic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lg1-2o-V8j" customClass="PokeTypeUILbl" customModule="PokemonApp" customModuleProvider="target">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Psyhic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lg1-2o-V8j">
                                 <rect key="frame" x="16" y="185" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.33333333329999998" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -154,7 +154,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fairy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhq-NQ-2Jc" customClass="PokeTypeUILbl" customModule="PokemonApp" customModuleProvider="target">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fairy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhq-NQ-2Jc">
                                 <rect key="frame" x="16" y="214" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93333333333333335" green="0.59999999999999998" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
@@ -163,7 +163,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="KoP-6h-m5O">
-                                <rect key="frame" x="129" y="72" width="230" height="163"/>
+                                <rect key="frame" x="16" y="243" width="343" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">Ralts, the Feeling Pokémon. Ralts is the pre-evolved form of Kirlia. It can use the horns on its head to read human emotions. Ralts rarely shows itself to humans, but may occasionally approach when it senses positive or happy feelings.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -262,16 +262,40 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Synchronize" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaW-Nz-ICL">
+                                <rect key="frame" x="129" y="101" width="135" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkP-W5-dFX">
+                                <rect key="frame" x="129" y="130" width="135" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Telepathy (H)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQ2-2k-i4q">
+                                <rect key="frame" x="129" y="159" width="135" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Ralts Info" id="HO4-8f-NNH"/>
+                    <navigationItem key="navigationItem" title="Ralts #280" id="HO4-8f-NNH"/>
                     <connections>
                         <outlet property="evolutionImg01" destination="Lgm-r3-wMM" id="bPd-Qk-ljf"/>
                         <outlet property="evolutionImg02" destination="Udg-Sc-b3C" id="gSX-eP-QFx"/>
                         <outlet property="evolutionImg03" destination="X1D-Rj-noA" id="Djb-NC-uWX"/>
+                        <outlet property="pokemonAbil01Lbl" destination="kaW-Nz-ICL" id="MiX-qp-9Ei"/>
+                        <outlet property="pokemonAbil02Lbl" destination="DkP-W5-dFX" id="hF9-C0-y74"/>
                         <outlet property="pokemonAttlbl" destination="AQl-D2-Jvf" id="YQc-6d-DdH"/>
                         <outlet property="pokemonDefLbl" destination="JDr-p0-boY" id="Twy-Ix-xGS"/>
+                        <outlet property="pokemonHiddenAbilLbl" destination="SQ2-2k-i4q" id="tpS-r4-CtH"/>
                         <outlet property="pokemonHpLbl" destination="HkZ-iJ-54Y" id="vIU-Kx-qF1"/>
                         <outlet property="pokemonImg" destination="W6M-hS-Dp3" id="OXE-gy-Adl"/>
                         <outlet property="pokemonSpAttLbl" destination="nMH-rb-hly" id="IGa-Xi-8vz"/>

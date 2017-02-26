@@ -26,6 +26,10 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokemonDefLbl: UILabel!
     @IBOutlet weak var pokemonSpDefLbl: UILabel!
     
+    @IBOutlet weak var pokemonAbil01Lbl: UILabel!
+    @IBOutlet weak var pokemonAbil02Lbl: UILabel!
+    @IBOutlet weak var pokemonHiddenAbilLbl: UILabel!
+    
     var pokemon: Pokemon! //will be passed in when perform segue
 
     override func viewDidLoad() {

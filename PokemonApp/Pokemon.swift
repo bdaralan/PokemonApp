@@ -12,26 +12,28 @@ class Pokemon {
     
     private var _name: String!
     private var _pokedexID: Int!
-    private var _types = PokemonType()
     private var _hp: String!
     private var _speed: String!
     private var _attack: String!
     private var _spAttack: String!
     private var _defend: String!
     private var _spDefend: String!
+    private var _types = PokemonTypes()
+    private var _abilities = PokemonAbilities()
     
     private var _apiURL: String!
     
     
-    var name: String { return _name }
-    var pokedexID: Int { return _pokedexID }
-    var types: PokemonType { return _types }
-    var hp: String {return _hp }
-    var speed: String { return _speed }
-    var attack: String { return _attack }
-    var spAttack: String { return _spAttack }
-    var defend: String { return _defend }
-    var spDefend: String { return _spDefend }
+    var name: String { return self._name }
+    var pokedexID: Int { return self._pokedexID }
+    var hp: String {return self._hp }
+    var speed: String { return self._speed }
+    var attack: String { return self._attack }
+    var spAttack: String { return self._spAttack }
+    var defend: String { return self._defend }
+    var spDefend: String { return self._spDefend }
+    var types: PokemonTypes { return self._types }
+    var abilities: PokemonAbilities { return self._abilities }
     
     
     init(name: String, pokedexID: Int) {
@@ -96,6 +98,31 @@ class Pokemon {
                                         if let secondary = types[0]["type"] as? SADictionary {
                                             if let secondary = secondary["name"] as? String {
                                                 self._types.setSecondaryType(type: secondary)
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                // Parse Abilities
+                                if let abilities = pokeJson["abilities"] as? [SADictionary] {
+                                    for i in 0 ..< abilities.count {
+                                        if let slotNum = abilities[i]["slot"] as? Int, let ability = abilities[i]["ability"] as? SADictionary {
+                                            
+                                            if slotNum == 1 {
+                                                if let ability = ability["name"] as? String {
+                                                    self._abilities.setFirstAbility(to: ability)
+                                                    print("1st: \(ability)")
+                                                }
+                                            } else if slotNum == 2 {
+                                                if let ability = ability["name"] as? String {
+                                                    self._abilities.setSecondAbility(to: ability)
+                                                    print("2nd: \(ability)")
+                                                }
+                                            } else { //slot 3 (hidden ability)
+                                                if let ability = ability["name"] as? String {
+                                                    self._abilities.setHiddenAbility(to: ability)
+                                                    print("3rd: \(ability)")
+                                                }
                                             }
                                         }
                                     }

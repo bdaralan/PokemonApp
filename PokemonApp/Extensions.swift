@@ -20,60 +20,60 @@ extension String {
     func toUIColor() -> UIColor {
         let typeColor = PokemonTypeColor()
         
-        switch self as PokemonTypes.RawValue {
+        switch self as PokeTypes.RawValue {
             
-        case PokemonTypes.Normal.rawValue:
+        case PokeTypes.Normal.rawValue:
             return typeColor.Normal
             
-        case PokemonTypes.Fighting.rawValue:
+        case PokeTypes.Fighting.rawValue:
             return typeColor.Fighting
             
-        case PokemonTypes.Flying.rawValue:
+        case PokeTypes.Flying.rawValue:
             return typeColor.Flying
             
-        case PokemonTypes.Poison.rawValue:
+        case PokeTypes.Poison.rawValue:
             return typeColor.Poison
             
-        case PokemonTypes.Ground.rawValue:
+        case PokeTypes.Ground.rawValue:
             return typeColor.Ground
         
-        case PokemonTypes.Rock.rawValue:
+        case PokeTypes.Rock.rawValue:
             return typeColor.Rock
             
-        case PokemonTypes.Bug.rawValue:
+        case PokeTypes.Bug.rawValue:
             return typeColor.Bug
             
-        case PokemonTypes.Ghost.rawValue:
+        case PokeTypes.Ghost.rawValue:
             return typeColor.Ghost
             
-        case PokemonTypes.Steel.rawValue:
+        case PokeTypes.Steel.rawValue:
             return typeColor.Steel
             
-        case PokemonTypes.Fire.rawValue:
+        case PokeTypes.Fire.rawValue:
             return typeColor.Fire
             
-        case PokemonTypes.Water.rawValue:
+        case PokeTypes.Water.rawValue:
             return typeColor.Water
             
-        case PokemonTypes.Grass.rawValue:
+        case PokeTypes.Grass.rawValue:
             return typeColor.Grass
             
-        case PokemonTypes.Electric.rawValue:
+        case PokeTypes.Electric.rawValue:
             return typeColor.Electric
             
-        case PokemonTypes.Psychic.rawValue:
+        case PokeTypes.Psychic.rawValue:
             return typeColor.Psychic
             
-        case PokemonTypes.Ice.rawValue:
+        case PokeTypes.Ice.rawValue:
             return typeColor.Ice
             
-        case PokemonTypes.Dragon.rawValue:
+        case PokeTypes.Dragon.rawValue:
             return typeColor.Dragon
             
-        case PokemonTypes.Dark.rawValue:
+        case PokeTypes.Dark.rawValue:
             return typeColor.Dark
             
-        case PokemonTypes.Fairy.rawValue:
+        case PokeTypes.Fairy.rawValue:
             return typeColor.Fairy
             
         default:
