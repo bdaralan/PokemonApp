@@ -17,6 +17,26 @@ extension Int {
 
 extension String {
     
+    func toAbilityFormat() -> String {
+        
+        if self.contains("-") {
+            var sep = ""
+            var formated = ""
+            let unformated = self.components(separatedBy: "-")
+            
+            if unformated.count > 1 {
+                sep = " "
+                for i in 0 ..< unformated.count {
+                    formated += (sep + unformated[i].capitalized)
+                }
+            }
+            
+            return formated
+        }
+        
+        return self.capitalized
+    }
+    
     func toUIColor() -> UIColor {
         let typeColor = PokemonTypeColor()
         
