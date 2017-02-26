@@ -10,27 +10,45 @@ import UIKit
 
 class PokemonTypeColor {
     
-    let Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Dark, Fairy, Unknown: UIColor
+    let Normal,
+        Fighting,
+        Flying,
+        Poison,
+        Ground,
+        Rock,
+        Bug,
+        Ghost,
+        Steel,
+        Fire,
+        Water,
+        Grass,
+        Electric,
+        Psychic,
+        Ice,
+        Dragon,
+        Dark,
+        Fairy,
+        Unknown: UIColor
     
     init() {
-        Normal = UIColor(red: 168.0/255.0, green: 167.0/255.0, blue: 122.0/255.0, alpha: 1.0)
-        Fighting = UIColor(red: 194.0/255.0, green: 46.0/255.0, blue: 40.0/255.0, alpha: 1.0)
-        Flying = UIColor(red: 169.0/255.0, green: 143.0/255.0, blue: 243.0/255.0, alpha: 1.0)
-        Poison = UIColor(red: 163.0/255.0, green: 62.0/255.0, blue: 161.0/255.0, alpha: 1.0)
-        Ground = UIColor(red: 226.0/255.0, green: 191.0/255.0, blue: 101.0/255.0, alpha: 1.0)
-        Rock = UIColor(red: 182.0/255.0, green: 161.0/255.0, blue: 54.0/255.0, alpha: 1.0)
-        Bug = UIColor(red: 166.0/255.0, green: 185.0/255.0, blue: 26.0/255.0, alpha: 1.0)
-        Ghost = UIColor(red: 115.0/255.0, green: 87.0/255.0, blue: 151.0/255.0, alpha: 1.0)
-        Steel = UIColor(red: 183.0/255.0, green: 183.0/255.0, blue: 206.0/255.0, alpha: 1.0)
-        Fire = UIColor(red: 238.0/255.0, green: 129.0/255.0, blue: 48.0/255.0, alpha: 1.0)
-        Water = UIColor(red: 99.0/255.0, green: 144.0/255.0, blue: 240.0/255.0, alpha: 1.0)
-        Grass = UIColor(red: 122.0/255.0, green: 199.0/255.0, blue: 76.0/255.0, alpha: 1.0)
-        Electric = UIColor(red: 247.0/255.0, green: 208.0/255.0, blue: 44.0/255.0, alpha: 1.0)
-        Psychic = UIColor(red: 249.0/255.0, green: 85.0/255.0, blue: 135.0/255.0, alpha: 1.0)
-        Ice = UIColor(red: 150.0/255.0, green: 217.0/255.0, blue: 214.0/255.0, alpha: 1.0)
-        Dragon = UIColor(red: 111.0/255.0, green: 53.0/255.0, blue: 252.0/255.0, alpha: 1.0)
-        Dark = UIColor(red: 112.0/255.0, green: 87.0/255.0, blue: 70.0/255.0, alpha: 1.0)
-        Fairy = UIColor(red: 214.0/255.0, green: 133.0/255.0, blue: 173.0/255.0, alpha: 1.0)
-        Unknown = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        Normal = UIColor(red:0.66, green:0.66, blue:0.47, alpha:1.0) //A8A878
+        Fighting = UIColor(red:0.75, green:0.19, blue:0.16, alpha:1.0) //C03028
+        Flying = UIColor(red:0.66, green:0.56, blue:0.94, alpha:1.0) //A890F0
+        Poison = UIColor(red:0.63, green:0.25, blue:0.63, alpha:1.0) //A040A0
+        Ground = UIColor(red:0.88, green:0.75, blue:0.41, alpha:1.0) //E0C068
+        Rock = UIColor(red:0.72, green:0.63, blue:0.22, alpha:1.0) //B8A038
+        Bug = UIColor(red:0.66, green:0.72, blue:0.13, alpha:1.0) //A8B820
+        Ghost = UIColor(red:0.44, green:0.35, blue:0.60, alpha:1.0) //705898
+        Steel = UIColor(red:0.72, green:0.72, blue:0.82, alpha:1.0) //B8B8D0
+        Fire = UIColor(red:0.89, green:0.26, blue:0.26, alpha:1.0) //F08030
+        Water = UIColor(red:0.36, green:0.78, blue:0.90, alpha:1.0) //6890F0
+        Grass = UIColor(red:0.47, green:0.78, blue:0.31, alpha:1.0) //78C850
+        Electric = UIColor(red:0.97, green:0.82, blue:0.19, alpha:1.0) //F8D030
+        Psychic = UIColor(red:0.97, green:0.35, blue:0.53, alpha:1.0) //F85888
+        Ice = UIColor(red:0.60, green:0.85, blue:0.85, alpha:1.0) //98D8D8
+        Dragon = UIColor(red:0.44, green:0.22, blue:0.97, alpha:1.0) //7038F8
+        Dark = UIColor(red:0.44, green:0.35, blue:0.28, alpha:1.0) //705848
+        Fairy = UIColor(red:0.93, green:0.60, blue:0.67, alpha:1.0) //EE99AC
+        Unknown = UIColor(red:0.41, green:0.63, blue:0.56, alpha:1.0) //68A090
     }
 }

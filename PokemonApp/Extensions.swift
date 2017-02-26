@@ -81,3 +81,13 @@ extension String {
         }
     }
 }
+
+extension UILabel {
+    
+    func toPokeTypeLbl() {
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 1.0
+        self.layer.cornerRadius = 10.0
+        self.clipsToBounds = true
+    }
+}

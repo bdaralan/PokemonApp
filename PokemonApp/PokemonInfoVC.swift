@@ -31,13 +31,11 @@ class PokemonInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateUIWithLocalData()
+        pokemonTypeLbl01.toPokeTypeLbl()
+        pokemonTypeLbl02.toPokeTypeLbl()
         
-        self.pokemon.requestPokemonData {
-            DispatchQueue.main.async {
-                self.updateUIWithRmoteData()
-            }
-        }
+        updateUIWithLocalData()
+        updateUIWithRmoteData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,17 +49,27 @@ class PokemonInfoVC: UIViewController {
     }
     
     func updateUIWithRmoteData() {
-        self.pokemonHpLbl.text = pokemon.hp
-        self.pokemonSpdLbl.text = pokemon.speed
-        self.pokemonAttlbl.text = pokemon.attack
-        self.pokemonSpAttLbl.text = pokemon.spAttack
-        self.pokemonDefLbl.text = pokemon.defend
-        self.pokemonSpDefLbl.text = pokemon.spDefend
-        self.pokemonTypeLbl01.text = pokemon.types.primary
-        self.pokemonTypeLbl02.text = pokemon.types.secondary
-        
-        self.pokemonTypeLbl01.backgroundColor = self.pokemon.types.primary.toUIColor()
-        self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
+        self.pokemon.requestPokemonData { 
+            DispatchQueue.main.async {
+                self.pokemonHpLbl.text = self.pokemon.hp
+                self.pokemonSpdLbl.text = self.pokemon.speed
+                self.pokemonAttlbl.text = self.pokemon.attack
+                self.pokemonSpAttLbl.text = self.pokemon.spAttack
+                self.pokemonDefLbl.text = self.pokemon.defend
+                self.pokemonSpDefLbl.text = self.pokemon.spDefend
+                
+                self.pokemonTypeLbl01.text = self.pokemon.types.primary
+                self.pokemonTypeLbl01.isHidden = false
+                
+                if self.pokemon.types.secondary != "" {
+                    self.pokemonTypeLbl02.text = self.pokemon.types.secondary
+                    self.pokemonTypeLbl02.isHidden = false
+                }
+                
+                self.pokemonTypeLbl01.backgroundColor = self.pokemon.types.primary.toUIColor()
+                self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
+            }
+        }
     }
     
     /*
