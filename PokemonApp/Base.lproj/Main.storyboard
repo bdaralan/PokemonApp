@@ -25,11 +25,11 @@
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PokeCell" rowHeight="51" id="4AX-Ke-oXU" customClass="PokeCell" customModule="PokemonApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PokeCell" rowHeight="51" id="4AX-Ke-oXU" customClass="PokeCell" customModule="PokemonApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4AX-Ke-oXU" id="KIH-ve-Og8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="280" translatesAutoresizingMaskIntoConstraints="NO" id="KAH-HC-enN">
@@ -100,15 +100,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="280" translatesAutoresizingMaskIntoConstraints="NO" id="Lgm-r3-wMM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="280" translatesAutoresizingMaskIntoConstraints="NO" id="Lgm-r3-wMM">
                                 <rect key="frame" x="16" y="572" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="281" translatesAutoresizingMaskIntoConstraints="NO" id="Udg-Sc-b3C">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="281" translatesAutoresizingMaskIntoConstraints="NO" id="Udg-Sc-b3C">
                                 <rect key="frame" x="150" y="572" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="282" translatesAutoresizingMaskIntoConstraints="NO" id="X1D-Rj-noA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="282" translatesAutoresizingMaskIntoConstraints="NO" id="X1D-Rj-noA">
                                 <rect key="frame" x="284" y="572" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -310,8 +310,8 @@
                         <outlet property="evolutionImg01" destination="Lgm-r3-wMM" id="bPd-Qk-ljf"/>
                         <outlet property="evolutionImg02" destination="Udg-Sc-b3C" id="gSX-eP-QFx"/>
                         <outlet property="evolutionImg03" destination="X1D-Rj-noA" id="Djb-NC-uWX"/>
-                        <outlet property="pokemonAbilLbl01" destination="kaW-Nz-ICL" id="EER-TJ-SaY"/>
-                        <outlet property="pokemonAbilLbl02" destination="DkP-W5-dFX" id="tQG-fh-rOX"/>
+                        <outlet property="pokemonAbil01Lbl" destination="kaW-Nz-ICL" id="eFz-6J-HJx"/>
+                        <outlet property="pokemonAbil02Lbl" destination="DkP-W5-dFX" id="fe5-k1-n2h"/>
                         <outlet property="pokemonAttlbl" destination="AQl-D2-Jvf" id="YQc-6d-DdH"/>
                         <outlet property="pokemonDefLbl" destination="JDr-p0-boY" id="Twy-Ix-xGS"/>
                         <outlet property="pokemonHiddenAbilLbl" destination="SQ2-2k-i4q" id="tpS-r4-CtH"/>

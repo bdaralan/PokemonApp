@@ -8,5 +8,9 @@
 	<string>/api/v2</string>
 	<key>api_pokemon_url</key>
 	<string>/pokemon</string>
+	<key>api_evolution_url</key>
+	<string>/evolution-chain</string>
+	<key>api_summary_url</key>
+	<string>/pokemon-species</string>
 </dict>
 </plist>

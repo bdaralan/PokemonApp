@@ -18,13 +18,6 @@ class PokemonAbilities {
     var secondAbility: String { return self._secondAbility }
     var hiddenAbility: String { return self._hiddenAbility }
     
-    var hasSecondAbility: Bool {
-        return _secondAbility != ""
-    }
-    
-    var hasHiddenAbility: Bool {
-        return _hiddenAbility != ""
-    }
     
     init(first: String? = "", second: String? = "", hidden: String? = "") {
         self._firstAbility = first

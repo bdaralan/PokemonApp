@@ -22,7 +22,9 @@ class Pokemon {
     private var _types = PokemonTypes()
     private var _abilities = PokemonAbilities()
     
-    private var _apiURL: String!
+    private var _pokemonURL: String!
+    private var _summaryURL: String!
+    private var _evolutionURL: String!
     
     
     var name: String { return self._name }
@@ -38,16 +40,27 @@ class Pokemon {
     var abilities: PokemonAbilities { return self._abilities }
     
     
+    var hasSecondAbility: Bool {
+        return self._abilities.secondAbility != ""
+    }
+    
+    var hasHiddenAbility: Bool {
+        return self._abilities.hiddenAbility != ""
+    }
+    
+    
     init(name: String, pokedexID: Int) {
-        _name = name.capitalized
-        _pokedexID = pokedexID
-        _apiURL = "\(API.baseURL)\(API.versionURL)\(API.pokemonURL)/\(pokedexID)"
+        self._name = name.capitalized
+        self._pokedexID = pokedexID
+        self._pokemonURL = "\(API.baseURL)\(API.versionURL)\(API.pokemonURL)/\(pokedexID)"
+        self._summaryURL = "\(API.baseURL)\(API.versionURL)\(API.summaryURL)/\(pokedexID)"
+        self._evolutionURL = "\(API.baseURL)\(API.versionURL)\(API.evolutionURL)/\(pokedexID)"
     }
     
     /*-- Functions --*/
     func requestPokemonData(downloadCompleted: @escaping DownloadComplete) {
-        if let url = URL(string: self._apiURL) {
-            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+        if let url = URL(string: self._pokemonURL) {
+            let session = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 if error == nil {
                     do {
                         if let data = data {
@@ -80,7 +93,7 @@ class Pokemon {
                                         self._hp = "\(hp)"
                                     }
                                     
-                                }
+                                }//end parsing stats
                                 
                                 // Parse Types
                                 if let types = pokeJson["types"] as? [SADictionary] {
@@ -103,7 +116,7 @@ class Pokemon {
                                             }
                                         }
                                     }
-                                }
+                                }//end parsing types
                                 
                                 // Parse Abilities
                                 if let abilities = pokeJson["abilities"] as? [SADictionary] {
@@ -125,20 +138,18 @@ class Pokemon {
                                             }
                                         }
                                     }
-                                }
+                                }//end parsing abilities
                                 
                                 // Parse Summary
-                                if let species = pokeJson["species"] as? SADictionary {
-                                    if let url = species["url"] as? String {
-                                        if let url = URL(string: url) {
-                                            let data = try Data(contentsOf: url)
-                                            let speciesJson = try JSONSerialization.jsonObject(with: data, options: []) as! SADictionary
-                                            if let summaries = speciesJson["flavor_text_entries"] as? [SADictionary], let summary = summaries[1]["flavor_text"] as? String {
-                                                self._summary = summary.replacingOccurrences(of: "\n", with: " ")
-                                            }
-                                        }
+                                if let url = URL(string: self._summaryURL) {
+                                    let data = try Data(contentsOf: url)
+                                    let speciesJson = try JSONSerialization.jsonObject(with: data, options: []) as! SADictionary
+                                    if let summaries = speciesJson["flavor_text_entries"] as? [SADictionary], let summary = summaries[1]["flavor_text"] as? String { //[1] is the english version
+                                        self._summary = summary.replacingOccurrences(of: "\n", with: " ")
                                     }
-                                }
+                                }//end parsing summary
+                                
+                                // Parse Evolutions
                             }
                             downloadCompleted()
                         }
@@ -148,7 +159,8 @@ class Pokemon {
                 } else {
                     print(error.debugDescription)
                 }
-            }).resume()
+            })
+            session.resume()
         }
     }
 }
