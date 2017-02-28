@@ -31,6 +31,13 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         pokemon = allPokemon
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if inSearchMode {
+            searchBar.becomeFirstResponder()
+            searchBar.resignFirstResponder()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PokemonInfoVC" {
             if let sender = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {
@@ -49,6 +56,7 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "PokemonInfoVC", sender: pokemon[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: false)
+        searchBar.resignFirstResponder()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
