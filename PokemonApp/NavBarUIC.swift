@@ -1,5 +1,5 @@
 //
-//  UINavItem.swift
+//  NavBarUIC.swift
 //  PokemonApp
 //
 //  Created by Dara on 2/27/17.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class UINavItem: UINavigationBar {
+class NavBarUIC: UINavigationController {
     
     override func awakeFromNib() {
-        self.layer.backgroundColor = UIColor.green.cgColor
+        self.navigationBar.barTintColor = pokeTypeColor.Electric
     }
 }
