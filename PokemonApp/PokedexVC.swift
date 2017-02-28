@@ -44,6 +44,8 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
+    
+    /*-- Protocol Functions --*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "PokemonInfoVC", sender: pokemon[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: false)
@@ -63,6 +65,10 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         return PokeCell()
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             inSearchMode = true
@@ -75,7 +81,22 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         tableView.reloadData()
     }
 
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) { //returnKeyClicked
         searchBar.resignFirstResponder()
+        if searchBar.text == "" {
+            searchBar.setShowsCancelButton(false, animated: true)
+        }
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
+        searchBar.text = ""
+        inSearchMode = false
+        pokemon = allPokemon
+        tableView.reloadData()
+    }
+    
+    
+    /*-- Functions --*/
 }
