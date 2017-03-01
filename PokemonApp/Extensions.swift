@@ -8,10 +8,15 @@
 
 import UIKit
 
+
 extension Int {
     
     func outputFormat() -> String {
         return String(format: "#%03d", self)
+    }
+    
+    func toProgressView() -> Float {
+        return Float(self) / 100.0
     }
 }
 

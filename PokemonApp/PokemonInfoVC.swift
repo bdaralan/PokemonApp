@@ -30,6 +30,13 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokemonAbil02Lbl: UILabel!
     @IBOutlet weak var pokemonHiddenAbilLbl: UILabel!
     
+    @IBOutlet weak var pokemonHpPV: UIProgressView!
+    @IBOutlet weak var pokemonSpdPV: UIProgressView!
+    @IBOutlet weak var pokemonAttPV: UIProgressView!
+    @IBOutlet weak var pokemonSpAttPV: UIProgressView!
+    @IBOutlet weak var pokemonDefPV: UIProgressView!
+    @IBOutlet weak var pokemonSpDefPV: UIProgressView!
+    
     
     var pokemon: Pokemon! //will be passed in when perform segue
 
@@ -57,12 +64,20 @@ class PokemonInfoVC: UIViewController {
         self.pokemon.requestPokemonData {
             DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.1, execute: {
                 // REMINDER: do not fully understand 'DispatchQueue.main.async' yet, must learn about it later
-                self.pokemonHpLbl.text = self.pokemon.hp
-                self.pokemonSpdLbl.text = self.pokemon.speed
-                self.pokemonAttlbl.text = self.pokemon.attack
-                self.pokemonSpAttLbl.text = self.pokemon.spAttack
-                self.pokemonDefLbl.text = self.pokemon.defend
-                self.pokemonSpDefLbl.text = self.pokemon.spDefend
+                self.pokemonHpLbl.text = "\(self.pokemon.hp)"
+                self.pokemonSpdLbl.text = "\(self.pokemon.speed)"
+                self.pokemonAttlbl.text = "\(self.pokemon.attack)"
+                self.pokemonSpAttLbl.text = "\(self.pokemon.spAttack)"
+                self.pokemonDefLbl.text = "\(self.pokemon.defend)"
+                self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
+                
+                self.pokemonHpPV.progress = self.pokemon.hp.toProgressView()
+                self.pokemonSpdPV.progress = self.pokemon.speed.toProgressView()
+                self.pokemonAttPV.progress = self.pokemon.attack.toProgressView()
+                self.pokemonSpAttPV.progress = self.pokemon.spAttack.toProgressView()
+                self.pokemonDefPV.progress = self.pokemon.defend.toProgressView()
+                self.pokemonSpDefPV.progress = self.pokemon.spDefend.toProgressView()
+                
                 self.pokemonSummaryLbl.text = self.pokemon.summary
                 self.pokemonSummaryLbl.isHidden = false
                 

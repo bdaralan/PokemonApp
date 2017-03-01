@@ -12,12 +12,12 @@ class Pokemon {
     
     private var _name: String!
     private var _pokedexID: Int!
-    private var _hp: String!
-    private var _speed: String!
-    private var _attack: String!
-    private var _spAttack: String!
-    private var _defend: String!
-    private var _spDefend: String!
+    private var _hp: Int!
+    private var _speed: Int!
+    private var _attack: Int!
+    private var _spAttack: Int!
+    private var _defend: Int!
+    private var _spDefend: Int!
     private var _summary: String!
     private var _types = PokemonTypes()
     private var _abilities = PokemonAbilities()
@@ -29,12 +29,12 @@ class Pokemon {
     
     var name: String { return self._name }
     var pokedexID: Int { return self._pokedexID }
-    var hp: String {return self._hp }
-    var speed: String { return self._speed }
-    var attack: String { return self._attack }
-    var spAttack: String { return self._spAttack }
-    var defend: String { return self._defend }
-    var spDefend: String { return self._spDefend }
+    var hp: Int {return self._hp }
+    var speed: Int { return self._speed }
+    var attack: Int { return self._attack }
+    var spAttack: Int { return self._spAttack }
+    var defend: Int { return self._defend }
+    var spDefend: Int { return self._spDefend }
     var summary: String { return self._summary }
     var types: PokemonTypes { return self._types }
     var abilities: PokemonAbilities { return self._abilities }
@@ -70,27 +70,27 @@ class Pokemon {
                                 if let stats = pokeJson["stats"] as? [SADictionary] {
                                     
                                     if let speed = stats[0]["base_stat"] as? Int {
-                                        self._speed = "\(speed)"
+                                        self._speed = speed
                                     }
                                     
                                     if let spDefend = stats[1]["base_stat"] as? Int {
-                                        self._spDefend = "\(spDefend)"
+                                        self._spDefend = spDefend
                                     }
                                     
                                     if let spAttack = stats[2]["base_stat"] as? Int {
-                                        self._spAttack = "\(spAttack)"
+                                        self._spAttack = spAttack
                                     }
                                     
                                     if let defend = stats[3]["base_stat"] as? Int {
-                                        self._defend = "\(defend)"
+                                        self._defend = defend
                                     }
                                     
                                     if let attack = stats[4]["base_stat"] as? Int {
-                                        self._attack = "\(attack)"
+                                        self._attack = attack
                                     }
                                     
                                     if let hp = stats[5]["base_stat"] as? Int {
-                                        self._hp = "\(hp)"
+                                        self._hp = hp
                                     }
                                     
                                 }//end parsing stats
