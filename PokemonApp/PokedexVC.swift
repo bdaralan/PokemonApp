@@ -12,6 +12,7 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var sortSC: UISegmentedControl!
     
     var pokemon = [Pokemon]()
     var allPokemon = [Pokemon]()
@@ -106,5 +107,16 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     
-    /*-- Functions --*/
+    /*-- Button --*/
+    @IBAction func sortSCSwitched(_ sender: Any) {
+        switch sortSC.selectedSegmentIndex {
+        case 0:
+            pokemon = pokemon.sorted(by: {$0.pokedexID < $1.pokedexID})
+        case 1:
+            pokemon = pokemon.sorted(by: {$0.name < $1.name})
+        default:
+            print("sortSC should never get here")
+        }
+        tableView.reloadData()
+    }
 }

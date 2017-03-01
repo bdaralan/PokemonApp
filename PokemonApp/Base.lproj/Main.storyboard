@@ -77,9 +77,24 @@
                             <constraint firstItem="aAj-nR-Y9Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="t8O-c8-WgN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Pokedex" id="4gx-ph-dve"/>
+                    <navigationItem key="navigationItem" title="Pokedex" id="4gx-ph-dve">
+                        <barButtonItem key="rightBarButtonItem" id="eMa-dV-JIA">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="nCd-Pb-Pey">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="0-9"/>
+                                    <segment title="A-Z"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sortSCSwitched:" destination="BYZ-38-t0r" eventType="valueChanged" id="9xz-lx-GiO"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="aAj-nR-Y9Q" id="kyh-eE-We3"/>
+                        <outlet property="sortSC" destination="nCd-Pb-Pey" id="2Wg-ln-obY"/>
                         <outlet property="tableView" destination="2IN-4h-4Bl" id="D7Q-VY-Ck8"/>
                         <segue destination="6fH-JT-nEc" kind="show" identifier="PokemonInfoVC" id="Sxe-4h-gK2"/>
                     </connections>
