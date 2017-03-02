@@ -56,8 +56,8 @@ class PokemonInfoVC: UIViewController {
     
     
     func updateUIWithLocalData() {
-        self.navigationItem.title = self.pokemon.name
-        self.pokemonImg.image = UIImage(named: "\(self.pokemon.pokedexID)")
+        self.navigationItem.title = pokemon.name
+        pokemonImg.image = UIImage(named: "\(pokemon.pokedexID)")
     }
     
     func updateUIWithRmoteData() {

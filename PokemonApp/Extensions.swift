@@ -18,7 +18,7 @@ extension Int {
     
     // Convert to fraction from 0.0 to 0.9
     func toProgress() -> Float {
-        return Float(self) / 100.0
+        return Float(self) / 200.0
     }
 }
 
