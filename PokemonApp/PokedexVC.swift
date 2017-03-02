@@ -87,7 +87,7 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             pokemon = allPokemon
         }
         
-        tableView.reloadData()
+        sortSCSwitched(self)
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) { //returnKeyClicked
@@ -103,7 +103,7 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         searchBar.text = ""
         inSearchMode = false
         pokemon = allPokemon
-        tableView.reloadData()
+        sortSCSwitched(self)
     }
     
     

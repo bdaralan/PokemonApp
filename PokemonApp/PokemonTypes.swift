@@ -12,25 +12,22 @@ class PokemonTypes {
     
     private var _types = ["", ""]
     
-    var primary: String {
-        return _types[0]
-    }
+    var primary: String { return _types[0] }
+    var secondary: String { return _types[1] }
     
-    var secondary: String {
-        return _types[1]
-    }
     
     init() {
         
     }
     
     init(primary: String, secondary: String = "") {
-        self._types[0] = primary.capitalized
+        _types[0] = primary.capitalized
         
         if secondary != "" {
-            self._types[1] = secondary.capitalized
+            _types[1] = secondary.capitalized
         }
     }
+    
     
     func setPrimaryType(type: String) {
         _types[0] = type.capitalized

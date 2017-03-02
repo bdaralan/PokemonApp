@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		530450421E613A7C00A8F0E9 /* PokeTypeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530450411E613A7C00A8F0E9 /* PokeTypeColor.swift */; };
 		530450441E6149C400A8F0E9 /* PokeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530450431E6149C400A8F0E9 /* PokeTypes.swift */; };
-		531723441E6211EF0067E648 /* MyIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 531723431E6211EF0067E648 /* MyIcon.icns */; };
 		531723481E6258B60067E648 /* PokemonAbilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531723471E6258B60067E648 /* PokemonAbilities.swift */; };
 		5355A46D1E6291C50093A372 /* PokeAbilitiesUILbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5355A46C1E6291C50093A372 /* PokeAbilitiesUILbl.swift */; };
 		5355A46F1E6295340093A372 /* PokeTypesUILbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5355A46E1E6295340093A372 /* PokeTypesUILbl.swift */; };
@@ -36,7 +35,6 @@
 /* Begin PBXFileReference section */
 		530450411E613A7C00A8F0E9 /* PokeTypeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeTypeColor.swift; sourceTree = "<group>"; };
 		530450431E6149C400A8F0E9 /* PokeTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeTypes.swift; sourceTree = "<group>"; };
-		531723431E6211EF0067E648 /* MyIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MyIcon.icns; sourceTree = "<group>"; };
 		531723471E6258B60067E648 /* PokemonAbilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonAbilities.swift; sourceTree = "<group>"; };
 		5355A46C1E6291C50093A372 /* PokeAbilitiesUILbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeAbilitiesUILbl.swift; sourceTree = "<group>"; };
 		5355A46E1E6295340093A372 /* PokeTypesUILbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeTypesUILbl.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 		53ECC8AB1E600DBF0095D5C9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				531723431E6211EF0067E648 /* MyIcon.icns */,
 				53ECC8B31E600E590095D5C9 /* pokemon.csv */,
 				535F23321E60BC05005FCF34 /* pokemon-types.csv */,
 				53ECC8B51E600EA60095D5C9 /* pokeapi-data.plist */,
@@ -233,7 +230,6 @@
 				53ECC8A41E600DB50095D5C9 /* LaunchScreen.storyboard in Resources */,
 				53ECC8B61E600EA60095D5C9 /* pokeapi-data.plist in Resources */,
 				53ECC8A11E600DB50095D5C9 /* Assets.xcassets in Resources */,
-				531723441E6211EF0067E648 /* MyIcon.icns in Resources */,
 				53ECC8B41E600E590095D5C9 /* pokemon.csv in Resources */,
 				53ECC89F1E600DB50095D5C9 /* Main.storyboard in Resources */,
 			);

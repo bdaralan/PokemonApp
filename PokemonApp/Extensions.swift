@@ -11,17 +11,20 @@ import UIKit
 
 extension Int {
     
+    // Add one or at most two zero (ex: 009)
     func outputFormat() -> String {
         return String(format: "#%03d", self)
     }
     
-    func toProgressView() -> Float {
+    // Convert to fraction from 0.0 to 0.9
+    func toProgress() -> Float {
         return Float(self) / 100.0
     }
 }
 
 extension String {
     
+    // Replace '-' in ability string to space ' '
     func toAbilityFormat() -> String {
         
         if self.contains("-") {
@@ -42,9 +45,10 @@ extension String {
         return self.capitalized
     }
     
+    // Take pokemon type string and return its UIColor
     func toUIColor() -> UIColor {
         
-        switch self {
+        switch self  {
             
         case PokeTypes.Normal.rawValue:
             return pokeTypeColor.Normal
@@ -60,7 +64,7 @@ extension String {
             
         case PokeTypes.Ground.rawValue:
             return pokeTypeColor.Ground
-        
+            
         case PokeTypes.Rock.rawValue:
             return pokeTypeColor.Rock
             

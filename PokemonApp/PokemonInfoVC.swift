@@ -62,7 +62,7 @@ class PokemonInfoVC: UIViewController {
     
     func updateUIWithRmoteData() {
         self.pokemon.requestPokemonData {
-            DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.1, execute: {
+            DispatchQueue.main.async {
                 // REMINDER: do not fully understand 'DispatchQueue.main.async' yet, must learn about it later
                 self.pokemonHpLbl.text = "\(self.pokemon.hp)"
                 self.pokemonSpdLbl.text = "\(self.pokemon.speed)"
@@ -71,12 +71,12 @@ class PokemonInfoVC: UIViewController {
                 self.pokemonDefLbl.text = "\(self.pokemon.defend)"
                 self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
                 
-                self.pokemonHpPV.progress = self.pokemon.hp.toProgressView()
-                self.pokemonSpdPV.progress = self.pokemon.speed.toProgressView()
-                self.pokemonAttPV.progress = self.pokemon.attack.toProgressView()
-                self.pokemonSpAttPV.progress = self.pokemon.spAttack.toProgressView()
-                self.pokemonDefPV.progress = self.pokemon.defend.toProgressView()
-                self.pokemonSpDefPV.progress = self.pokemon.spDefend.toProgressView()
+                self.pokemonHpPV.progress = self.pokemon.hp.toProgress()
+                self.pokemonSpdPV.progress = self.pokemon.speed.toProgress()
+                self.pokemonAttPV.progress = self.pokemon.attack.toProgress()
+                self.pokemonSpAttPV.progress = self.pokemon.spAttack.toProgress()
+                self.pokemonDefPV.progress = self.pokemon.defend.toProgress()
+                self.pokemonSpDefPV.progress = self.pokemon.spDefend.toProgress()
                 
                 self.pokemonSummaryLbl.text = self.pokemon.summary
                 self.pokemonSummaryLbl.isHidden = false
@@ -101,18 +101,7 @@ class PokemonInfoVC: UIViewController {
                     self.pokemonHiddenAbilLbl.text = "\(self.pokemon.abilities.hiddenAbility) (H)"
                     self.pokemonHiddenAbilLbl.isHidden = false
                 }
-            })
+            }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

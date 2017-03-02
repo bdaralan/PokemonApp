@@ -14,27 +14,27 @@ class PokemonAbilities {
     private var _secondAbility: String!
     private var _hiddenAbility: String!
     
-    var firstAbility: String { return self._firstAbility }
-    var secondAbility: String { return self._secondAbility }
-    var hiddenAbility: String { return self._hiddenAbility }
+    var firstAbility: String { return _firstAbility }
+    var secondAbility: String { return _secondAbility }
+    var hiddenAbility: String { return _hiddenAbility }
     
     
     init(first: String? = "", second: String? = "", hidden: String? = "") {
-        self._firstAbility = first
-        self._secondAbility = second
-        self._hiddenAbility = hidden
+        _firstAbility = first
+        _secondAbility = second
+        _hiddenAbility = hidden
     }
     
     
     func setFirstAbility(to ability: String) {
-        self._firstAbility = ability.toAbilityFormat() //capitalized when call toAbilityFormat()
+        _firstAbility = ability.toAbilityFormat() //capitalized when call toAbilityFormat()
     }
     
     func setSecondAbility(to ability: String) {
-        self._secondAbility = ability.toAbilityFormat()
+        _secondAbility = ability.toAbilityFormat()
     }
     
     func setHiddenAbility(to ability: String) {
-        self._hiddenAbility = ability.toAbilityFormat()
+        _hiddenAbility = ability.toAbilityFormat()
     }
 }

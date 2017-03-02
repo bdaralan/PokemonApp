@@ -10,25 +10,7 @@ import UIKit
 
 class PokeTypeColor {
     
-    let Normal,
-    Fighting,
-    Flying,
-    Poison,
-    Ground,
-    Rock,
-    Bug,
-    Ghost,
-    Steel,
-    Fire,
-    Water,
-    Grass,
-    Electric,
-    Psychic,
-    Ice,
-    Dragon,
-    Dark,
-    Fairy,
-    Unknown: UIColor
+    let Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Dark, Fairy, Unknown: UIColor
     
     init() {
         Normal = UIColor(red:0.66, green:0.66, blue:0.47, alpha:1.0) //A8A878

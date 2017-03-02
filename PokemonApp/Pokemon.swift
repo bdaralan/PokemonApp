@@ -41,26 +41,26 @@ class Pokemon {
     
     
     var hasSecondAbility: Bool {
-        return self._abilities.secondAbility != ""
+        return _abilities.secondAbility != ""
     }
     
     var hasHiddenAbility: Bool {
-        return self._abilities.hiddenAbility != ""
+        return _abilities.hiddenAbility != ""
     }
     
     
     init(name: String, pokedexID: Int) {
-        self._name = name.capitalized
-        self._pokedexID = pokedexID
-        self._pokemonURL = "\(API.baseURL)\(API.versionURL)\(API.pokemonURL)/\(pokedexID)"
-        self._summaryURL = "\(API.baseURL)\(API.versionURL)\(API.summaryURL)/\(pokedexID)"
-        self._evolutionURL = "\(API.baseURL)\(API.versionURL)\(API.evolutionURL)/\(pokedexID)"
+        _name = name.capitalized
+        _pokedexID = pokedexID
+        _pokemonURL = "\(API.baseURL)\(API.versionURL)\(API.pokemonURL)/\(pokedexID)"
+        _summaryURL = "\(API.baseURL)\(API.versionURL)\(API.summaryURL)/\(pokedexID)"
+        _evolutionURL = "\(API.baseURL)\(API.versionURL)\(API.evolutionURL)/\(pokedexID)"
     }
     
     /*-- Functions --*/
     func requestPokemonData(downloadCompleted: @escaping DownloadComplete) {
         if let url = URL(string: self._pokemonURL) {
-            let session = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 if error == nil {
                     do {
                         if let data = data {
@@ -92,7 +92,6 @@ class Pokemon {
                                     if let hp = stats[5]["base_stat"] as? Int {
                                         self._hp = hp
                                     }
-                                    
                                 }//end parsing stats
                                 
                                 // Parse Types
@@ -159,8 +158,7 @@ class Pokemon {
                 } else {
                     print(error.debugDescription)
                 }
-            })
-            session.resume()
+            }).resume()
         }
     }
 }
