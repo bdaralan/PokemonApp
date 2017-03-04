@@ -11,6 +11,6 @@ import UIKit
 class NavBarUIC: UINavigationController {
     
     override func awakeFromNib() {
-        self.navigationBar.barTintColor = pokeTypeColor.Electric
+        self.navigationBar.barTintColor = COLORS.navigationBar
     }
 }

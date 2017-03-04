@@ -25,8 +25,8 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         tableView.dataSource = self
         searchBar.delegate = self
         
-        searchBar.returnKeyType = .done
-        searchBar.enablesReturnKeyAutomatically = false
+        searchBar.returnKeyType = .search
+        searchBar.enablesReturnKeyAutomatically = true
         
         allPokemon = ParsePokemonCSV()
         pokemon = allPokemon
@@ -76,12 +76,17 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
+        searchBar.placeholder = "Search by name or id"
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.placeholder = ""
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             inSearchMode = true
-            pokemon = allPokemon.filter({ $0.name.range(of: searchText, options: .caseInsensitive) != nil })
+            pokemon = allPokemon.filter({ $0.name.range(of: searchText, options: .caseInsensitive) != nil || $0.pokedexID.outputFormat().range(of: searchText) != nil })
         } else {
             inSearchMode = false
             pokemon = allPokemon

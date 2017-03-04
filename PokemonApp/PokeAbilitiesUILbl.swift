@@ -10,21 +10,11 @@ import UIKit
 
 class PokeAbilitiesUILbl: UILabel {
 
-    
     override func awakeFromNib() {
         self.layer.borderWidth = 1.0
         self.layer.cornerRadius = 10.0
         self.clipsToBounds = true
         self.textColor = UIColor.white
-        self.backgroundColor = pokeTypeColor.Unknown.withAlphaComponent(0.7)
+        self.backgroundColor = COLORS.pokemonType.Unknown
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

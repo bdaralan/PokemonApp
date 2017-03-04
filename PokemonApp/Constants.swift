@@ -13,7 +13,7 @@ let POKEMON_CSV_PATH = Bundle.main.path(forResource: "pokemon", ofType: "csv")
 let POKEMON_TYPES_CSV_PATH = Bundle.main.path(forResource: "pokemon-types", ofType: "csv")
 
 let API = APIData()
-let pokeTypeColor = PokeTypeColor()
+let COLORS = Colors()
 
 typealias DownloadComplete = () -> () //download pokemon json completed
 typealias SADictionary = Dictionary<String, AnyObject>

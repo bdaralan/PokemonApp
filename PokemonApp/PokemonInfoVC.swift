@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PokemonInfoVC: UIViewController {
     
@@ -39,11 +40,13 @@ class PokemonInfoVC: UIViewController {
     
     
     var pokemon: Pokemon! //will be passed in when perform segue
-
+    var audioPlayer: AVAudioPlayer!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initAudioPlayer()
         updateUIWithLocalData()
         updateUIWithRmoteData()
     }
@@ -55,6 +58,17 @@ class PokemonInfoVC: UIViewController {
     }
     
     
+    func initAudioPlayer() {
+        if let path = Bundle.main.path(forResource: "280", ofType: "ogg"), let url = URL(string: path) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer.prepareToPlay()
+            } catch let error as NSError {
+                print(error.debugDescription)
+            }
+        }
+    }
+    
     func updateUIWithLocalData() {
         self.navigationItem.title = pokemon.name
         pokemonImg.image = UIImage(named: "\(pokemon.pokedexID)")
@@ -62,46 +76,48 @@ class PokemonInfoVC: UIViewController {
     
     func updateUIWithRmoteData() {
         self.pokemon.requestPokemonData {
-            DispatchQueue.main.async {
-                // REMINDER: do not fully understand 'DispatchQueue.main.async' yet, must learn about it later
-                self.pokemonHpLbl.text = "\(self.pokemon.hp)"
-                self.pokemonSpdLbl.text = "\(self.pokemon.speed)"
-                self.pokemonAttlbl.text = "\(self.pokemon.attack)"
-                self.pokemonSpAttLbl.text = "\(self.pokemon.spAttack)"
-                self.pokemonDefLbl.text = "\(self.pokemon.defend)"
-                self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
-                
-                self.pokemonHpPV.progress = self.pokemon.hp.toProgress()
-                self.pokemonSpdPV.progress = self.pokemon.speed.toProgress()
-                self.pokemonAttPV.progress = self.pokemon.attack.toProgress()
-                self.pokemonSpAttPV.progress = self.pokemon.spAttack.toProgress()
-                self.pokemonDefPV.progress = self.pokemon.defend.toProgress()
-                self.pokemonSpDefPV.progress = self.pokemon.spDefend.toProgress()
-                
-                self.pokemonSummaryLbl.text = self.pokemon.summary
-                self.pokemonSummaryLbl.isHidden = false
-                
-                self.pokemonTypeLbl01.text = self.pokemon.types.primary
-                self.pokemonTypeLbl01.isHidden = false
-                if self.pokemon.types.secondary != "" {
-                    self.pokemonTypeLbl02.text = self.pokemon.types.secondary
-                    self.pokemonTypeLbl02.isHidden = false
-                }
-                
-                self.pokemonTypeLbl01.backgroundColor = self.pokemon.types.primary.toUIColor()
-                self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
-                
-                self.pokemonAbil01Lbl.text = self.pokemon.abilities.firstAbility
-                self.pokemonAbil01Lbl.isHidden = false
-                if self.pokemon.hasSecondAbility {
-                    self.pokemonAbil02Lbl.text = self.pokemon.abilities.secondAbility
-                    self.pokemonAbil02Lbl.isHidden = false
-                }
-                if self.pokemon.hasHiddenAbility {
-                    self.pokemonHiddenAbilLbl.text = "\(self.pokemon.abilities.hiddenAbility) (H)"
-                    self.pokemonHiddenAbilLbl.isHidden = false
-                }
+            self.pokemonHpLbl.text = "\(self.pokemon.hp)"
+            self.pokemonSpdLbl.text = "\(self.pokemon.speed)"
+            self.pokemonAttlbl.text = "\(self.pokemon.attack)"
+            self.pokemonSpAttLbl.text = "\(self.pokemon.spAttack)"
+            self.pokemonDefLbl.text = "\(self.pokemon.defend)"
+            self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
+            
+            self.pokemonHpPV.progress = self.pokemon.hp.toProgress()
+            self.pokemonSpdPV.progress = self.pokemon.speed.toProgress()
+            self.pokemonAttPV.progress = self.pokemon.attack.toProgress()
+            self.pokemonSpAttPV.progress = self.pokemon.spAttack.toProgress()
+            self.pokemonDefPV.progress = self.pokemon.defend.toProgress()
+            self.pokemonSpDefPV.progress = self.pokemon.spDefend.toProgress()
+            
+            self.pokemonSummaryLbl.text = self.pokemon.summary
+            self.pokemonSummaryLbl.isHidden = false
+            
+            self.pokemonTypeLbl01.text = self.pokemon.types.primary
+            self.pokemonTypeLbl01.isHidden = false
+            if self.pokemon.types.secondary != "" {
+                self.pokemonTypeLbl02.text = self.pokemon.types.secondary
+                self.pokemonTypeLbl02.isHidden = false
+            }
+            
+            self.pokemonTypeLbl01.backgroundColor = self.pokemon.types.primary.toUIColor()
+            self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
+            
+            self.pokemonAbil01Lbl.text = self.pokemon.abilities.firstAbility
+            self.pokemonAbil01Lbl.isHidden = false
+            if self.pokemon.hasSecondAbility {
+                self.pokemonAbil02Lbl.text = self.pokemon.abilities.secondAbility
+                self.pokemonAbil02Lbl.isHidden = false
+            }
+            if self.pokemon.hasHiddenAbility {
+                self.pokemonHiddenAbilLbl.text = "\(self.pokemon.abilities.hiddenAbility) (H)"
+                self.pokemonHiddenAbilLbl.isHidden = false
             }
         }
+    }
+    
+    /*-- Buttons --*/
+    @IBAction func pokeCryBtnClicked(_ sender: Any) {
+        //audioPlayer.play()
     }
 }

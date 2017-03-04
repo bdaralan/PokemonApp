@@ -13,14 +13,6 @@ class SectionTagUILbl: UILabel {
     override func awakeFromNib() {
         self.layer.cornerRadius = 10.0
         self.layer.masksToBounds = true
+        self.backgroundColor = COLORS.sectionTag.withAlphaComponent(0.7)
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

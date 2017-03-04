@@ -51,61 +51,61 @@ extension String {
         switch self  {
             
         case PokeTypes.Normal.rawValue:
-            return pokeTypeColor.Normal
+            return COLORS.pokemonType.Normal
             
         case PokeTypes.Fighting.rawValue:
-            return pokeTypeColor.Fighting
+            return COLORS.pokemonType.Fighting
             
         case PokeTypes.Flying.rawValue:
-            return pokeTypeColor.Flying
+            return COLORS.pokemonType.Flying
             
         case PokeTypes.Poison.rawValue:
-            return pokeTypeColor.Poison
+            return COLORS.pokemonType.Poison
             
         case PokeTypes.Ground.rawValue:
-            return pokeTypeColor.Ground
+            return COLORS.pokemonType.Ground
             
         case PokeTypes.Rock.rawValue:
-            return pokeTypeColor.Rock
+            return COLORS.pokemonType.Rock
             
         case PokeTypes.Bug.rawValue:
-            return pokeTypeColor.Bug
+            return COLORS.pokemonType.Bug
             
         case PokeTypes.Ghost.rawValue:
-            return pokeTypeColor.Ghost
+            return COLORS.pokemonType.Ghost
             
         case PokeTypes.Steel.rawValue:
-            return pokeTypeColor.Steel
+            return COLORS.pokemonType.Steel
             
         case PokeTypes.Fire.rawValue:
-            return pokeTypeColor.Fire
+            return COLORS.pokemonType.Fire
             
         case PokeTypes.Water.rawValue:
-            return pokeTypeColor.Water
+            return COLORS.pokemonType.Water
             
         case PokeTypes.Grass.rawValue:
-            return pokeTypeColor.Grass
+            return COLORS.pokemonType.Grass
             
         case PokeTypes.Electric.rawValue:
-            return pokeTypeColor.Electric
+            return COLORS.pokemonType.Electric
             
         case PokeTypes.Psychic.rawValue:
-            return pokeTypeColor.Psychic
+            return COLORS.pokemonType.Psychic
             
         case PokeTypes.Ice.rawValue:
-            return pokeTypeColor.Ice
+            return COLORS.pokemonType.Ice
             
         case PokeTypes.Dragon.rawValue:
-            return pokeTypeColor.Dragon
+            return COLORS.pokemonType.Dragon
             
         case PokeTypes.Dark.rawValue:
-            return pokeTypeColor.Dark
+            return COLORS.pokemonType.Dark
             
         case PokeTypes.Fairy.rawValue:
-            return pokeTypeColor.Fairy
+            return COLORS.pokemonType.Fairy
             
         default:
-            return pokeTypeColor.Unknown
+            return COLORS.pokemonType.Unknown
         }
     }
 }

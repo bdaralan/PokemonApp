@@ -153,7 +153,7 @@ class Pokemon {
                             downloadCompleted()
                         }
                     } catch let error as NSError {
-                        print(error.debugDescription)
+                        print("\(error.debugDescription)")
                     }
                 } else {
                     print(error.debugDescription)
