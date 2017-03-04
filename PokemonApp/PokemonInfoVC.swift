@@ -15,6 +15,8 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var evolutionImg01: UIImageView!
     @IBOutlet weak var evolutionImg02: UIImageView!
     @IBOutlet weak var evolutionImg03: UIImageView!
+    @IBOutlet weak var evolutionArrow02: UIImageView!
+    @IBOutlet weak var evolutionArrow03: UIImageView!
     
     @IBOutlet weak var pokemonTypeLbl01: UILabel!
     @IBOutlet weak var pokemonTypeLbl02: UILabel!
@@ -39,7 +41,10 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokemonSpDefPV: UIProgressView!
     
     
-    var pokemon: Pokemon! //will be passed in when perform segue
+    // These two will be passed in by segue, identifier "PokemonInfoVC"
+    var pokemon: Pokemon!
+    var pokemonEvolution: [Pokemon]!
+    
     var audioPlayer: AVAudioPlayer!
     
     
@@ -72,7 +77,32 @@ class PokemonInfoVC: UIViewController {
     func updateUIWithLocalData() {
         self.navigationItem.title = pokemon.name
         pokemonImg.image = UIImage(named: "\(pokemon.pokedexID)")
-    }
+        
+        switch pokemonEvolution.count {
+        case 1:
+            evolutionImg01.isHidden = false
+            evolutionImg01.image = UIImage(named: "\(pokemonEvolution[0].pokedexID)")
+        case 2:
+            evolutionImg01.isHidden = false
+            evolutionImg02.isHidden = false
+            evolutionArrow02.isHidden = false
+            evolutionImg01.image = UIImage(named: "\(pokemonEvolution[0].pokedexID)")
+            evolutionImg02.image = UIImage(named: "\(pokemonEvolution[1].pokedexID)")
+        case 3:
+            evolutionImg01.isHidden = false
+            evolutionImg02.isHidden = false
+            evolutionImg03.isHidden = false
+            evolutionArrow02.isHidden = false
+            evolutionArrow03.isHidden = false
+            evolutionImg01.image = UIImage(named: "\(pokemonEvolution[0].pokedexID)")
+            evolutionImg02.image = UIImage(named: "\(pokemonEvolution[1].pokedexID)")
+            evolutionImg03.image = UIImage(named: "\(pokemonEvolution[2].pokedexID)")
+        default:
+            print("Special evolution case")
+        }
+        
+        
+            }
     
     func updateUIWithRmoteData() {
         self.pokemon.requestPokemonData {

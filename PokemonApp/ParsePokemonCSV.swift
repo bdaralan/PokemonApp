@@ -18,20 +18,29 @@ func ParsePokemonCSV() -> [Pokemon] {
             var pokeLineTokens = pokemonCSV.components(separatedBy: "\n")
             
             pokeLineTokens.removeFirst() //remove the header of the csv file
-            pokeLineTokens.removeLast() //remove the last empty element placed by Xcode
             
             for i in 0..<(pokeLineTokens.count) {
                 let pokeInfoArray = pokeLineTokens[i].components(separatedBy: ",")
                 // pokemonInfo output is an array of:
                 // ["id", "identifier", "species_id", "height", "weight", "base_experience", "order", "is_default"]
                 // ["282", "gardevoir", "282", "16", "484", "233", "325", "1"]
-     
+                
+                
+                // the following force unwrap will work, unless csv file is corrupted
                 let pokedexID = Int(pokeInfoArray[0])!
                 let name = pokeInfoArray[1]
                 
-                let newPokemon = Pokemon(name: name, pokedexID: pokedexID)
+                var evolveFrom = 0 //zero means not evolve from any pokemon
+                if pokeInfoArray[2] != "" {
+                    evolveFrom = Int(pokeInfoArray[2])!
+                }
+                
+                let evolveID = Int(pokeInfoArray[3])!
+                
+                let newPokemon = Pokemon(name: name, pokedexID: pokedexID, evolveFrom: evolveFrom, evolveID: evolveID)
                 pokemon.append(newPokemon)
             }
+            
         } catch {
             print(error)
         }

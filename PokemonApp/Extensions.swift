@@ -45,6 +45,10 @@ extension String {
         return self.capitalized
     }
     
+    func removeHiddenCharacter() -> String {
+        return String(self.characters.filter( { !"\r".characters.contains($0) } ))
+    }
+    
     // Take pokemon type string and return its UIColor
     func toUIColor() -> UIColor {
         

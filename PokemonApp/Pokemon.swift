@@ -22,8 +22,8 @@ class Pokemon {
     private var _types: PokemonTypes!
     private var _abilities: PokemonAbilities!
     
-    private var _evolveID: Int!
     private var _evolveFrom: Int!
+    private var _evolveID: Int!
     
     private var _pokemonURL: String!
     private var _summaryURL: String!
@@ -41,29 +41,31 @@ class Pokemon {
     var summary: String { return _summary }
     var types: PokemonTypes { return _types }
     var abilities: PokemonAbilities { return self._abilities }
+    var evolveFrom: Int { return _evolveFrom }
+    var evolveID: Int { return _evolveID }
     
     
-    var hasSecondAbility: Bool {
-        return _abilities.secondAbility != ""
-    }
-    
-    var hasHiddenAbility: Bool {
-        return _abilities.hiddenAbility != ""
-    }
+    var hasSecondAbility: Bool { return _abilities.secondAbility != "" }
+    var hasHiddenAbility: Bool { return _abilities.hiddenAbility != "" }
     
     
-    init(name: String, pokedexID: Int) {
+    init(name: String, pokedexID: Int, evolveFrom: Int, evolveID: Int) {
         _name = name.capitalized
         _pokedexID = pokedexID
         _types = PokemonTypes()
         _abilities = PokemonAbilities()
+        _evolveFrom = evolveFrom
+        _evolveID = evolveID
+        
         _pokemonURL = "\(API.baseURL)\(API.versionURL)\(API.pokemonURL)/\(pokedexID)"
         _summaryURL = "\(API.baseURL)\(API.versionURL)\(API.summaryURL)/\(pokedexID)"
         _evolutionURL = "\(API.baseURL)\(API.versionURL)\(API.evolutionURL)/\(pokedexID)"
     }
     
+    
     /*-- Functions --*/
     func requestPokemonData(downloadCompleted: @escaping DownloadComplete) {
+        
         if let url = URL(string: self._pokemonURL) {
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 if error == nil {
