@@ -2293,7 +2293,6 @@
 			isa = PBXGroup;
 			children = (
 				53ECC8BF1E60100F0095D5C9 /* Constants.swift */,
-				53ECC8BD1E600FF00095D5C9 /* APIData.swift */,
 				530450431E6149C400A8F0E9 /* PokeTypes.swift */,
 				530450411E613A7C00A8F0E9 /* PokeTypeColor.swift */,
 				53AC64CE1E6A5A9F00233B2F /* Colors.swift */,
@@ -2323,6 +2322,7 @@
 			isa = PBXGroup;
 			children = (
 				53ECC8991E600DB50095D5C9 /* AppDelegate.swift */,
+				53ECC8BD1E600FF00095D5C9 /* APIData.swift */,
 				535F23301E60A640005FCF34 /* PokeCell.swift */,
 				53ECC8C31E6010F60095D5C9 /* Pokemon.swift */,
 				53ECC8C51E6011380095D5C9 /* PokemonTypes.swift */,

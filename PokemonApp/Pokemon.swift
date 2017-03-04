@@ -19,24 +19,27 @@ class Pokemon {
     private var _defend: Int!
     private var _spDefend: Int!
     private var _summary: String!
-    private var _types = PokemonTypes()
-    private var _abilities = PokemonAbilities()
+    private var _types: PokemonTypes!
+    private var _abilities: PokemonAbilities!
+    
+    private var _evolveID: Int!
+    private var _evolveFrom: Int!
     
     private var _pokemonURL: String!
     private var _summaryURL: String!
     private var _evolutionURL: String!
     
     
-    var name: String { return self._name }
-    var pokedexID: Int { return self._pokedexID }
-    var hp: Int {return self._hp }
-    var speed: Int { return self._speed }
-    var attack: Int { return self._attack }
-    var spAttack: Int { return self._spAttack }
-    var defend: Int { return self._defend }
-    var spDefend: Int { return self._spDefend }
-    var summary: String { return self._summary }
-    var types: PokemonTypes { return self._types }
+    var name: String { return _name }
+    var pokedexID: Int { return _pokedexID }
+    var hp: Int {return _hp }
+    var speed: Int { return _speed }
+    var attack: Int { return _attack }
+    var spAttack: Int { return _spAttack }
+    var defend: Int { return _defend }
+    var spDefend: Int { return _spDefend }
+    var summary: String { return _summary }
+    var types: PokemonTypes { return _types }
     var abilities: PokemonAbilities { return self._abilities }
     
     
@@ -52,6 +55,8 @@ class Pokemon {
     init(name: String, pokedexID: Int) {
         _name = name.capitalized
         _pokedexID = pokedexID
+        _types = PokemonTypes()
+        _abilities = PokemonAbilities()
         _pokemonURL = "\(API.baseURL)\(API.versionURL)\(API.pokemonURL)/\(pokedexID)"
         _summaryURL = "\(API.baseURL)\(API.versionURL)\(API.summaryURL)/\(pokedexID)"
         _evolutionURL = "\(API.baseURL)\(API.versionURL)\(API.evolutionURL)/\(pokedexID)"
