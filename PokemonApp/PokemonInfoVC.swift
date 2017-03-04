@@ -59,7 +59,7 @@ class PokemonInfoVC: UIViewController {
     
     
     func initAudioPlayer() {
-        if let path = Bundle.main.path(forResource: "280", ofType: "ogg"), let url = URL(string: path) {
+        if let path = Bundle.main.path(forResource: "\(pokemon.pokedexID)", ofType: "m4a"), let url = URL(string: path) {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: url)
                 audioPlayer.prepareToPlay()
@@ -118,6 +118,6 @@ class PokemonInfoVC: UIViewController {
     
     /*-- Buttons --*/
     @IBAction func pokeCryBtnClicked(_ sender: Any) {
-        //audioPlayer.play()
+        audioPlayer.play()
     }
 }
