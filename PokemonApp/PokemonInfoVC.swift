@@ -54,6 +54,7 @@ class PokemonInfoVC: UIViewController {
         
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         
+        configureImageTapGesture()
         updateUI()
     }
 
@@ -63,6 +64,19 @@ class PokemonInfoVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func configureImageTapGesture() {
+        let evolutionImg01TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg01Tapped))
+        let evolutionImg02TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg02Tapped))
+        let evolutionImg03TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg03Tapped))
+        
+        evolutionImg01.addGestureRecognizer(evolutionImg01TapGesture)
+        evolutionImg01.isUserInteractionEnabled = true
+        evolutionImg02.addGestureRecognizer(evolutionImg02TapGesture)
+        evolutionImg02.isUserInteractionEnabled = true
+        evolutionImg03.addGestureRecognizer(evolutionImg03TapGesture)
+        evolutionImg03.isUserInteractionEnabled = true
+    }
     
     func initAudioPlayer() {
         if let path = Bundle.main.path(forResource: "\(pokemon.pokedexID)", ofType: "m4a"), let url = URL(string: path) {
@@ -112,9 +126,7 @@ class PokemonInfoVC: UIViewController {
         default:
             print("Special evolution case")
         }
-        
-        
-            }
+    }
     
     func updateUIWithRmoteData() {
         self.pokemon.requestPokemonData {
@@ -157,6 +169,24 @@ class PokemonInfoVC: UIViewController {
             }
         }
     }
+    
+    
+    /*-- Tap Gestures --*/
+    func evolutionImg01Tapped() {
+        print("first evolution image tapped")
+        print(pokemonEvolution[0].name)
+    }
+    
+    func evolutionImg02Tapped() {
+        print("second evolution image tapped")
+        print(pokemonEvolution[1].name)
+    }
+    
+    func evolutionImg03Tapped() {
+        print("third evolution image tapped")
+        print(pokemonEvolution[2].name)
+    }
+    
     
     /*-- Buttons --*/
     @IBAction func pokeCryBtnClicked(_ sender: Any) {

@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4AX-Ke-oXU" id="KIH-ve-Og8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#280" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZA-lf-qq7">
@@ -368,9 +368,9 @@
                     <connections>
                         <outlet property="evolutionArrow02" destination="TTE-qn-9Oq" id="PKY-kA-a2V"/>
                         <outlet property="evolutionArrow03" destination="EBw-NE-74y" id="44f-tP-qy9"/>
-                        <outlet property="evolutionImg01" destination="Lgm-r3-wMM" id="bPd-Qk-ljf"/>
-                        <outlet property="evolutionImg02" destination="Udg-Sc-b3C" id="gSX-eP-QFx"/>
-                        <outlet property="evolutionImg03" destination="X1D-Rj-noA" id="Djb-NC-uWX"/>
+                        <outlet property="evolutionImg01" destination="Lgm-r3-wMM" id="9aL-eM-uxj"/>
+                        <outlet property="evolutionImg02" destination="Udg-Sc-b3C" id="U2M-gG-JEp"/>
+                        <outlet property="evolutionImg03" destination="X1D-Rj-noA" id="bfU-Hg-es1"/>
                         <outlet property="pokemonAbil01Lbl" destination="kaW-Nz-ICL" id="eFz-6J-HJx"/>
                         <outlet property="pokemonAbil02Lbl" destination="DkP-W5-dFX" id="fe5-k1-n2h"/>
                         <outlet property="pokemonAttPV" destination="eKN-z3-vbO" id="viZ-cq-m8h"/>
