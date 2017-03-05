@@ -5,6 +5,8 @@
 //  Created by Dara on 2/12/17.
 //  Copyright © 2017 iDara09. All rights reserved.
 //
+//
+//  This Class contain main Class: 'Pokemon' and subclasses: 'PokeType
 
 import Foundation
 
@@ -45,17 +47,26 @@ class Pokemon {
     var evolveID: Int { return _evolveID }
     
     
+    var hasSecondType: Bool { return _types.secondary != "" }
     var hasSecondAbility: Bool { return _abilities.secondAbility != "" }
     var hasHiddenAbility: Bool { return _abilities.hiddenAbility != "" }
     
     
-    init(name: String, pokedexID: Int, evolveFrom: Int, evolveID: Int) {
+    init(name: String, pokedexID: Int, evolveFrom: Int, evolveID: Int, hp: Int? = 0, speed: Int? = 0, attack: Int? = 0, defend: Int? = 0, spAttack: Int? = 0, spDefend: Int? = 0, summary: String? = "") {
         _name = name.capitalized
         _pokedexID = pokedexID
         _types = PokemonTypes()
         _abilities = PokemonAbilities()
         _evolveFrom = evolveFrom
         _evolveID = evolveID
+        
+        _hp = hp
+        _speed = speed
+        _attack = attack
+        _defend = defend
+        _spAttack = spAttack
+        _spDefend = spDefend
+        _summary = "\(name.capitalized)..."
         
         _pokemonURL = "\(API.baseURL)\(API.versionURL)\(API.pokemonURL)/\(pokedexID)"
         _summaryURL = "\(API.baseURL)\(API.versionURL)\(API.summaryURL)/\(pokedexID)"
@@ -167,5 +178,97 @@ class Pokemon {
                 }
             }).resume()
         }
+    }
+}
+
+
+/**-- Pokemon Type --**/
+class PokemonTypes {
+    
+    private var _types = ["", ""]
+    
+    var primary: String { return _types[0] }
+    var secondary: String { return _types[1] }
+    
+    
+    init() { }
+    init(primary: String = "", secondary: String = "") {
+        _types[0] = primary.capitalized
+        
+        if secondary != "" {
+            _types[1] = secondary.capitalized
+        }
+    }
+    
+    
+    func setPrimaryType(type: String) {
+        _types[0] = type.capitalized
+    }
+    
+    func setSecondaryType(type: String) {
+        _types[1] = type.capitalized
+    }
+}
+
+
+/**-- Pokemon Ability --**/
+class PokemonAbilities {
+    
+    private var _firstAbility: String!
+    private var _secondAbility: String!
+    private var _hiddenAbility: String!
+    
+    var firstAbility: String { return _firstAbility }
+    var secondAbility: String { return _secondAbility }
+    var hiddenAbility: String { return _hiddenAbility }
+    
+    
+    init(first: String? = "", second: String? = "", hidden: String? = "") {
+        _firstAbility = first
+        _secondAbility = second
+        _hiddenAbility = hidden
+    }
+    
+    
+    func setFirstAbility(to ability: String) {
+        _firstAbility = ability.toAbilityFormat() //capitalized when call toAbilityFormat()
+    }
+    
+    func setSecondAbility(to ability: String) {
+        _secondAbility = ability.toAbilityFormat()
+    }
+    
+    func setHiddenAbility(to ability: String) {
+        _hiddenAbility = ability.toAbilityFormat()
+    }
+}
+
+
+/**-- Extension --**/
+extension Array where Element: Pokemon {
+    
+    func evolution(of pokemon: Pokemon) -> [Pokemon] {
+        
+        let pokemons = self.filter( {$0.evolveID == pokemon.evolveID} ) //get pokemons of the same evolution id
+        var evolutions = [Pokemon]()
+        
+        switch pokemons.count {
+        case 1:
+            evolutions = pokemons
+        default:
+            for i in 0 ..< pokemons.count { //grab the baby pokemon, then append
+                if pokemons[i].evolveFrom == 0 {
+                    evolutions.append(pokemons[i])
+                }
+            }
+            
+            //grab the rest, in order of its evolutions
+            let notBabies = pokemons.filter( {$0.evolveFrom != 0} ).sorted(by: {$0.pokedexID < $1.pokedexID} )
+            for notBaby in notBabies {
+                evolutions.append(notBaby)
+            }
+        }
+        
+        return evolutions
     }
 }

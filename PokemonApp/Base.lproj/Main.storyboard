@@ -370,8 +370,8 @@
                         <outlet property="evolutionImg01" destination="Lgm-r3-wMM" id="9aL-eM-uxj"/>
                         <outlet property="evolutionImg02" destination="Udg-Sc-b3C" id="U2M-gG-JEp"/>
                         <outlet property="evolutionImg03" destination="X1D-Rj-noA" id="bfU-Hg-es1"/>
-                        <outlet property="pokemonAbil01Lbl" destination="kaW-Nz-ICL" id="eFz-6J-HJx"/>
-                        <outlet property="pokemonAbil02Lbl" destination="DkP-W5-dFX" id="fe5-k1-n2h"/>
+                        <outlet property="pokemonAbilLbl01" destination="kaW-Nz-ICL" id="hAV-7e-zc0"/>
+                        <outlet property="pokemonAbilLbl02" destination="DkP-W5-dFX" id="4Po-Ml-mJv"/>
                         <outlet property="pokemonAttPV" destination="eKN-z3-vbO" id="viZ-cq-m8h"/>
                         <outlet property="pokemonAttlbl" destination="AQl-D2-Jvf" id="YQc-6d-DdH"/>
                         <outlet property="pokemonDefLbl" destination="JDr-p0-boY" id="Twy-Ix-xGS"/>
@@ -386,7 +386,7 @@
                         <outlet property="pokemonSpDefPV" destination="px2-CI-shO" id="kPL-uM-ZeG"/>
                         <outlet property="pokemonSpdLbl" destination="J6B-aX-9gU" id="1t2-ls-8Ag"/>
                         <outlet property="pokemonSpdPV" destination="9xR-sa-0jN" id="rf6-H3-DQa"/>
-                        <outlet property="pokemonSummaryTV" destination="UV4-7c-a3i" id="GHf-gL-QdY"/>
+                        <outlet property="pokemonSummaryTxtView" destination="UV4-7c-a3i" id="igQ-cP-uch"/>
                         <outlet property="pokemonTypeLbl01" destination="lg1-2o-V8j" id="krA-S1-kH9"/>
                         <outlet property="pokemonTypeLbl02" destination="uhq-NQ-2Jc" id="xce-Pj-yrw"/>
                     </connections>

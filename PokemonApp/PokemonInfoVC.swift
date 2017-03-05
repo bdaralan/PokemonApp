@@ -20,7 +20,7 @@ class PokemonInfoVC: UIViewController {
     
     @IBOutlet weak var pokemonTypeLbl01: UILabel!
     @IBOutlet weak var pokemonTypeLbl02: UILabel!
-    @IBOutlet weak var pokemonSummaryTV: UITextView!
+    @IBOutlet weak var pokemonSummaryTxtView: UITextView!
     
     @IBOutlet weak var pokemonHpLbl: UILabel!
     @IBOutlet weak var pokemonSpdLbl: UILabel!
@@ -29,8 +29,8 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokemonDefLbl: UILabel!
     @IBOutlet weak var pokemonSpDefLbl: UILabel!
     
-    @IBOutlet weak var pokemonAbil01Lbl: UILabel!
-    @IBOutlet weak var pokemonAbil02Lbl: UILabel!
+    @IBOutlet weak var pokemonAbilLbl01: UILabel!
+    @IBOutlet weak var pokemonAbilLbl02: UILabel!
     @IBOutlet weak var pokemonHiddenAbilLbl: UILabel!
     
     @IBOutlet weak var pokemonHpPV: UIProgressView!
@@ -45,6 +45,8 @@ class PokemonInfoVC: UIViewController {
     var allPokemon: [Pokemon]! //passed in by segue, identifier "PokemonInfoVC"
     var pokemonEvolution: [Pokemon]!
     
+    var alreadyHasRemoteData = false
+    
     var audioPlayer: AVAudioPlayer!
     var audioPlayerIsReadToPlay = false
     
@@ -58,13 +60,13 @@ class PokemonInfoVC: UIViewController {
         updateUI()
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
+    /*-- Functions --*/
     func configureImageTapGesture() {
         let evolutionImg01TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg01Tapped))
         let evolutionImg02TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg02Tapped))
@@ -78,25 +80,10 @@ class PokemonInfoVC: UIViewController {
         evolutionImg03.isUserInteractionEnabled = true
     }
     
-    func initAudioPlayer() {
-        if let path = Bundle.main.path(forResource: "\(pokemon.pokedexID)", ofType: "m4a"), let url = URL(string: path) {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                if let audioPlayer = audioPlayer {
-                    audioPlayer.prepareToPlay()
-                    audioPlayerIsReadToPlay = true
-                } else {
-                    audioPlayerIsReadToPlay = false
-                }
-            } catch let error as NSError {
-                print(error.debugDescription)
-            }
-        }
-    }
-    
     func updateUI() {
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         
+        setItemDefaultSetting()
         updateUIWithLocalData()
         updateUIWithRmoteData()
         initAudioPlayer()
@@ -147,8 +134,8 @@ class PokemonInfoVC: UIViewController {
                 self.pokemonDefPV.progress = self.pokemon.defend.toProgress()
                 self.pokemonSpDefPV.progress = self.pokemon.spDefend.toProgress()
                 
-                self.pokemonSummaryTV.text = self.pokemon.summary
-                self.pokemonSummaryTV.isHidden = false
+                self.pokemonSummaryTxtView.text = self.pokemon.summary
+                self.pokemonSummaryTxtView.isHidden = false
                 
                 self.pokemonTypeLbl01.text = self.pokemon.types.primary
                 self.pokemonTypeLbl01.isHidden = false
@@ -160,11 +147,11 @@ class PokemonInfoVC: UIViewController {
                 self.pokemonTypeLbl01.backgroundColor = self.pokemon.types.primary.toUIColor()
                 self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
                 
-                self.pokemonAbil01Lbl.text = self.pokemon.abilities.firstAbility
-                self.pokemonAbil01Lbl.isHidden = false
+                self.pokemonAbilLbl01.text = self.pokemon.abilities.firstAbility
+                self.pokemonAbilLbl01.isHidden = false
                 if self.pokemon.hasSecondAbility {
-                    self.pokemonAbil02Lbl.text = self.pokemon.abilities.secondAbility
-                    self.pokemonAbil02Lbl.isHidden = false
+                    self.pokemonAbilLbl02.text = self.pokemon.abilities.secondAbility
+                    self.pokemonAbilLbl02.isHidden = false
                 }
                 if self.pokemon.hasHiddenAbility {
                     self.pokemonHiddenAbilLbl.text = "\(self.pokemon.abilities.hiddenAbility) (H)"
@@ -172,35 +159,73 @@ class PokemonInfoVC: UIViewController {
                 }
             }
         }
+        alreadyHasRemoteData = true
+    }
+    
+    func initAudioPlayer() {
+        if let path = Bundle.main.path(forResource: "\(pokemon.pokedexID)", ofType: "m4a"), let url = URL(string: path) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayerIsReadToPlay = true
+            } catch let error as NSError {
+                print(error.debugDescription)
+            }
+        } else {
+            audioPlayerIsReadToPlay = false
+        }
+    }
+    
+    func setItemDefaultSetting() {
+        pokemonTypeLbl01.isHidden = true
+        pokemonTypeLbl02.isHidden = true
+        pokemonAbilLbl01.isHidden = true
+        pokemonAbilLbl02.isHidden = true
+        pokemonHiddenAbilLbl.isHidden = true
+        
+        pokemonHpLbl.text = "0"
+        pokemonAttlbl.text = "0"
+        pokemonDefLbl.text = "0"
+        pokemonSpAttLbl.text = "0"
+        pokemonSpDefLbl.text = "0"
+        pokemonSpdLbl.text = "0"
+        pokemonSummaryTxtView.text = ""
+        
+        pokemonHpPV.progress = DEFAULT_PRGRESS_VALUE
+        pokemonAttPV.progress = DEFAULT_PRGRESS_VALUE
+        pokemonDefPV.progress = DEFAULT_PRGRESS_VALUE
+        pokemonSpAttPV.progress = DEFAULT_PRGRESS_VALUE
+        pokemonSpDefPV.progress = DEFAULT_PRGRESS_VALUE
+        pokemonSpdPV.progress = DEFAULT_PRGRESS_VALUE
     }
     
     
     /*-- Tap Gestures --*/
     func evolutionImg01Tapped() {
-        print("first evolution image tapped")
-        print(pokemonEvolution[0].name)
-        pokemon = pokemonEvolution[0]
-        updateUI()
+        if pokemon.pokedexID != pokemonEvolution[0].pokedexID {
+            pokemon = pokemonEvolution[0]
+            updateUI()
+        }
     }
     
     func evolutionImg02Tapped() {
-        print("second evolution image tapped")
-        print(pokemonEvolution[1].name)
-        pokemon = pokemonEvolution[1]
-        updateUI()
+        if pokemon.pokedexID != pokemonEvolution[1].pokedexID {
+            pokemon = pokemonEvolution[1]
+            updateUI()
+        }
     }
     
     func evolutionImg03Tapped() {
-        print("third evolution image tapped")
-        print(pokemonEvolution[2].name)
-        pokemon = pokemonEvolution[2]
-        updateUI()
+        if pokemon.pokedexID != pokemonEvolution[2].pokedexID {
+            pokemon = pokemonEvolution[2]
+            updateUI()
+        }
     }
     
     
     /*-- Buttons --*/
     @IBAction func pokeCryBtnClicked(_ sender: Any) {
         if audioPlayerIsReadToPlay {
+            audioPlayer.prepareToPlay()
             audioPlayer.play()
         }
     }

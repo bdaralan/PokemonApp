@@ -24,8 +24,7 @@ extension Int {
 
 extension String {
     
-    // Replace '-' in ability string to space ' '
-    func toAbilityFormat() -> String {
+    func toAbilityFormat() -> String { // Replace '-' in ability string to space ' '
         
         if self.contains("-") {
             var sep = ""
@@ -49,8 +48,7 @@ extension String {
         return String(self.characters.filter( { !"\r".characters.contains($0) } ))
     }
     
-    // Take pokemon type string and return its UIColor
-    func toUIColor() -> UIColor {
+    func toUIColor() -> UIColor { // Take pokemon's type string and return its UIColor
         
         switch self  {
             
