@@ -41,19 +41,20 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokemonSpDefPV: UIProgressView!
     
     
-    // These two will be passed in by segue, identifier "PokemonInfoVC"
-    var pokemon: Pokemon!
+    var pokemon: Pokemon! //passed in by segue, identifier "PokemonInfoVC"
+    var allPokemon: [Pokemon]! //passed in by segue, identifier "PokemonInfoVC"
     var pokemonEvolution: [Pokemon]!
     
     var audioPlayer: AVAudioPlayer!
+    var audioPlayerIsReadToPlay = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initAudioPlayer()
-        updateUIWithLocalData()
-        updateUIWithRmoteData()
+        pokemonEvolution = allPokemon.evolution(of: pokemon)
+        
+        updateUI()
     }
 
     
@@ -67,11 +68,22 @@ class PokemonInfoVC: UIViewController {
         if let path = Bundle.main.path(forResource: "\(pokemon.pokedexID)", ofType: "m4a"), let url = URL(string: path) {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: url)
-                audioPlayer.prepareToPlay()
+                if let audioPlayer = audioPlayer {
+                    audioPlayer.prepareToPlay()
+                    audioPlayerIsReadToPlay = true
+                } else {
+                    audioPlayerIsReadToPlay = false
+                }
             } catch let error as NSError {
                 print(error.debugDescription)
             }
         }
+    }
+    
+    func updateUI() {
+        updateUIWithLocalData()
+        updateUIWithRmoteData()
+        initAudioPlayer()
     }
     
     func updateUIWithLocalData() {
@@ -148,6 +160,8 @@ class PokemonInfoVC: UIViewController {
     
     /*-- Buttons --*/
     @IBAction func pokeCryBtnClicked(_ sender: Any) {
-        audioPlayer.play()
+        if audioPlayerIsReadToPlay {
+            audioPlayer.play()
+        }
     }
 }

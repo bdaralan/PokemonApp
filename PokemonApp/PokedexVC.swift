@@ -43,7 +43,7 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         if segue.identifier == "PokemonInfoVC" {
             if let sender = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {
                 pokemonInfoVC.pokemon = sender
-                pokemonInfoVC.pokemonEvolution = allPokemon.evolution(of: sender)
+                pokemonInfoVC.allPokemon = self.allPokemon
             }
         }
     }
