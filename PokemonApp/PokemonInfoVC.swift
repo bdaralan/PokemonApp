@@ -95,6 +95,8 @@ class PokemonInfoVC: UIViewController {
     }
     
     func updateUI() {
+        pokemonEvolution = allPokemon.evolution(of: pokemon)
+        
         updateUIWithLocalData()
         updateUIWithRmoteData()
         initAudioPlayer()
@@ -177,16 +179,22 @@ class PokemonInfoVC: UIViewController {
     func evolutionImg01Tapped() {
         print("first evolution image tapped")
         print(pokemonEvolution[0].name)
+        pokemon = pokemonEvolution[0]
+        updateUI()
     }
     
     func evolutionImg02Tapped() {
         print("second evolution image tapped")
         print(pokemonEvolution[1].name)
+        pokemon = pokemonEvolution[1]
+        updateUI()
     }
     
     func evolutionImg03Tapped() {
         print("third evolution image tapped")
         print(pokemonEvolution[2].name)
+        pokemon = pokemonEvolution[2]
+        updateUI()
     }
     
     
