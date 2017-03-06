@@ -46,8 +46,9 @@ class Pokemon {
     var evolveFrom: Int { return _evolveFrom }
     var evolveID: Int { return _evolveID }
     
-    
+    var hasPrimaryType: Bool { return _types.primary != "" }
     var hasSecondType: Bool { return _types.secondary != "" }
+    var hasFirstAbility: Bool { return _abilities.firstAbility != "" }
     var hasSecondAbility: Bool { return _abilities.secondAbility != "" }
     var hasHiddenAbility: Bool { return _abilities.hiddenAbility != "" }
     

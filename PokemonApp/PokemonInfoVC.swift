@@ -51,8 +51,6 @@ class PokemonInfoVC: UIViewController {
     var allPokemon: [Pokemon]! //passed in by segue, identifier "PokemonInfoVC"
     var pokemonEvolution: [Pokemon]!
     
-    var alreadyHasRemoteData = false
-    
     var audioPlayer: AVAudioPlayer!
     var audioPlayerIsReadToPlay = false
     
@@ -154,18 +152,21 @@ class PokemonInfoVC: UIViewController {
                 self.pokemonSummaryTxtView.text = self.pokemon.summary
                 self.pokemonSummaryTxtView.isHidden = false
                 
-                self.pokemonTypeLbl01.text = self.pokemon.types.primary
-                self.pokemonTypeLbl01.isHidden = false
-                if self.pokemon.types.secondary != "" {
+                if self.pokemon.hasPrimaryType {
+                    self.pokemonTypeLbl01.text = self.pokemon.types.primary
+                    self.pokemonTypeLbl01.isHidden = false
+                    self.pokemonTypeLbl01.backgroundColor = self.pokemon.types.primary.toUIColor()
+                }
+                if self.pokemon.hasSecondType {
                     self.pokemonTypeLbl02.text = self.pokemon.types.secondary
                     self.pokemonTypeLbl02.isHidden = false
+                    self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
                 }
                 
-                self.pokemonTypeLbl01.backgroundColor = self.pokemon.types.primary.toUIColor()
-                self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
-                
-                self.pokemonAbilLbl01.text = self.pokemon.abilities.firstAbility
-                self.pokemonAbilLbl01.isHidden = false
+                if self.pokemon.hasFirstAbility {
+                    self.pokemonAbilLbl01.text = self.pokemon.abilities.firstAbility
+                    self.pokemonAbilLbl01.isHidden = false
+                }
                 if self.pokemon.hasSecondAbility {
                     self.pokemonAbilLbl02.text = self.pokemon.abilities.secondAbility
                     self.pokemonAbilLbl02.isHidden = false
@@ -176,7 +177,6 @@ class PokemonInfoVC: UIViewController {
                 }
             }
         }
-        alreadyHasRemoteData = true
     }
     
     func setItemDefaultSetting() {

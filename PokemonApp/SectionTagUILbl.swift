@@ -14,5 +14,6 @@ class SectionTagUILbl: UILabel {
         self.layer.cornerRadius = 10.0
         self.layer.masksToBounds = true
         self.backgroundColor = COLORS.sectionTag.withAlphaComponent(0.7)
+        self.font = UIFont(name: self.font.fontName, size: 17.0)
     }
 }
