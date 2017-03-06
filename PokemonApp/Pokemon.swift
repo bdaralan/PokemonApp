@@ -66,7 +66,7 @@ class Pokemon {
         _defend = defend
         _spAttack = spAttack
         _spDefend = spDefend
-        _summary = "\(name.capitalized)..."
+        _summary = ""
         
         _pokemonURL = "\(API.baseURL)\(API.versionURL)\(API.pokemonURL)/\(pokedexID)"
         _summaryURL = "\(API.baseURL)\(API.versionURL)\(API.summaryURL)/\(pokedexID)"

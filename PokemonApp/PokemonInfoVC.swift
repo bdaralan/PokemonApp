@@ -18,9 +18,9 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var evolutionArrow02: UIImageView!
     @IBOutlet weak var evolutionArrow03: UIImageView!
     
-    @IBOutlet weak var evolutionImgFocus01: UILabel!
-    @IBOutlet weak var evolutionImgFocus02: UILabel!
-    @IBOutlet weak var evolutionImgFocus03: UILabel!
+    @IBOutlet weak var evolutionLblFocus01: UILabel!
+    @IBOutlet weak var evolutionLblFocus02: UILabel!
+    @IBOutlet weak var evolutionLblFocus03: UILabel!
     
     @IBOutlet weak var pokemonPokedexIdLbl: UILabel!
     @IBOutlet weak var pokemonTypeLbl01: UILabel!
@@ -45,11 +45,11 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokemonDefPV: UIProgressView!
     @IBOutlet weak var pokemonSpDefPV: UIProgressView!
     
+    var evolutionUILblCollection: [UILabel]!
+    
     var pokemon: Pokemon! //passed in by segue, identifier "PokemonInfoVC"
     var allPokemon: [Pokemon]! //passed in by segue, identifier "PokemonInfoVC"
     var pokemonEvolution: [Pokemon]!
-    
-    var evolutionUIImageViewCollection: [UIImageView]!
     
     var alreadyHasRemoteData = false
     
@@ -60,7 +60,7 @@ class PokemonInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        evolutionUIImageViewCollection = [evolutionImg01, evolutionImg02, evolutionImg03]
+        evolutionUILblCollection = [evolutionLblFocus01, evolutionLblFocus02, evolutionLblFocus03]
         
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         
@@ -76,6 +76,7 @@ class PokemonInfoVC: UIViewController {
     
     /*-- Functions --*/
     func configureImageTapGesture() {
+        
         let evolutionImg01TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg01Tapped))
         let evolutionImg02TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg02Tapped))
         let evolutionImg03TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg03Tapped))
@@ -89,6 +90,7 @@ class PokemonInfoVC: UIViewController {
     }
     
     func updateUI() {
+        
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         
         setItemDefaultSetting()
@@ -98,9 +100,12 @@ class PokemonInfoVC: UIViewController {
     }
     
     func updateUIWithLocalData() {
+        
         self.navigationItem.title = pokemon.name
         pokemonImg.image = UIImage(named: "\(pokemon.pokedexID)")
         pokemonPokedexIdLbl.text = pokemon.pokedexID.toOutputFormat()
+        
+        setEvolutionLblFocus(toOneOf: pokemonEvolution)
         
         switch pokemonEvolution.count {
         case 1:
@@ -129,6 +134,7 @@ class PokemonInfoVC: UIViewController {
     }
     
     func updateUIWithRmoteData() {
+        
         self.pokemon.requestPokemonData {
             DispatchQueue.main.sync {
                 self.pokemonHpLbl.text = "\(self.pokemon.hp)"
@@ -174,13 +180,13 @@ class PokemonInfoVC: UIViewController {
     }
     
     func setItemDefaultSetting() {
+        
         pokemonTypeLbl01.isHidden = true
         pokemonTypeLbl02.isHidden = true
         pokemonAbilLbl01.isHidden = true
         pokemonAbilLbl02.isHidden = true
         pokemonHiddenAbilLbl.isHidden = true
-        
-        evolutionImgFocus01.isHidden = true
+        pokemonSummaryTxtView.isHidden = true
         
         pokemonHpLbl.text = "0"
         pokemonAttlbl.text = "0"
@@ -199,6 +205,7 @@ class PokemonInfoVC: UIViewController {
     }
     
     func initAudioPlayer() {
+        
         if let path = Bundle.main.path(forResource: "\(pokemon.pokedexID)", ofType: "m4a"), let url = URL(string: path) {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: url)
@@ -211,9 +218,35 @@ class PokemonInfoVC: UIViewController {
         }
     }
     
+    func setEvolutionLblFocus(toOneOf pokemons: [Pokemon]) {
+    
+        for label in evolutionUILblCollection {
+            label.isHidden = true
+        }
+        
+        var atIndex = 0
+        for index in 0 ..< pokemons.count {
+            if pokemons[index].pokedexID == pokemon.pokedexID {
+                atIndex = index
+            }
+        }
+        
+        switch atIndex {
+        case 0:
+            evolutionLblFocus01.isHidden = false
+        case 1:
+            evolutionLblFocus02.isHidden = false
+        case 2:
+            evolutionLblFocus03.isHidden = false
+        default:
+            print("cannot set focus")
+        }
+    }
+    
     
     /*-- Tap Gestures --*/
     func evolutionImg01Tapped() {
+        
         if pokemon.pokedexID != pokemonEvolution[0].pokedexID {
             pokemon = pokemonEvolution[0]
             updateUI()
@@ -221,6 +254,7 @@ class PokemonInfoVC: UIViewController {
     }
     
     func evolutionImg02Tapped() {
+        
         if pokemon.pokedexID != pokemonEvolution[1].pokedexID {
             pokemon = pokemonEvolution[1]
             updateUI()
@@ -228,6 +262,7 @@ class PokemonInfoVC: UIViewController {
     }
     
     func evolutionImg03Tapped() {
+        
         if pokemon.pokedexID != pokemonEvolution[2].pokedexID {
             pokemon = pokemonEvolution[2]
             updateUI()
@@ -237,6 +272,7 @@ class PokemonInfoVC: UIViewController {
     
     /*-- Buttons --*/
     @IBAction func pokeCryBtnClicked(_ sender: Any) {
+        
         if audioPlayerIsReadToPlay {
             audioPlayer.prepareToPlay()
             audioPlayer.play()
