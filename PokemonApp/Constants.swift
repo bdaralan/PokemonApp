@@ -12,7 +12,7 @@ import Foundation
 let POKEMON_CSV_PATH = Bundle.main.path(forResource: "pokemon", ofType: "csv")
 let POKEMON_TYPES_CSV_PATH = Bundle.main.path(forResource: "pokemon-types", ofType: "csv")
 
-let DEFAULT_PRGRESS_VALUE = Float(0.05)
+let DEFAULT_PROGRESS_VALUE = Float(0.05)
 
 let API = APIData()
 let COLORS = Colors()

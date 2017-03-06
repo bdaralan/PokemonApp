@@ -130,6 +130,17 @@ class PokemonInfoVC: UIViewController {
             evolutionImg03.image = UIImage(named: "\(pokemonEvolution[2].pokedexID)")
         case 4:
             print("Evolution number: 4")
+            pokemonEvolution.removeLast()
+            evolutionImg01.isHidden = false
+            evolutionImg02.isHidden = false
+            evolutionImg03.isHidden = false
+            evolutionArrow02.isHidden = false
+            evolutionArrow03.isHidden = false
+            evolutionImg01.image = UIImage(named: "\(pokemonEvolution[0].pokedexID)")
+            evolutionImg02.image = UIImage(named: "\(pokemonEvolution[1].pokedexID)")
+            evolutionImg03.image = UIImage(named: "\(pokemonEvolution[2].pokedexID)")
+        case 9: //case for eeve
+            print("Eevee evolution")
         default:
             print("Special evolution case")
         }
@@ -200,12 +211,12 @@ class PokemonInfoVC: UIViewController {
         pokemonSpdLbl.text = "0"
         pokemonSummaryTxtView.text = ""
         
-        pokemonHpPV.progress = DEFAULT_PRGRESS_VALUE
-        pokemonAttPV.progress = DEFAULT_PRGRESS_VALUE
-        pokemonDefPV.progress = DEFAULT_PRGRESS_VALUE
-        pokemonSpAttPV.progress = DEFAULT_PRGRESS_VALUE
-        pokemonSpDefPV.progress = DEFAULT_PRGRESS_VALUE
-        pokemonSpdPV.progress = DEFAULT_PRGRESS_VALUE
+        pokemonHpPV.progress = DEFAULT_PROGRESS_VALUE
+        pokemonAttPV.progress = DEFAULT_PROGRESS_VALUE
+        pokemonDefPV.progress = DEFAULT_PROGRESS_VALUE
+        pokemonSpAttPV.progress = DEFAULT_PROGRESS_VALUE
+        pokemonSpDefPV.progress = DEFAULT_PROGRESS_VALUE
+        pokemonSpdPV.progress = DEFAULT_PROGRESS_VALUE
     }
     
     func initAudioPlayer() {
