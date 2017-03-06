@@ -403,11 +403,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pokemon" id="HO4-8f-NNH">
-                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="QSe-EB-uGs">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="pokeCryBtnClicked:" destination="6fH-JT-nEc" id="J1d-eL-odk"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" id="oVR-gu-Kv1">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gPZ-rh-CYZ">
+                                <rect key="frame" x="309" y="-3" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ralts-note"/>
+                                <connections>
+                                    <action selector="pokeCryBtnClicked:" destination="6fH-JT-nEc" eventType="touchUpInside" id="2DK-r7-DVF"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -468,5 +472,6 @@
         <image name="280" width="150" height="150"/>
         <image name="evolution-arrow" width="256" height="256"/>
         <image name="pokeball-op30" width="150" height="150"/>
+        <image name="ralts-note" width="128" height="128"/>
     </resources>
 </document>
