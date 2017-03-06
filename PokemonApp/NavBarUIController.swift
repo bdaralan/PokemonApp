@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavBarUIC: UINavigationController {
+class NavBarUIController: UINavigationController {
     
     override func awakeFromNib() {
         self.navigationBar.barTintColor = COLORS.navigationBar

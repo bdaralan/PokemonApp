@@ -12,7 +12,7 @@ import UIKit
 extension Int {
     
     // Add one or at most two zero (ex: 009)
-    func outputFormat() -> String {
+    func toOutputFormat() -> String {
         return String(format: "#%03d", self)
     }
     

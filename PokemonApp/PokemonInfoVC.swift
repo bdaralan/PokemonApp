@@ -18,6 +18,11 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var evolutionArrow02: UIImageView!
     @IBOutlet weak var evolutionArrow03: UIImageView!
     
+    @IBOutlet weak var evolutionImgFocus01: UILabel!
+    @IBOutlet weak var evolutionImgFocus02: UILabel!
+    @IBOutlet weak var evolutionImgFocus03: UILabel!
+    
+    @IBOutlet weak var pokemonPokedexIdLbl: UILabel!
     @IBOutlet weak var pokemonTypeLbl01: UILabel!
     @IBOutlet weak var pokemonTypeLbl02: UILabel!
     @IBOutlet weak var pokemonSummaryTxtView: UITextView!
@@ -40,10 +45,11 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokemonDefPV: UIProgressView!
     @IBOutlet weak var pokemonSpDefPV: UIProgressView!
     
-    
     var pokemon: Pokemon! //passed in by segue, identifier "PokemonInfoVC"
     var allPokemon: [Pokemon]! //passed in by segue, identifier "PokemonInfoVC"
     var pokemonEvolution: [Pokemon]!
+    
+    var evolutionUIImageViewCollection: [UIImageView]!
     
     var alreadyHasRemoteData = false
     
@@ -53,6 +59,8 @@ class PokemonInfoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        evolutionUIImageViewCollection = [evolutionImg01, evolutionImg02, evolutionImg03]
         
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         
@@ -92,6 +100,7 @@ class PokemonInfoVC: UIViewController {
     func updateUIWithLocalData() {
         self.navigationItem.title = pokemon.name
         pokemonImg.image = UIImage(named: "\(pokemon.pokedexID)")
+        pokemonPokedexIdLbl.text = pokemon.pokedexID.toOutputFormat()
         
         switch pokemonEvolution.count {
         case 1:
@@ -112,6 +121,8 @@ class PokemonInfoVC: UIViewController {
             evolutionImg01.image = UIImage(named: "\(pokemonEvolution[0].pokedexID)")
             evolutionImg02.image = UIImage(named: "\(pokemonEvolution[1].pokedexID)")
             evolutionImg03.image = UIImage(named: "\(pokemonEvolution[2].pokedexID)")
+        case 4:
+            print("Evolution number: 4")
         default:
             print("Special evolution case")
         }
@@ -162,25 +173,14 @@ class PokemonInfoVC: UIViewController {
         alreadyHasRemoteData = true
     }
     
-    func initAudioPlayer() {
-        if let path = Bundle.main.path(forResource: "\(pokemon.pokedexID)", ofType: "m4a"), let url = URL(string: path) {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                audioPlayerIsReadToPlay = true
-            } catch let error as NSError {
-                print(error.debugDescription)
-            }
-        } else {
-            audioPlayerIsReadToPlay = false
-        }
-    }
-    
     func setItemDefaultSetting() {
         pokemonTypeLbl01.isHidden = true
         pokemonTypeLbl02.isHidden = true
         pokemonAbilLbl01.isHidden = true
         pokemonAbilLbl02.isHidden = true
         pokemonHiddenAbilLbl.isHidden = true
+        
+        evolutionImgFocus01.isHidden = true
         
         pokemonHpLbl.text = "0"
         pokemonAttlbl.text = "0"
@@ -196,6 +196,19 @@ class PokemonInfoVC: UIViewController {
         pokemonSpAttPV.progress = DEFAULT_PRGRESS_VALUE
         pokemonSpDefPV.progress = DEFAULT_PRGRESS_VALUE
         pokemonSpdPV.progress = DEFAULT_PRGRESS_VALUE
+    }
+    
+    func initAudioPlayer() {
+        if let path = Bundle.main.path(forResource: "\(pokemon.pokedexID)", ofType: "m4a"), let url = URL(string: path) {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayerIsReadToPlay = true
+            } catch let error as NSError {
+                print(error.debugDescription)
+            }
+        } else {
+            audioPlayerIsReadToPlay = false
+        }
     }
     
     
