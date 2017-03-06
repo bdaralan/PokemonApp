@@ -385,17 +385,17 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9W-yd-0nZ" customClass="MeasurementUILbl" customModule="PokemonApp" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9W-yd-0nZ" customClass="MeasurementUILbl" customModule="PokemonApp" customModuleProvider="target">
                                 <rect key="frame" x="204" y="219" width="65" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fda-7a-9TH" customClass="MeasurementUILbl" customModule="PokemonApp" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0kg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fda-7a-9TH" customClass="MeasurementUILbl" customModule="PokemonApp" customModuleProvider="target">
                                 <rect key="frame" x="284" y="219" width="65" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -408,6 +408,7 @@
                                 <rect key="frame" x="309" y="-3" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="ralts-note"/>
+                                <state key="highlighted" image="ralts-note-tapped"/>
                                 <connections>
                                     <action selector="pokeCryBtnClicked:" destination="6fH-JT-nEc" eventType="touchUpInside" id="2DK-r7-DVF"/>
                                 </connections>
@@ -429,6 +430,7 @@
                         <outlet property="pokemonAttlbl" destination="AQl-D2-Jvf" id="YQc-6d-DdH"/>
                         <outlet property="pokemonDefLbl" destination="JDr-p0-boY" id="Twy-Ix-xGS"/>
                         <outlet property="pokemonDefPV" destination="ilI-i7-fXQ" id="WIp-TO-LgI"/>
+                        <outlet property="pokemonHeight" destination="x9W-yd-0nZ" id="eHe-zF-md5"/>
                         <outlet property="pokemonHiddenAbilLbl" destination="SQ2-2k-i4q" id="tpS-r4-CtH"/>
                         <outlet property="pokemonHpLbl" destination="HkZ-iJ-54Y" id="vIU-Kx-qF1"/>
                         <outlet property="pokemonHpPV" destination="Cqe-7h-51r" id="yIA-Xn-XEK"/>
@@ -443,6 +445,7 @@
                         <outlet property="pokemonSummaryTxtView" destination="UV4-7c-a3i" id="igQ-cP-uch"/>
                         <outlet property="pokemonTypeLbl01" destination="lg1-2o-V8j" id="krA-S1-kH9"/>
                         <outlet property="pokemonTypeLbl02" destination="uhq-NQ-2Jc" id="xce-Pj-yrw"/>
+                        <outlet property="pokemonWeight" destination="Fda-7a-9TH" id="v42-1V-oPS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAl-yn-VjM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -473,5 +476,6 @@
         <image name="evolution-arrow" width="256" height="256"/>
         <image name="pokeball-op30" width="150" height="150"/>
         <image name="ralts-note" width="128" height="128"/>
+        <image name="ralts-note-tapped" width="128" height="128"/>
     </resources>
 </document>

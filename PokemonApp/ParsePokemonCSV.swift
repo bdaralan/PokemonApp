@@ -19,7 +19,7 @@ func ParsePokemonCSV() -> [Pokemon] {
             
             pokeLineTokens.removeFirst() //remove the header of the csv file
             
-            for i in 0..<(pokeLineTokens.count) {
+            for i in 0 ..< pokeLineTokens.count {
                 let pokeInfoArray = pokeLineTokens[i].components(separatedBy: ",")
                 // pokemonInfo output is an array of:
                 // ["id", "identifier", "species_id", "height", "weight", "base_experience", "order", "is_default"]
@@ -36,11 +36,12 @@ func ParsePokemonCSV() -> [Pokemon] {
                 }
                 
                 let evolveID = Int(pokeInfoArray[3])!
+                let height = Double(pokeInfoArray[6])!
+                let weight = Double(pokeInfoArray[7])!
                 
-                let newPokemon = Pokemon(name: name, pokedexID: pokedexID, evolveFrom: evolveFrom, evolveID: evolveID)
+                let newPokemon = Pokemon(name: name, pokedexID: pokedexID, evolveFrom: evolveFrom, evolveID: evolveID, height: height, weight: weight)
                 pokemon.append(newPokemon)
             }
-            
         } catch {
             print(error)
         }

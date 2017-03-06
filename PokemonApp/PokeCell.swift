@@ -33,7 +33,7 @@ class PokeCell: UITableViewCell {
         
         pokemonImg.image = UIImage(named: "\(self.pokemon.pokedexID)")
         pokemonNameLbl.text = self.pokemon.name
-        pokemonIDLbl.text = self.pokemon.pokedexID.toOutputFormat()
+        pokemonIDLbl.text = self.pokemon.pokedexID.toIDOutputFormat()
     }
 
 }

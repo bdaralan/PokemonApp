@@ -12,13 +12,29 @@ import UIKit
 extension Int {
     
     // Add one or at most two zero (ex: 009)
-    func toOutputFormat() -> String {
+    func toIDOutputFormat() -> String {
         return String(format: "#%03d", self)
     }
     
     // Convert to fraction from 0.0 to 0.9
     func toProgress() -> Float {
         return Float(self) / 200.0
+    }
+}
+
+extension Double {
+    
+    /// Convert pokemon's arbitrary weight from csv to actual weight
+    func toCorrectWeight() -> Double {
+        return self / 10.0
+    }
+    
+    func toMeterOutputFormat() -> String {
+        return "\(self)m"
+    }
+    
+    func toKiloOutputForat() -> String {
+        return "\(self)kg"
     }
 }
 

@@ -20,6 +20,8 @@ class Pokemon {
     private var _spAttack: Int!
     private var _defend: Int!
     private var _spDefend: Int!
+    private var _height: Double!
+    private var _weight: Double!
     private var _summary: String!
     private var _types: PokemonTypes!
     private var _abilities: PokemonAbilities!
@@ -40,6 +42,8 @@ class Pokemon {
     var spAttack: Int { return _spAttack }
     var defend: Int { return _defend }
     var spDefend: Int { return _spDefend }
+    var height: Double { return _height }
+    var weight: Double { return _weight }
     var summary: String { return _summary }
     var types: PokemonTypes { return _types }
     var abilities: PokemonAbilities { return self._abilities }
@@ -53,7 +57,7 @@ class Pokemon {
     var hasHiddenAbility: Bool { return _abilities.hiddenAbility != "" }
     
     
-    init(name: String, pokedexID: Int, evolveFrom: Int, evolveID: Int, hp: Int? = 0, speed: Int? = 0, attack: Int? = 0, defend: Int? = 0, spAttack: Int? = 0, spDefend: Int? = 0, summary: String? = "") {
+    init(name: String, pokedexID: Int, evolveFrom: Int, evolveID: Int, hp: Int? = 0, speed: Int? = 0, attack: Int? = 0, defend: Int? = 0, spAttack: Int? = 0, spDefend: Int? = 0, height: Double? = 0.0, weight: Double? = 0.0, summary: String? = "") {
         _name = name.capitalized
         _pokedexID = pokedexID
         _types = PokemonTypes()
@@ -67,6 +71,8 @@ class Pokemon {
         _defend = defend
         _spAttack = spAttack
         _spDefend = spDefend
+        _height = height?.toCorrectWeight()
+        _weight = weight?.toCorrectWeight()
         _summary = ""
         
         _pokemonURL = "\(API.baseURL)\(API.versionURL)\(API.pokemonURL)/\(pokedexID)"

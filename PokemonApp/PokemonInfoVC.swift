@@ -25,6 +25,8 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokemonPokedexIdLbl: UILabel!
     @IBOutlet weak var pokemonTypeLbl01: UILabel!
     @IBOutlet weak var pokemonTypeLbl02: UILabel!
+    @IBOutlet weak var pokemonHeight: UILabel!
+    @IBOutlet weak var pokemonWeight: UILabel!
     @IBOutlet weak var pokemonSummaryTxtView: UITextView!
     
     @IBOutlet weak var pokemonHpLbl: UILabel!
@@ -101,7 +103,9 @@ class PokemonInfoVC: UIViewController {
         
         self.navigationItem.title = pokemon.name
         pokemonImg.image = UIImage(named: "\(pokemon.pokedexID)")
-        pokemonPokedexIdLbl.text = pokemon.pokedexID.toOutputFormat()
+        pokemonPokedexIdLbl.text = pokemon.pokedexID.toIDOutputFormat()
+        pokemonHeight.text = pokemon.height.toMeterOutputFormat()
+        pokemonWeight.text = pokemon.weight.toKiloOutputForat()
         
         setEvolutionLblFocus(toOneOf: pokemonEvolution)
         
