@@ -29,21 +29,21 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4AX-Ke-oXU" id="KIH-ve-Og8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="280" translatesAutoresizingMaskIntoConstraints="NO" id="KAH-HC-enN">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokeball-op30" translatesAutoresizingMaskIntoConstraints="NO" id="KAH-HC-enN">
                                                     <rect key="frame" x="18" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ralts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA8-Wj-Rja">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pokemon Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA8-Wj-Rja">
                                                     <rect key="frame" x="86" y="15" width="172" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#280" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZA-lf-qq7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZA-lf-qq7">
                                                     <rect key="frame" x="277" y="15" width="80" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -416,8 +416,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="evolutionArrow02" destination="TTE-qn-9Oq" id="PKY-kA-a2V"/>
-                        <outlet property="evolutionArrow03" destination="EBw-NE-74y" id="44f-tP-qy9"/>
+                        <outlet property="evolutionArrow01" destination="TTE-qn-9Oq" id="Yul-hw-3mE"/>
+                        <outlet property="evolutionArrow02" destination="EBw-NE-74y" id="01W-oJ-RBm"/>
                         <outlet property="evolutionImg01" destination="Lgm-r3-wMM" id="9aL-eM-uxj"/>
                         <outlet property="evolutionImg02" destination="Udg-Sc-b3C" id="U2M-gG-JEp"/>
                         <outlet property="evolutionImg03" destination="X1D-Rj-noA" id="bfU-Hg-es1"/>
@@ -472,7 +472,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="280" width="150" height="150"/>
         <image name="evolve-arrow" width="150" height="80"/>
         <image name="pokeball-op30" width="150" height="150"/>
         <image name="ralts-note" width="128" height="128"/>

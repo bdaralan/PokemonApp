@@ -15,8 +15,8 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var evolutionImg01: UIImageView!
     @IBOutlet weak var evolutionImg02: UIImageView!
     @IBOutlet weak var evolutionImg03: UIImageView!
+    @IBOutlet weak var evolutionArrow01: UIImageView!
     @IBOutlet weak var evolutionArrow02: UIImageView!
-    @IBOutlet weak var evolutionArrow03: UIImageView!
     
     @IBOutlet weak var evolutionLblFocus01: UILabel!
     @IBOutlet weak var evolutionLblFocus02: UILabel!
@@ -47,11 +47,14 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokemonDefPV: UIProgressView!
     @IBOutlet weak var pokemonSpDefPV: UIProgressView!
     
+    
     var evolutionUILblCollection: [UILabel]!
+    var evoulutionUIImgViewCollection: [UIImageView]!
     
     var pokemon: Pokemon! //passed in by segue, identifier "PokemonInfoVC"
     var allPokemon: [Pokemon]! //passed in by segue, identifier "PokemonInfoVC"
     var pokemonEvolution: [Pokemon]!
+    var indexOfTappedEvolutionImg: Int!
     
     var audioPlayer: AVAudioPlayer!
     var audioPlayerIsReadToPlay = false
@@ -60,7 +63,10 @@ class PokemonInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        indexOfTappedEvolutionImg = -999
+        
         evolutionUILblCollection = [evolutionLblFocus01, evolutionLblFocus02, evolutionLblFocus03]
+        evoulutionUIImgViewCollection = [evolutionImg01, evolutionImg02, evolutionImg03]
         
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         
@@ -107,41 +113,34 @@ class PokemonInfoVC: UIViewController {
         pokemonHeight.text = pokemon.height.toMeterOutputFormat()
         pokemonWeight.text = pokemon.weight.toKiloOutputForat()
         
-        setEvolutionLblFocus(toOneOf: pokemonEvolution)
-        
-        switch pokemonEvolution.count {
-        case 1:
-            evolutionImg01.isHidden = false
-            evolutionImg01.image = UIImage(named: "\(pokemonEvolution[0].pokedexID)")
-        case 2:
-            evolutionImg01.isHidden = false
-            evolutionImg02.isHidden = false
-            evolutionArrow02.isHidden = false
-            evolutionImg01.image = UIImage(named: "\(pokemonEvolution[0].pokedexID)")
-            evolutionImg02.image = UIImage(named: "\(pokemonEvolution[1].pokedexID)")
-        case 3:
-            evolutionImg01.isHidden = false
-            evolutionImg02.isHidden = false
-            evolutionImg03.isHidden = false
-            evolutionArrow02.isHidden = false
-            evolutionArrow03.isHidden = false
-            evolutionImg01.image = UIImage(named: "\(pokemonEvolution[0].pokedexID)")
-            evolutionImg02.image = UIImage(named: "\(pokemonEvolution[1].pokedexID)")
-            evolutionImg03.image = UIImage(named: "\(pokemonEvolution[2].pokedexID)")
-        case 4:
-            pokemonEvolution.removeLast()
-            evolutionImg01.isHidden = false
-            evolutionImg02.isHidden = false
-            evolutionImg03.isHidden = false
-            evolutionArrow02.isHidden = false
-            evolutionArrow03.isHidden = false
-            evolutionImg01.image = UIImage(named: "\(pokemonEvolution[0].pokedexID)")
-            evolutionImg02.image = UIImage(named: "\(pokemonEvolution[1].pokedexID)")
-            evolutionImg03.image = UIImage(named: "\(pokemonEvolution[2].pokedexID)")
-        case 9: //case for eeve
-            print("Eevee evolution")
-        default:
-            print("Special evolution case")
+        if pokemonEvolution.count < 4 {
+            for i in 0 ..< pokemonEvolution.count {
+                //set evolution images
+                evoulutionUIImgViewCollection[i].isHidden = false
+                evoulutionUIImgViewCollection[i].image = UIImage(named: "\(pokemonEvolution[i].pokedexID)")
+                
+                //set focus label
+                if pokemonEvolution[i].pokedexID == pokemon.pokedexID {
+                    evolutionUILblCollection[i].isHidden = false
+                } else {
+                    evolutionUILblCollection[i].isHidden = true
+                }
+                
+                //set evolution arrow
+                switch pokemonEvolution.count {
+                case 1:
+                    print("No Evolution")
+                case 2:
+                    evolutionArrow01.isHidden = false
+                case 3:
+                    evolutionArrow01.isHidden = false
+                    evolutionArrow02.isHidden = false
+                default:
+                    print("Cannot have more than 2 evolution arrows")
+                }
+            }
+        } else {
+            print("Special evolution condition")
         }
     }
     
@@ -149,51 +148,56 @@ class PokemonInfoVC: UIViewController {
         
         self.pokemon.requestPokemonData {
             DispatchQueue.main.sync {
-                if self.pokemon.hp != 0 { //does not have to be 'hp', if any property is 0, skip
-                    self.pokemonHpLbl.text = "\(self.pokemon.hp)"
-                    self.pokemonSpdLbl.text = "\(self.pokemon.speed)"
-                    self.pokemonAttlbl.text = "\(self.pokemon.attack)"
-                    self.pokemonSpAttLbl.text = "\(self.pokemon.spAttack)"
-                    self.pokemonDefLbl.text = "\(self.pokemon.defend)"
-                    self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
-                    
-                    
-                    self.pokemonHpPV.setProgress(self.pokemon.hp.toProgress(), animated: true)
-                    self.pokemonSpdPV.setProgress(self.pokemon.speed.toProgress(), animated: true)
-                    self.pokemonAttPV.setProgress(self.pokemon.attack.toProgress(), animated: true)
-                    self.pokemonSpAttPV.setProgress(self.pokemon.spAttack.toProgress(), animated: true)
-                    self.pokemonDefPV.setProgress(self.pokemon.defend.toProgress(), animated: true)
-                    self.pokemonSpDefPV.setProgress(self.pokemon.spDefend.toProgress(), animated: true)
-                }
-                
-                
-                self.pokemonSummaryTxtView.text = self.pokemon.summary
-                self.pokemonSummaryTxtView.isHidden = false
-                
-                if self.pokemon.hasPrimaryType {
-                    self.pokemonTypeLbl01.text = self.pokemon.types.primary
-                    self.pokemonTypeLbl01.isHidden = false
-                    self.pokemonTypeLbl01.backgroundColor = self.pokemon.types.primary.toUIColor()
-                }
-                if self.pokemon.hasSecondType {
-                    self.pokemonTypeLbl02.text = self.pokemon.types.secondary
-                    self.pokemonTypeLbl02.isHidden = false
-                    self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
-                }
-                
-                if self.pokemon.hasFirstAbility {
-                    self.pokemonAbilLbl01.text = self.pokemon.abilities.firstAbility
-                    self.pokemonAbilLbl01.isHidden = false
-                }
-                if self.pokemon.hasSecondAbility {
-                    self.pokemonAbilLbl02.text = self.pokemon.abilities.secondAbility
-                    self.pokemonAbilLbl02.isHidden = false
-                }
-                if self.pokemon.hasHiddenAbility {
-                    self.pokemonHiddenAbilLbl.text = "\(self.pokemon.abilities.hiddenAbility) (H)"
-                    self.pokemonHiddenAbilLbl.isHidden = false
-                }
+                self.updateIBOutlets()
             }
+        }
+    }
+    
+    func updateIBOutlets() { // must use 'self' because this func is used by an async func, updateUIWithLocalData()
+        
+        if self.pokemon.hp != 0 { //does not have to be 'hp', if any property is 0, skip
+            self.pokemonHpLbl.text = "\(self.pokemon.hp)"
+            self.pokemonSpdLbl.text = "\(self.pokemon.speed)"
+            self.pokemonAttlbl.text = "\(self.pokemon.attack)"
+            self.pokemonSpAttLbl.text = "\(self.pokemon.spAttack)"
+            self.pokemonDefLbl.text = "\(self.pokemon.defend)"
+            self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
+            
+            
+            self.pokemonHpPV.setProgress(self.pokemon.hp.toProgress(), animated: true)
+            self.pokemonSpdPV.setProgress(self.pokemon.speed.toProgress(), animated: true)
+            self.pokemonAttPV.setProgress(self.pokemon.attack.toProgress(), animated: true)
+            self.pokemonSpAttPV.setProgress(self.pokemon.spAttack.toProgress(), animated: true)
+            self.pokemonDefPV.setProgress(self.pokemon.defend.toProgress(), animated: true)
+            self.pokemonSpDefPV.setProgress(self.pokemon.spDefend.toProgress(), animated: true)
+        }
+        
+        
+        self.pokemonSummaryTxtView.text = self.pokemon.summary
+        self.pokemonSummaryTxtView.isHidden = false
+        
+        if self.pokemon.hasPrimaryType {
+            self.pokemonTypeLbl01.text = self.pokemon.types.primary
+            self.pokemonTypeLbl01.isHidden = false
+            self.pokemonTypeLbl01.backgroundColor = self.pokemon.types.primary.toUIColor()
+        }
+        if self.pokemon.hasSecondType {
+            self.pokemonTypeLbl02.text = self.pokemon.types.secondary
+            self.pokemonTypeLbl02.isHidden = false
+            self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
+        }
+        
+        if self.pokemon.hasFirstAbility {
+            self.pokemonAbilLbl01.text = self.pokemon.abilities.firstAbility
+            self.pokemonAbilLbl01.isHidden = false
+        }
+        if self.pokemon.hasSecondAbility {
+            self.pokemonAbilLbl02.text = self.pokemon.abilities.secondAbility
+            self.pokemonAbilLbl02.isHidden = false
+        }
+        if self.pokemon.hasHiddenAbility {
+            self.pokemonHiddenAbilLbl.text = "\(self.pokemon.abilities.hiddenAbility) (H)"
+            self.pokemonHiddenAbilLbl.isHidden = false
         }
     }
     
@@ -232,17 +236,6 @@ class PokemonInfoVC: UIViewController {
             }
         } else {
             audioPlayerIsReadToPlay = false
-        }
-    }
-    
-    func setEvolutionLblFocus(toOneOf pokemons: [Pokemon]) {
-        
-        for i in 0 ..< evolutionUILblCollection.count {
-            if pokemons[i].pokedexID != pokemon.pokedexID {
-                evolutionUILblCollection[i].isHidden = true
-            } else {
-                evolutionUILblCollection[i].isHidden = false
-            }
         }
     }
     
