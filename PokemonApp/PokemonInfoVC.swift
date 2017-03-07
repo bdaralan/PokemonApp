@@ -51,6 +51,7 @@ class PokemonInfoVC: UIViewController {
     var evolutionUILblCollection: [UILabel]!
     var evolutionUIImgViewCollection: [UIImageView]!
     var evolutionAtIndexAlreadyDownloaded: [Bool]!
+    var evolutionIndex: Int!
     
     var pokemon: Pokemon! //passed in by segue, identifier "PokemonInfoVC"
     var allPokemon: [Pokemon]! //passed in by segue, identifier "PokemonInfoVC"
@@ -66,14 +67,13 @@ class PokemonInfoVC: UIViewController {
         evolutionUILblCollection = [evolutionLblFocus01, evolutionLblFocus02, evolutionLblFocus03]
         evolutionUIImgViewCollection = [evolutionImg01, evolutionImg02, evolutionImg03]
         evolutionAtIndexAlreadyDownloaded = [false, false, false]
+        evolutionIndex = -1
+        
         
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         
         configureImageTapGesture()
-        
-        updateUIWithLocalData()
-        updateUIWithRmoteData()
-        initAudioPlayer()
+        updateUI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -97,24 +97,11 @@ class PokemonInfoVC: UIViewController {
         evolutionImg03.isUserInteractionEnabled = true
     }
     
-    func updateUI(evolutionIndex i: Int) {
-        
-        pokemonEvolution = allPokemon.evolution(of: pokemon)
+    func updateUI() {
         
         setItemDefaultSetting()
         updateUIWithLocalData()
-        
-        if evolutionAtIndexAlreadyDownloaded[i] {
-            updateIBOutlets()
-        } else {
-            self.pokemon.requestPokemonData {
-                DispatchQueue.main.sync {
-                    self.updateIBOutlets()
-                    self.evolutionAtIndexAlreadyDownloaded[i] = true
-                }
-            }
-        }
-    
+        updateUIWithRmoteData()
         initAudioPlayer()
     }
     
@@ -126,7 +113,16 @@ class PokemonInfoVC: UIViewController {
         pokemonHeight.text = pokemon.height.toMeterOutputFormat()
         pokemonWeight.text = pokemon.weight.toKiloOutputForat()
         
-        if pokemonEvolution.count < 4 {
+        if pokemonEvolution.count <= 4 { //has 4 forms
+            
+            if pokemonEvolution.count == 4 {
+                if pokemonEvolution[3].pokedexID != pokemon.pokedexID {
+                    pokemonEvolution.remove(at: 3)
+                } else {
+                    pokemonEvolution.remove(at: 2)
+                }
+            }
+            
             for i in 0 ..< pokemonEvolution.count {
                 //set evolution images
                 evolutionUIImgViewCollection[i].isHidden = false
@@ -137,6 +133,7 @@ class PokemonInfoVC: UIViewController {
                     evolutionUILblCollection[i].isHidden = true
                 } else {
                     evolutionUILblCollection[i].isHidden = false
+                    evolutionIndex = i
                 }
                 
                 //set evolution arrow
@@ -158,10 +155,15 @@ class PokemonInfoVC: UIViewController {
     }
     
     func updateUIWithRmoteData() {
-
-        self.pokemon.requestPokemonData {
-            DispatchQueue.main.sync {
-                self.updateIBOutlets()
+        
+        if evolutionAtIndexAlreadyDownloaded[evolutionIndex] {
+            updateIBOutlets()
+        } else {
+            self.pokemon.requestPokemonData {
+                DispatchQueue.main.sync {
+                    self.updateIBOutlets()
+                    self.evolutionAtIndexAlreadyDownloaded[self.evolutionIndex] = true
+                }
             }
         }
     }
@@ -255,7 +257,7 @@ class PokemonInfoVC: UIViewController {
         
         if pokemon.pokedexID != pokemonEvolution[0].pokedexID {
             pokemon = pokemonEvolution[0]
-            updateUI(evolutionIndex: 0)
+            updateUI()
         }
     }
     
@@ -263,7 +265,7 @@ class PokemonInfoVC: UIViewController {
         
         if pokemon.pokedexID != pokemonEvolution[1].pokedexID {
             pokemon = pokemonEvolution[1]
-            updateUI(evolutionIndex: 1)
+            updateUI()
         }
     }
     
@@ -271,7 +273,7 @@ class PokemonInfoVC: UIViewController {
         
         if pokemon.pokedexID != pokemonEvolution[2].pokedexID {
             pokemon = pokemonEvolution[2]
-            updateUI(evolutionIndex: 2)
+            updateUI()
         }
     }
     
