@@ -149,19 +149,23 @@ class PokemonInfoVC: UIViewController {
         
         self.pokemon.requestPokemonData {
             DispatchQueue.main.sync {
-                self.pokemonHpLbl.text = "\(self.pokemon.hp)"
-                self.pokemonSpdLbl.text = "\(self.pokemon.speed)"
-                self.pokemonAttlbl.text = "\(self.pokemon.attack)"
-                self.pokemonSpAttLbl.text = "\(self.pokemon.spAttack)"
-                self.pokemonDefLbl.text = "\(self.pokemon.defend)"
-                self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
+                if self.pokemon.hp != 0 { //does not have to be 'hp', if any property is 0, skip
+                    self.pokemonHpLbl.text = "\(self.pokemon.hp)"
+                    self.pokemonSpdLbl.text = "\(self.pokemon.speed)"
+                    self.pokemonAttlbl.text = "\(self.pokemon.attack)"
+                    self.pokemonSpAttLbl.text = "\(self.pokemon.spAttack)"
+                    self.pokemonDefLbl.text = "\(self.pokemon.defend)"
+                    self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
+                    
+                    
+                    self.pokemonHpPV.setProgress(self.pokemon.hp.toProgress(), animated: true)
+                    self.pokemonSpdPV.setProgress(self.pokemon.speed.toProgress(), animated: true)
+                    self.pokemonAttPV.setProgress(self.pokemon.attack.toProgress(), animated: true)
+                    self.pokemonSpAttPV.setProgress(self.pokemon.spAttack.toProgress(), animated: true)
+                    self.pokemonDefPV.setProgress(self.pokemon.defend.toProgress(), animated: true)
+                    self.pokemonSpDefPV.setProgress(self.pokemon.spDefend.toProgress(), animated: true)
+                }
                 
-                self.pokemonHpPV.setProgress(self.pokemon.hp.toProgress(), animated: true)
-                self.pokemonSpdPV.setProgress(self.pokemon.speed.toProgress(), animated: true)
-                self.pokemonAttPV.setProgress(self.pokemon.attack.toProgress(), animated: true)
-                self.pokemonSpAttPV.setProgress(self.pokemon.spAttack.toProgress(), animated: true)
-                self.pokemonDefPV.setProgress(self.pokemon.defend.toProgress(), animated: true)
-                self.pokemonSpDefPV.setProgress(self.pokemon.spDefend.toProgress(), animated: true)
                 
                 self.pokemonSummaryTxtView.text = self.pokemon.summary
                 self.pokemonSummaryTxtView.isHidden = false
@@ -208,7 +212,6 @@ class PokemonInfoVC: UIViewController {
         pokemonSpAttLbl.text = "0"
         pokemonSpDefLbl.text = "0"
         pokemonSpdLbl.text = "0"
-        pokemonSummaryTxtView.text = ""
         
         pokemonHpPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
         pokemonAttPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
@@ -233,27 +236,13 @@ class PokemonInfoVC: UIViewController {
     }
     
     func setEvolutionLblFocus(toOneOf pokemons: [Pokemon]) {
-    
-        for label in evolutionUILblCollection {
-            label.isHidden = true
-        }
         
-        var atIndex = 0
-        for index in 0 ..< pokemons.count {
-            if pokemons[index].pokedexID == pokemon.pokedexID {
-                atIndex = index
+        for i in 0 ..< evolutionUILblCollection.count {
+            if pokemons[i].pokedexID != pokemon.pokedexID {
+                evolutionUILblCollection[i].isHidden = true
+            } else {
+                evolutionUILblCollection[i].isHidden = false
             }
-        }
-        
-        switch atIndex {
-        case 0:
-            evolutionLblFocus01.isHidden = false
-        case 1:
-            evolutionLblFocus02.isHidden = false
-        case 2:
-            evolutionLblFocus03.isHidden = false
-        default:
-            print("cannot set focus")
         }
     }
     

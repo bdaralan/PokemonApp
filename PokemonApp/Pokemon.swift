@@ -73,7 +73,7 @@ class Pokemon {
         _spDefend = spDefend
         _height = height?.toCorrectWeight()
         _weight = weight?.toCorrectWeight()
-        _summary = ""
+        _summary = summary
         
         _pokemonURL = "\(API.baseURL)\(API.versionURL)\(API.pokemonURL)/\(pokedexID)"
         _summaryURL = "\(API.baseURL)\(API.versionURL)\(API.summaryURL)/\(pokedexID)"
