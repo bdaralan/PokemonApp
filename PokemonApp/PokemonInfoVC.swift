@@ -157,12 +157,12 @@ class PokemonInfoVC: UIViewController {
                 self.pokemonDefLbl.text = "\(self.pokemon.defend)"
                 self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
                 
-                self.pokemonHpPV.progress = self.pokemon.hp.toProgress()
-                self.pokemonSpdPV.progress = self.pokemon.speed.toProgress()
-                self.pokemonAttPV.progress = self.pokemon.attack.toProgress()
-                self.pokemonSpAttPV.progress = self.pokemon.spAttack.toProgress()
-                self.pokemonDefPV.progress = self.pokemon.defend.toProgress()
-                self.pokemonSpDefPV.progress = self.pokemon.spDefend.toProgress()
+                self.pokemonHpPV.setProgress(self.pokemon.hp.toProgress(), animated: true)
+                self.pokemonSpdPV.setProgress(self.pokemon.speed.toProgress(), animated: true)
+                self.pokemonAttPV.setProgress(self.pokemon.attack.toProgress(), animated: true)
+                self.pokemonSpAttPV.setProgress(self.pokemon.spAttack.toProgress(), animated: true)
+                self.pokemonDefPV.setProgress(self.pokemon.defend.toProgress(), animated: true)
+                self.pokemonSpDefPV.setProgress(self.pokemon.spDefend.toProgress(), animated: true)
                 
                 self.pokemonSummaryTxtView.text = self.pokemon.summary
                 self.pokemonSummaryTxtView.isHidden = false
@@ -211,12 +211,12 @@ class PokemonInfoVC: UIViewController {
         pokemonSpdLbl.text = "0"
         pokemonSummaryTxtView.text = ""
         
-        pokemonHpPV.progress = DEFAULT_PROGRESS_VALUE
-        pokemonAttPV.progress = DEFAULT_PROGRESS_VALUE
-        pokemonDefPV.progress = DEFAULT_PROGRESS_VALUE
-        pokemonSpAttPV.progress = DEFAULT_PROGRESS_VALUE
-        pokemonSpDefPV.progress = DEFAULT_PROGRESS_VALUE
-        pokemonSpdPV.progress = DEFAULT_PROGRESS_VALUE
+        pokemonHpPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+        pokemonAttPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+        pokemonDefPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+        pokemonSpAttPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+        pokemonSpDefPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+        pokemonSpdPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
     }
     
     func initAudioPlayer() {
