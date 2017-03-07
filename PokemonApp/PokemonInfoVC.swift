@@ -129,7 +129,6 @@ class PokemonInfoVC: UIViewController {
             evolutionImg02.image = UIImage(named: "\(pokemonEvolution[1].pokedexID)")
             evolutionImg03.image = UIImage(named: "\(pokemonEvolution[2].pokedexID)")
         case 4:
-            print("Evolution number: 4")
             pokemonEvolution.removeLast()
             evolutionImg01.isHidden = false
             evolutionImg02.isHidden = false

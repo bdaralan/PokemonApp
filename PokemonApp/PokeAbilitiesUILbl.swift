@@ -14,7 +14,7 @@ class PokeAbilitiesUILbl: UILabel {
         self.layer.borderWidth = 1.0
         self.layer.cornerRadius = 10.0
         self.clipsToBounds = true
-        self.textColor = UIColor.white
-        self.backgroundColor = COLORS.pokemonType.Unknown
+        self.textColor = UIColor.black
+        self.backgroundColor = UIColor.white
     }
 }
