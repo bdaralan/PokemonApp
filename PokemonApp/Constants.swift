@@ -12,10 +12,11 @@ import Foundation
 let POKEMON_CSV_PATH = Bundle.main.path(forResource: "pokemon", ofType: "csv")
 let POKEMON_TYPES_CSV_PATH = Bundle.main.path(forResource: "pokemon-types", ofType: "csv")
 
-let DEFAULT_PROGRESS_VALUE = Float(0.05)
+let DEFAULT_PROGRESS_VALUE = Float(0.01)
 
 let API = APIData()
 let COLORS = Colors()
 
 typealias DownloadComplete = () -> () //download pokemon json completed
+typealias DownloadEvolutionAtIndexComplete = (_ senderIndex: Int) -> Int
 typealias SADictionary = Dictionary<String, AnyObject>

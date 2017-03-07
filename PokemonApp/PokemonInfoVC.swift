@@ -49,12 +49,12 @@ class PokemonInfoVC: UIViewController {
     
     
     var evolutionUILblCollection: [UILabel]!
-    var evoulutionUIImgViewCollection: [UIImageView]!
+    var evolutionUIImgViewCollection: [UIImageView]!
+    var evolutionAtIndexAlreadyDownloaded: [Bool]!
     
     var pokemon: Pokemon! //passed in by segue, identifier "PokemonInfoVC"
     var allPokemon: [Pokemon]! //passed in by segue, identifier "PokemonInfoVC"
     var pokemonEvolution: [Pokemon]!
-    var indexOfTappedEvolutionImg: Int!
     
     var audioPlayer: AVAudioPlayer!
     var audioPlayerIsReadToPlay = false
@@ -63,15 +63,17 @@ class PokemonInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        indexOfTappedEvolutionImg = -999
-        
         evolutionUILblCollection = [evolutionLblFocus01, evolutionLblFocus02, evolutionLblFocus03]
-        evoulutionUIImgViewCollection = [evolutionImg01, evolutionImg02, evolutionImg03]
+        evolutionUIImgViewCollection = [evolutionImg01, evolutionImg02, evolutionImg03]
+        evolutionAtIndexAlreadyDownloaded = [false, false, false]
         
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         
         configureImageTapGesture()
-        updateUI()
+        
+        updateUIWithLocalData()
+        updateUIWithRmoteData()
+        initAudioPlayer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,13 +97,24 @@ class PokemonInfoVC: UIViewController {
         evolutionImg03.isUserInteractionEnabled = true
     }
     
-    func updateUI() {
+    func updateUI(evolutionIndex i: Int) {
         
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         
         setItemDefaultSetting()
         updateUIWithLocalData()
-        updateUIWithRmoteData()
+        
+        if evolutionAtIndexAlreadyDownloaded[i] {
+            updateIBOutlets()
+        } else {
+            self.pokemon.requestPokemonData {
+                DispatchQueue.main.sync {
+                    self.updateIBOutlets()
+                    self.evolutionAtIndexAlreadyDownloaded[i] = true
+                }
+            }
+        }
+    
         initAudioPlayer()
     }
     
@@ -116,14 +129,14 @@ class PokemonInfoVC: UIViewController {
         if pokemonEvolution.count < 4 {
             for i in 0 ..< pokemonEvolution.count {
                 //set evolution images
-                evoulutionUIImgViewCollection[i].isHidden = false
-                evoulutionUIImgViewCollection[i].image = UIImage(named: "\(pokemonEvolution[i].pokedexID)")
+                evolutionUIImgViewCollection[i].isHidden = false
+                evolutionUIImgViewCollection[i].image = UIImage(named: "\(pokemonEvolution[i].pokedexID)")
                 
                 //set focus label
-                if pokemonEvolution[i].pokedexID == pokemon.pokedexID {
-                    evolutionUILblCollection[i].isHidden = false
-                } else {
+                if pokemonEvolution[i].pokedexID != pokemon.pokedexID {
                     evolutionUILblCollection[i].isHidden = true
+                } else {
+                    evolutionUILblCollection[i].isHidden = false
                 }
                 
                 //set evolution arrow
@@ -145,7 +158,7 @@ class PokemonInfoVC: UIViewController {
     }
     
     func updateUIWithRmoteData() {
-        
+
         self.pokemon.requestPokemonData {
             DispatchQueue.main.sync {
                 self.updateIBOutlets()
@@ -153,7 +166,7 @@ class PokemonInfoVC: UIViewController {
         }
     }
     
-    func updateIBOutlets() { // must use 'self' because this func is used by an async func, updateUIWithLocalData()
+    func updateIBOutlets() { // must use 'self' because this func is also used by an async func, updateUIWithLocalData()
         
         if self.pokemon.hp != 0 { //does not have to be 'hp', if any property is 0, skip
             self.pokemonHpLbl.text = "\(self.pokemon.hp)"
@@ -163,7 +176,6 @@ class PokemonInfoVC: UIViewController {
             self.pokemonDefLbl.text = "\(self.pokemon.defend)"
             self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
             
-            
             self.pokemonHpPV.setProgress(self.pokemon.hp.toProgress(), animated: true)
             self.pokemonSpdPV.setProgress(self.pokemon.speed.toProgress(), animated: true)
             self.pokemonAttPV.setProgress(self.pokemon.attack.toProgress(), animated: true)
@@ -171,7 +183,6 @@ class PokemonInfoVC: UIViewController {
             self.pokemonDefPV.setProgress(self.pokemon.defend.toProgress(), animated: true)
             self.pokemonSpDefPV.setProgress(self.pokemon.spDefend.toProgress(), animated: true)
         }
-        
         
         self.pokemonSummaryTxtView.text = self.pokemon.summary
         self.pokemonSummaryTxtView.isHidden = false
@@ -186,7 +197,6 @@ class PokemonInfoVC: UIViewController {
             self.pokemonTypeLbl02.isHidden = false
             self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
         }
-        
         if self.pokemon.hasFirstAbility {
             self.pokemonAbilLbl01.text = self.pokemon.abilities.firstAbility
             self.pokemonAbilLbl01.isHidden = false
@@ -245,7 +255,7 @@ class PokemonInfoVC: UIViewController {
         
         if pokemon.pokedexID != pokemonEvolution[0].pokedexID {
             pokemon = pokemonEvolution[0]
-            updateUI()
+            updateUI(evolutionIndex: 0)
         }
     }
     
@@ -253,7 +263,7 @@ class PokemonInfoVC: UIViewController {
         
         if pokemon.pokedexID != pokemonEvolution[1].pokedexID {
             pokemon = pokemonEvolution[1]
-            updateUI()
+            updateUI(evolutionIndex: 1)
         }
     }
     
@@ -261,7 +271,7 @@ class PokemonInfoVC: UIViewController {
         
         if pokemon.pokedexID != pokemonEvolution[2].pokedexID {
             pokemon = pokemonEvolution[2]
-            updateUI()
+            updateUI(evolutionIndex: 2)
         }
     }
     
