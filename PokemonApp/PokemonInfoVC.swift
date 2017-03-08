@@ -114,6 +114,10 @@ class PokemonInfoVC: UIViewController {
             } else {
                 pokemonEvolution.removeLast()
             }
+        } else if pokemonEvolution.count > 4 { // MARK - MUST Implement: pokemon evolution case 5+
+            for _ in 0 ..< pokemonEvolution.count - 3 {
+                pokemonEvolution.removeLast()
+            }
         }
         
         // Update some IBOutlets
