@@ -60,15 +60,15 @@ class Pokemon {
     }
     
     
-    init(name: String, pokedexID: Int, evolveFrom: Int, evolveID: Int, hp: Int? = 0, speed: Int? = 0, attack: Int? = 0, defend: Int? = 0, spAttack: Int? = 0, spDefend: Int? = 0, height: Double? = 0.0, weight: Double? = 0.0, summary: String? = "") {
+    init(name: String, pokedexID: Int, evolveFrom: Int, evolveID: Int, hp: Int = 0, speed: Int = 0, attack: Int = 0, defend: Int = 0, spAttack: Int = 0, spDefend: Int = 0, height: Double = 0.0, weight: Double = 0.0, summary: String = "") {
         _name = name.capitalized
         _pokedexID = pokedexID
         _types = PokemonTypes()
         _abilities = PokemonAbilities()
         _evolveFrom = evolveFrom
         _evolveID = evolveID
-        _height = height?.toCorrectWeight()
-        _weight = weight?.toCorrectWeight()
+        _height = height.toCorrectWeight()
+        _weight = weight.toCorrectWeight()
         
         _hp = hp
         _speed = speed
@@ -229,7 +229,7 @@ class PokemonAbilities {
     var hiddenAbility: String { return _hiddenAbility }
     
     
-    init(first: String? = "", second: String? = "", hidden: String? = "") {
+    init(first: String = "", second: String = "", hidden: String = "") {
         _firstAbility = first
         _secondAbility = second
         _hiddenAbility = hidden
