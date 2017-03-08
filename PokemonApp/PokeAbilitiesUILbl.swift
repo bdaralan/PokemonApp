@@ -11,10 +11,9 @@ import UIKit
 class PokeAbilitiesUILbl: UILabel {
 
     override func awakeFromNib() {
-        self.layer.borderWidth = 1.0
         self.layer.cornerRadius = 10.0
         self.clipsToBounds = true
         self.textColor = UIColor.black
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = COLORS.sectionTag.withAlphaComponent(0.4)
     }
 }

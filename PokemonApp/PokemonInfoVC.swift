@@ -47,6 +47,7 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokemonDefPV: UIProgressView!
     @IBOutlet weak var pokemonSpDefPV: UIProgressView!
     
+    @IBOutlet weak var downloadingIndicator: UIActivityIndicatorView!
     
     var evolutionUILblCollection: [UILabel]!
     var evolutionUIImgViewCollection: [UIImageView]!
@@ -68,6 +69,7 @@ class PokemonInfoVC: UIViewController {
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         pokemonSummaryTxtView.alwaysBounceVertical = true
         
+        configureDownloadIndicator()
         configureImageTapGesture()
         updateUI()
     }
@@ -79,6 +81,12 @@ class PokemonInfoVC: UIViewController {
     
     
     /*-- Functions --*/
+    func configureDownloadIndicator() {
+        
+        downloadingIndicator.isHidden = true
+        downloadingIndicator.hidesWhenStopped = true
+    }
+    
     func configureImageTapGesture() {
         
         let evolutionImg01TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg01Tapped))
@@ -156,9 +164,11 @@ class PokemonInfoVC: UIViewController {
         if pokemon.hasData {
             updateIBOutlets()
         } else {
+            downloadingIndicator.startAnimating()
             self.pokemon.requestPokemonData {
                 DispatchQueue.main.sync {
                     self.updateIBOutlets()
+                    self.downloadingIndicator.stopAnimating()
                 }
             }
         }

@@ -175,9 +175,8 @@ class Pokemon {
                                         self._summary = summary.replacingOccurrences(of: "\n", with: " ")
                                     }
                                 }//end parsing summary
-                                
-                                // Parse Evolutions
                             }
+                            
                             downloadCompleted()
                         }
                     } catch let error as NSError {
@@ -195,28 +194,25 @@ class Pokemon {
 /**-- Pokemon Type --**/
 class PokemonTypes {
     
-    private var _types = ["", ""]
+    private var _primary: String!
+    private var _secondary: String!
     
-    var primary: String { return _types[0] }
-    var secondary: String { return _types[1] }
+    var primary: String { return _primary }
+    var secondary: String { return _secondary }
     
     
-    init() { }
     init(primary: String = "", secondary: String = "") {
-        _types[0] = primary.capitalized
-        
-        if secondary != "" {
-            _types[1] = secondary.capitalized
-        }
+        _primary = primary.capitalized
+        _secondary = secondary.capitalized
     }
     
     
     func setPrimaryType(type: String) {
-        _types[0] = type.capitalized
+        _primary = type.capitalized
     }
     
     func setSecondaryType(type: String) {
-        _types[1] = type.capitalized
+        _secondary = type.capitalized
     }
 }
 

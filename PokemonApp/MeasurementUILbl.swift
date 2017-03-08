@@ -11,11 +11,10 @@ import UIKit
 class MeasurementUILbl: UILabel {
 
     override func awakeFromNib() {
-        self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor.black.cgColor
         self.layer.cornerRadius = 10.0
-        self.layer.masksToBounds = true
-        self.backgroundColor = UIColor.white
+        self.clipsToBounds = true
+        self.textColor = UIColor.black
+        self.backgroundColor = COLORS.sectionTag.withAlphaComponent(0.4)
     }
 
 }
