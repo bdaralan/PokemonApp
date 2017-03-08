@@ -50,8 +50,8 @@ class PokemonInfoVC: UIViewController {
     
     var evolutionUILblCollection: [UILabel]!
     var evolutionUIImgViewCollection: [UIImageView]!
-    var evolutionAtIndexAlreadyDownloaded: [Bool]!
-    var evolutionIndex: Int!
+    var evolutionAlreadyDownloaded: [Bool]! //there can only be 3 pokemon in 'Evolution' section
+    var downloadIndex: Int!
     
     var pokemon: Pokemon! //passed in by segue, identifier "PokemonInfoVC"
     var allPokemon: [Pokemon]! //passed in by segue, identifier "PokemonInfoVC"
@@ -66,11 +66,11 @@ class PokemonInfoVC: UIViewController {
         
         evolutionUILblCollection = [evolutionLblFocus01, evolutionLblFocus02, evolutionLblFocus03]
         evolutionUIImgViewCollection = [evolutionImg01, evolutionImg02, evolutionImg03]
-        evolutionAtIndexAlreadyDownloaded = [false, false, false]
-        evolutionIndex = -1
-        
+        evolutionAlreadyDownloaded = [false, false, false]
+        downloadIndex = -1
         
         pokemonEvolution = allPokemon.evolution(of: pokemon)
+        pokemonSummaryTxtView.alwaysBounceVertical = true
         
         configureImageTapGesture()
         updateUI()
@@ -100,69 +100,67 @@ class PokemonInfoVC: UIViewController {
     func updateUI() {
         
         setItemDefaultSetting()
-        updateUIWithLocalData()
+        updateUIWithLocalData() //must be called before updateUIWithRemoteData()
         updateUIWithRmoteData()
         initAudioPlayer()
     }
     
     func updateUIWithLocalData() {
         
+        // Sort pokemonEvolution
+        if pokemonEvolution.count == 4 { //remove one pokemon from pokemonEvolution, keep only 3 for the 3 UIImageView
+            if pokemon.pokedexID == pokemonEvolution[3].pokedexID {
+                pokemonEvolution.remove(at: 2)
+            } else {
+                pokemonEvolution.removeLast()
+            }
+        }
+        
+        // Update some IBOutlets
         self.navigationItem.title = pokemon.name
         pokemonImg.image = UIImage(named: "\(pokemon.pokedexID)")
         pokemonPokedexIdLbl.text = pokemon.pokedexID.toIDOutputFormat()
         pokemonHeight.text = pokemon.height.toMeterOutputFormat()
         pokemonWeight.text = pokemon.weight.toKiloOutputForat()
         
-        if pokemonEvolution.count <= 4 { //has 4 forms
+        // Update evolution UIImageView
+        for i in 0 ..< pokemonEvolution.count {
+            // set evolution images
+            evolutionUIImgViewCollection[i].isHidden = false
+            evolutionUIImgViewCollection[i].image = UIImage(named: "\(pokemonEvolution[i].pokedexID)")
             
-            if pokemonEvolution.count == 4 {
-                if pokemonEvolution[3].pokedexID != pokemon.pokedexID {
-                    pokemonEvolution.remove(at: 3)
-                } else {
-                    pokemonEvolution.remove(at: 2)
-                }
+            // set focus label
+            if pokemon.pokedexID == pokemonEvolution[i].pokedexID {
+                evolutionUILblCollection[i].isHidden = false
+                downloadIndex = i //IMPORTANT
+            } else {
+                evolutionUILblCollection[i].isHidden = true
             }
-            
-            for i in 0 ..< pokemonEvolution.count {
-                //set evolution images
-                evolutionUIImgViewCollection[i].isHidden = false
-                evolutionUIImgViewCollection[i].image = UIImage(named: "\(pokemonEvolution[i].pokedexID)")
-                
-                //set focus label
-                if pokemonEvolution[i].pokedexID != pokemon.pokedexID {
-                    evolutionUILblCollection[i].isHidden = true
-                } else {
-                    evolutionUILblCollection[i].isHidden = false
-                    evolutionIndex = i
-                }
-                
-                //set evolution arrow
-                switch pokemonEvolution.count {
-                case 1:
-                    print("No Evolution")
-                case 2:
-                    evolutionArrow01.isHidden = false
-                case 3:
-                    evolutionArrow01.isHidden = false
-                    evolutionArrow02.isHidden = false
-                default:
-                    print("Cannot have more than 2 evolution arrows")
-                }
-            }
-        } else {
-            print("Special evolution condition")
+        }
+        
+        // Set evolution arrow
+        switch pokemonEvolution.count {
+        case 1:
+            print("No Evolution")
+        case 2:
+            evolutionArrow01.isHidden = false
+        case 3:
+            evolutionArrow01.isHidden = false
+            evolutionArrow02.isHidden = false
+        default:
+            print("Cannot have more than 2 evolution arrows")
         }
     }
     
     func updateUIWithRmoteData() {
         
-        if evolutionAtIndexAlreadyDownloaded[evolutionIndex] {
+        if evolutionAlreadyDownloaded[downloadIndex] {
             updateIBOutlets()
         } else {
             self.pokemon.requestPokemonData {
                 DispatchQueue.main.sync {
                     self.updateIBOutlets()
-                    self.evolutionAtIndexAlreadyDownloaded[self.evolutionIndex] = true
+                    self.evolutionAlreadyDownloaded[self.downloadIndex] = true
                 }
             }
         }
