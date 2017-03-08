@@ -172,7 +172,7 @@
                                 <rect key="frame" x="204" y="159" width="145" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40784313725490196" green="0.62745098039215685" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="GillSans-LightItalic" family="Gill Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -424,8 +424,8 @@
                         <outlet property="evolutionLblFocus01" destination="oX2-lt-bWq" id="Kmv-Pk-MsL"/>
                         <outlet property="evolutionLblFocus02" destination="bM7-Nv-9QU" id="LgA-Xq-gVt"/>
                         <outlet property="evolutionLblFocus03" destination="xJx-jI-UNh" id="GWz-aJ-9TC"/>
-                        <outlet property="pokemonAbilLbl01" destination="kaW-Nz-ICL" id="hAV-7e-zc0"/>
-                        <outlet property="pokemonAbilLbl02" destination="DkP-W5-dFX" id="4Po-Ml-mJv"/>
+                        <outlet property="pokemonAbil01Lbl" destination="kaW-Nz-ICL" id="okf-WK-yLR"/>
+                        <outlet property="pokemonAbil02Lbl" destination="DkP-W5-dFX" id="2H4-wJ-1mA"/>
                         <outlet property="pokemonAttPV" destination="eKN-z3-vbO" id="viZ-cq-m8h"/>
                         <outlet property="pokemonAttlbl" destination="AQl-D2-Jvf" id="YQc-6d-DdH"/>
                         <outlet property="pokemonDefLbl" destination="JDr-p0-boY" id="Twy-Ix-xGS"/>
@@ -443,8 +443,8 @@
                         <outlet property="pokemonSpdLbl" destination="J6B-aX-9gU" id="1t2-ls-8Ag"/>
                         <outlet property="pokemonSpdPV" destination="9xR-sa-0jN" id="rf6-H3-DQa"/>
                         <outlet property="pokemonSummaryTxtView" destination="UV4-7c-a3i" id="igQ-cP-uch"/>
-                        <outlet property="pokemonTypeLbl01" destination="lg1-2o-V8j" id="krA-S1-kH9"/>
-                        <outlet property="pokemonTypeLbl02" destination="uhq-NQ-2Jc" id="xce-Pj-yrw"/>
+                        <outlet property="pokemonType01Lbl" destination="lg1-2o-V8j" id="lwC-H8-9QG"/>
+                        <outlet property="pokemonType02Lbl" destination="uhq-NQ-2Jc" id="BWp-Qb-dMj"/>
                         <outlet property="pokemonWeight" destination="Fda-7a-9TH" id="v42-1V-oPS"/>
                     </connections>
                 </viewController>

@@ -23,8 +23,8 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var evolutionLblFocus03: UILabel!
     
     @IBOutlet weak var pokemonPokedexIdLbl: UILabel!
-    @IBOutlet weak var pokemonTypeLbl01: UILabel!
-    @IBOutlet weak var pokemonTypeLbl02: UILabel!
+    @IBOutlet weak var pokemonType01Lbl: UILabel!
+    @IBOutlet weak var pokemonType02Lbl: UILabel!
     @IBOutlet weak var pokemonHeight: UILabel!
     @IBOutlet weak var pokemonWeight: UILabel!
     @IBOutlet weak var pokemonSummaryTxtView: UITextView!
@@ -36,8 +36,8 @@ class PokemonInfoVC: UIViewController {
     @IBOutlet weak var pokemonDefLbl: UILabel!
     @IBOutlet weak var pokemonSpDefLbl: UILabel!
     
-    @IBOutlet weak var pokemonAbilLbl01: UILabel!
-    @IBOutlet weak var pokemonAbilLbl02: UILabel!
+    @IBOutlet weak var pokemonAbil01Lbl: UILabel!
+    @IBOutlet weak var pokemonAbil02Lbl: UILabel!
     @IBOutlet weak var pokemonHiddenAbilLbl: UILabel!
     
     @IBOutlet weak var pokemonHpPV: UIProgressView!
@@ -51,7 +51,7 @@ class PokemonInfoVC: UIViewController {
     var evolutionUILblCollection: [UILabel]!
     var evolutionUIImgViewCollection: [UIImageView]!
     var evolutionAlreadyDownloaded: [Bool]! //there can only be 3 pokemon in 'Evolution' section
-    var downloadIndex: Int!
+    var downloadIndex: Int! //use with evolutionAlreadyDownloaded
     
     var pokemon: Pokemon! //passed in by segue, identifier "PokemonInfoVC"
     var allPokemon: [Pokemon]! //passed in by segue, identifier "PokemonInfoVC"
@@ -76,6 +76,10 @@ class PokemonInfoVC: UIViewController {
         updateUI()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -154,7 +158,7 @@ class PokemonInfoVC: UIViewController {
     
     func updateUIWithRmoteData() {
         
-        if evolutionAlreadyDownloaded[downloadIndex] {
+        if evolutionAlreadyDownloaded[downloadIndex] || pokemon.hp != 0 {
             updateIBOutlets()
         } else {
             self.pokemon.requestPokemonData {
@@ -168,43 +172,41 @@ class PokemonInfoVC: UIViewController {
     
     func updateIBOutlets() { // must use 'self' because this func is also used by an async func, updateUIWithLocalData()
         
-        if self.pokemon.hp != 0 { //does not have to be 'hp', if any property is 0, skip
-            self.pokemonHpLbl.text = "\(self.pokemon.hp)"
-            self.pokemonSpdLbl.text = "\(self.pokemon.speed)"
-            self.pokemonAttlbl.text = "\(self.pokemon.attack)"
-            self.pokemonSpAttLbl.text = "\(self.pokemon.spAttack)"
-            self.pokemonDefLbl.text = "\(self.pokemon.defend)"
-            self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
-            
-            self.pokemonHpPV.setProgress(self.pokemon.hp.toProgress(), animated: true)
-            self.pokemonSpdPV.setProgress(self.pokemon.speed.toProgress(), animated: true)
-            self.pokemonAttPV.setProgress(self.pokemon.attack.toProgress(), animated: true)
-            self.pokemonSpAttPV.setProgress(self.pokemon.spAttack.toProgress(), animated: true)
-            self.pokemonDefPV.setProgress(self.pokemon.defend.toProgress(), animated: true)
-            self.pokemonSpDefPV.setProgress(self.pokemon.spDefend.toProgress(), animated: true)
-        }
+        self.pokemonHpLbl.text = "\(self.pokemon.hp)"
+        self.pokemonSpdLbl.text = "\(self.pokemon.speed)"
+        self.pokemonAttlbl.text = "\(self.pokemon.attack)"
+        self.pokemonSpAttLbl.text = "\(self.pokemon.spAttack)"
+        self.pokemonDefLbl.text = "\(self.pokemon.defend)"
+        self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
+        
+        self.pokemonHpPV.setProgress(self.pokemon.hp.toProgress(), animated: true)
+        self.pokemonSpdPV.setProgress(self.pokemon.speed.toProgress(), animated: true)
+        self.pokemonAttPV.setProgress(self.pokemon.attack.toProgress(), animated: true)
+        self.pokemonSpAttPV.setProgress(self.pokemon.spAttack.toProgress(), animated: true)
+        self.pokemonDefPV.setProgress(self.pokemon.defend.toProgress(), animated: true)
+        self.pokemonSpDefPV.setProgress(self.pokemon.spDefend.toProgress(), animated: true)
         
         self.pokemonSummaryTxtView.text = self.pokemon.summary
         self.pokemonSummaryTxtView.isHidden = false
         
-        if self.pokemon.hasPrimaryType {
-            self.pokemonTypeLbl01.text = self.pokemon.types.primary
-            self.pokemonTypeLbl01.isHidden = false
-            self.pokemonTypeLbl01.backgroundColor = self.pokemon.types.primary.toUIColor()
-        }
+        self.pokemonType01Lbl.text = self.pokemon.types.primary
+        self.pokemonType01Lbl.isHidden = false
+        self.pokemonType01Lbl.backgroundColor = self.pokemon.types.primary.toUIColor()
+        
         if self.pokemon.hasSecondType {
-            self.pokemonTypeLbl02.text = self.pokemon.types.secondary
-            self.pokemonTypeLbl02.isHidden = false
-            self.pokemonTypeLbl02.backgroundColor = self.pokemon.types.secondary.toUIColor()
+            self.pokemonType02Lbl.text = self.pokemon.types.secondary
+            self.pokemonType02Lbl.isHidden = false
+            self.pokemonType02Lbl.backgroundColor = self.pokemon.types.secondary.toUIColor()
         }
-        if self.pokemon.hasFirstAbility {
-            self.pokemonAbilLbl01.text = self.pokemon.abilities.firstAbility
-            self.pokemonAbilLbl01.isHidden = false
-        }
+        
+        self.pokemonAbil01Lbl.text = self.pokemon.abilities.firstAbility
+        self.pokemonAbil01Lbl.isHidden = false
+        
         if self.pokemon.hasSecondAbility {
-            self.pokemonAbilLbl02.text = self.pokemon.abilities.secondAbility
-            self.pokemonAbilLbl02.isHidden = false
+            self.pokemonAbil02Lbl.text = self.pokemon.abilities.secondAbility
+            self.pokemonAbil02Lbl.isHidden = false
         }
+        
         if self.pokemon.hasHiddenAbility {
             self.pokemonHiddenAbilLbl.text = "\(self.pokemon.abilities.hiddenAbility) (H)"
             self.pokemonHiddenAbilLbl.isHidden = false
@@ -213,26 +215,28 @@ class PokemonInfoVC: UIViewController {
     
     func setItemDefaultSetting() {
         
-        pokemonTypeLbl01.isHidden = true
-        pokemonTypeLbl02.isHidden = true
-        pokemonAbilLbl01.isHidden = true
-        pokemonAbilLbl02.isHidden = true
+        pokemonType01Lbl.isHidden = true
+        pokemonType02Lbl.isHidden = true
+        pokemonAbil01Lbl.isHidden = true
+        pokemonAbil02Lbl.isHidden = true
         pokemonHiddenAbilLbl.isHidden = true
         pokemonSummaryTxtView.isHidden = true
         
-        pokemonHpLbl.text = "0"
-        pokemonAttlbl.text = "0"
-        pokemonDefLbl.text = "0"
-        pokemonSpAttLbl.text = "0"
-        pokemonSpDefLbl.text = "0"
-        pokemonSpdLbl.text = "0"
-        
-        pokemonHpPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
-        pokemonAttPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
-        pokemonDefPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
-        pokemonSpAttPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
-        pokemonSpDefPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
-        pokemonSpdPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+        if pokemon.hp == 0 { //can test other stats, does not have to be pokemon.hp
+            pokemonHpLbl.text = "0"
+            pokemonAttlbl.text = "0"
+            pokemonDefLbl.text = "0"
+            pokemonSpAttLbl.text = "0"
+            pokemonSpDefLbl.text = "0"
+            pokemonSpdLbl.text = "0"
+            
+            pokemonHpPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+            pokemonAttPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+            pokemonDefPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+            pokemonSpAttPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+            pokemonSpDefPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+            pokemonSpdPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+        }
     }
     
     func initAudioPlayer() {
