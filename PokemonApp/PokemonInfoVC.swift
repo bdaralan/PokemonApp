@@ -75,10 +75,6 @@ class PokemonInfoVC: UIViewController {
         configureImageTapGesture()
         updateUI()
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -158,7 +154,7 @@ class PokemonInfoVC: UIViewController {
     
     func updateUIWithRmoteData() {
         
-        if evolutionAlreadyDownloaded[downloadIndex] || pokemon.hp != 0 {
+        if pokemon.hp != 0 || evolutionAlreadyDownloaded[downloadIndex] {
             updateIBOutlets()
         } else {
             self.pokemon.requestPokemonData {
@@ -189,9 +185,11 @@ class PokemonInfoVC: UIViewController {
         self.pokemonSummaryTxtView.text = self.pokemon.summary
         self.pokemonSummaryTxtView.isHidden = false
         
-        self.pokemonType01Lbl.text = self.pokemon.types.primary
-        self.pokemonType01Lbl.isHidden = false
-        self.pokemonType01Lbl.backgroundColor = self.pokemon.types.primary.toUIColor()
+        if self.pokemon.hasPrimaryType {
+            self.pokemonType01Lbl.text = self.pokemon.types.primary
+            self.pokemonType01Lbl.isHidden = false
+            self.pokemonType01Lbl.backgroundColor = self.pokemon.types.primary.toUIColor()
+        }
         
         if self.pokemon.hasSecondType {
             self.pokemonType02Lbl.text = self.pokemon.types.secondary
