@@ -55,6 +55,9 @@ class Pokemon {
     var hasFirstAbility: Bool { return _abilities.firstAbility != "" }
     var hasSecondAbility: Bool { return _abilities.secondAbility != "" }
     var hasHiddenAbility: Bool { return _abilities.hiddenAbility != "" }
+    var hasData: Bool {
+        return _hp != 0 && _speed != 0 && _attack != 0 && _defend != 0 && _spAttack != 0 && _spDefend != 0 && _summary != ""
+    }
     
     
     init(name: String, pokedexID: Int, evolveFrom: Int, evolveID: Int, hp: Int? = 0, speed: Int? = 0, attack: Int? = 0, defend: Int? = 0, spAttack: Int? = 0, spDefend: Int? = 0, height: Double? = 0.0, weight: Double? = 0.0, summary: String? = "") {
@@ -64,6 +67,8 @@ class Pokemon {
         _abilities = PokemonAbilities()
         _evolveFrom = evolveFrom
         _evolveID = evolveID
+        _height = height?.toCorrectWeight()
+        _weight = weight?.toCorrectWeight()
         
         _hp = hp
         _speed = speed
@@ -71,8 +76,6 @@ class Pokemon {
         _defend = defend
         _spAttack = spAttack
         _spDefend = spDefend
-        _height = height?.toCorrectWeight()
-        _weight = weight?.toCorrectWeight()
         _summary = summary
         
         _pokemonURL = "\(API.baseURL)\(API.versionURL)\(API.pokemonURL)/\(pokedexID)"

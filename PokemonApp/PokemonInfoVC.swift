@@ -50,8 +50,6 @@ class PokemonInfoVC: UIViewController {
     
     var evolutionUILblCollection: [UILabel]!
     var evolutionUIImgViewCollection: [UIImageView]!
-    var evolutionAlreadyDownloaded: [Bool]! //there can only be 3 pokemon in 'Evolution' section
-    var downloadIndex: Int! //use with evolutionAlreadyDownloaded
     
     var pokemon: Pokemon! //passed in by segue, identifier "PokemonInfoVC"
     var allPokemon: [Pokemon]! //passed in by segue, identifier "PokemonInfoVC"
@@ -66,8 +64,6 @@ class PokemonInfoVC: UIViewController {
         
         evolutionUILblCollection = [evolutionLblFocus01, evolutionLblFocus02, evolutionLblFocus03]
         evolutionUIImgViewCollection = [evolutionImg01, evolutionImg02, evolutionImg03]
-        evolutionAlreadyDownloaded = [false, false, false]
-        downloadIndex = -1
         
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         pokemonSummaryTxtView.alwaysBounceVertical = true
@@ -136,7 +132,6 @@ class PokemonInfoVC: UIViewController {
             // set focus label
             if pokemon.pokedexID == pokemonEvolution[i].pokedexID {
                 evolutionUILblCollection[i].isHidden = false
-                downloadIndex = i //IMPORTANT
             } else {
                 evolutionUILblCollection[i].isHidden = true
             }
@@ -158,13 +153,12 @@ class PokemonInfoVC: UIViewController {
     
     func updateUIWithRmoteData() {
         
-        if pokemon.hp != 0 || evolutionAlreadyDownloaded[downloadIndex] {
+        if pokemon.hasData {
             updateIBOutlets()
         } else {
             self.pokemon.requestPokemonData {
                 DispatchQueue.main.sync {
                     self.updateIBOutlets()
-                    self.evolutionAlreadyDownloaded[self.downloadIndex] = true
                 }
             }
         }
@@ -201,8 +195,10 @@ class PokemonInfoVC: UIViewController {
             self.pokemonType02Lbl.backgroundColor = self.pokemon.types.secondary.toUIColor()
         }
         
-        self.pokemonAbil01Lbl.text = self.pokemon.abilities.firstAbility
-        self.pokemonAbil01Lbl.isHidden = false
+        if self.pokemon.hasFirstAbility {
+            self.pokemonAbil01Lbl.text = self.pokemon.abilities.firstAbility
+            self.pokemonAbil01Lbl.isHidden = false
+        }
         
         if self.pokemon.hasSecondAbility {
             self.pokemonAbil02Lbl.text = self.pokemon.abilities.secondAbility
@@ -224,7 +220,7 @@ class PokemonInfoVC: UIViewController {
         pokemonHiddenAbilLbl.isHidden = true
         pokemonSummaryTxtView.isHidden = true
         
-        if pokemon.hp == 0 { //can test other stats, does not have to be pokemon.hp
+        if !pokemon.hasData {
             pokemonHpLbl.text = "0"
             pokemonAttlbl.text = "0"
             pokemonDefLbl.text = "0"
