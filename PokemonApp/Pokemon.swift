@@ -6,7 +6,8 @@
 //  Copyright © 2017 iDara09. All rights reserved.
 //
 //
-//  This Class contain main Class: 'Pokemon' and subclasses: 'PokeType
+//  This Class contain main Class: 'Pokemon' and subclasses: 'PokeType'
+//  Also an Extension to an array of Pokemon: [Pokemon]
 
 import Foundation
 

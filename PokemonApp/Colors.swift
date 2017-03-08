@@ -13,18 +13,21 @@ class Colors {
     
     private let _pokemonType: PokeTypeColor!
     private let _navigationBar: UIColor!
-    private let _sectionTag: UIColor!
+    private let _sectionTagBackground: UIColor!
+    private let _sectionTagText: UIColor!
     
     
     init() {
         _pokemonType = PokeTypeColor()
         _navigationBar = UIColor(red:1.00, green:0.87, blue:0.00, alpha:1.0) //FFDD00
-        _sectionTag = UIColor(red:0.78, green:0.87, blue:0.85, alpha:1.0) //C7DED9
+        _sectionTagBackground = UIColor(red:0.78, green:0.87, blue:0.85, alpha:0.7) //C7DED9
+        _sectionTagText = UIColor(red:0.23, green:0.30, blue:0.31, alpha:1.0) //3B4D4F
     }
     
     var pokemonType: PokeTypeColor { return _pokemonType }
     var navigationBar: UIColor { return _navigationBar }
-    var sectionTag: UIColor { return _sectionTag }
+    var sectionTagBackground: UIColor { return _sectionTagBackground }
+    var sectionTagText: UIColor { return _sectionTagText }
 }
 
 

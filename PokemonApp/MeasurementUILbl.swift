@@ -14,7 +14,7 @@ class MeasurementUILbl: UILabel {
         self.layer.cornerRadius = 10.0
         self.clipsToBounds = true
         self.textColor = UIColor.black
-        self.backgroundColor = COLORS.sectionTag.withAlphaComponent(0.4)
+        self.backgroundColor = COLORS.sectionTagBackground.withAlphaComponent(0.4)
     }
 
 }

@@ -69,7 +69,6 @@ class PokemonInfoVC: UIViewController {
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         pokemonSummaryTxtView.alwaysBounceVertical = true
         
-        configureDownloadIndicator()
         configureImageTapGesture()
         updateUI()
     }
@@ -81,12 +80,6 @@ class PokemonInfoVC: UIViewController {
     
     
     /*-- Functions --*/
-    func configureDownloadIndicator() {
-        
-        downloadingIndicator.isHidden = true
-        downloadingIndicator.hidesWhenStopped = true
-    }
-    
     func configureImageTapGesture() {
         
         let evolutionImg01TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg01Tapped))

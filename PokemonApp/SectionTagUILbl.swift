@@ -13,7 +13,8 @@ class SectionTagUILbl: UILabel {
     override func awakeFromNib() {
         self.layer.cornerRadius = 10.0
         self.clipsToBounds = true
-        self.backgroundColor = COLORS.sectionTag.withAlphaComponent(0.8)
         self.font = UIFont(name: self.font.fontName, size: 17.0)
+        self.backgroundColor = COLORS.sectionTagBackground
+        self.textColor = COLORS.sectionTagText
     }
 }
