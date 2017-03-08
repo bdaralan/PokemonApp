@@ -5,7 +5,7 @@
 ## Status: 
 * Still in working progress.
 * Have not yet to set constrains.
-* Storyboard is set for iPhone 6s.
+* Storyboard is set for iPhone 6s/7.
 
 ## Disclaimer:
 * This is for practice and learning purposes only. 
