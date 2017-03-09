@@ -19,4 +19,5 @@ let COLORS = Colors()
 
 typealias DownloadComplete = () -> () //download pokemon json completed
 typealias DownloadEvolutionAtIndexComplete = (_ senderIndex: Int) -> Int
-typealias SADictionary = Dictionary<String, AnyObject>
+typealias DictionarySA = Dictionary<String, AnyObject>
+typealias DictionarySS = Dictionary<String, String>

@@ -93,76 +93,62 @@ class Pokemon {
                 if error == nil {
                     do {
                         if let data = data {
-                            if let pokeJson = try JSONSerialization.jsonObject(with: data, options: []) as? SADictionary {
+                            if let pokeJson = try JSONSerialization.jsonObject(with: data, options: []) as? DictionarySA {
                                 
                                 // Parse Stats
-                                if let stats = pokeJson["stats"] as? [SADictionary] {
+                                if let stats = pokeJson["stats"] as? [DictionarySA] {
                                     
                                     if let speed = stats[0]["base_stat"] as? Int {
                                         self._speed = speed
                                     }
-                                    
                                     if let spDefend = stats[1]["base_stat"] as? Int {
                                         self._spDefend = spDefend
                                     }
-                                    
                                     if let spAttack = stats[2]["base_stat"] as? Int {
                                         self._spAttack = spAttack
                                     }
-                                    
                                     if let defend = stats[3]["base_stat"] as? Int {
                                         self._defend = defend
                                     }
-                                    
                                     if let attack = stats[4]["base_stat"] as? Int {
                                         self._attack = attack
                                     }
-                                    
                                     if let hp = stats[5]["base_stat"] as? Int {
                                         self._hp = hp
                                     }
                                 }//end parsing stats
                                 
                                 // Parse Types
-                                if let types = pokeJson["types"] as? [SADictionary] {
-                                    if types.count == 1 {
-                                        if let primary = types[0]["type"] as? SADictionary {
-                                            if let primary = primary["name"] as? String {
-                                                self._types.setPrimaryType(type: primary)
-                                            }
-                                        }
-                                    } else {
-                                        if let primary = types[1]["type"] as? SADictionary {
-                                            if let primary = primary["name"] as? String {
-                                                self._types.setPrimaryType(type: primary)
-                                            }
-                                        }
-                                        
-                                        if let secondary = types[0]["type"] as? SADictionary {
-                                            if let secondary = secondary["name"] as? String {
-                                                self._types.setSecondaryType(type: secondary)
+                                if let types = pokeJson["types"] as? [DictionarySA] {
+                                    
+                                    for i in 0 ..< types.count {
+                                        if let slotNum = types[i]["slot"] as? Int, let type = types[i]["type"] as? DictionarySS, let name = type["name"] {
+                                            switch slotNum {
+                                            case 1:
+                                                self._types.setPrimaryType(name: name)
+                                            case 2:
+                                                self._types.setSecondaryType(name: name)
+                                            default:
+                                                print("Type slot number is \(slotNum): requires 1 or 2")
                                             }
                                         }
                                     }
                                 }//end parsing types
                                 
                                 // Parse Abilities
-                                if let abilities = pokeJson["abilities"] as? [SADictionary] {
+                                if let abilities = pokeJson["abilities"] as? [DictionarySA] {
+                                    
                                     for i in 0 ..< abilities.count {
-                                        if let slotNum = abilities[i]["slot"] as? Int, let ability = abilities[i]["ability"] as? SADictionary {
-                                            
-                                            if slotNum == 1 {
-                                                if let ability = ability["name"] as? String {
-                                                    self._abilities.setFirstAbility(to: ability)
-                                                }
-                                            } else if slotNum == 2 {
-                                                if let ability = ability["name"] as? String {
-                                                    self._abilities.setSecondAbility(to: ability)
-                                                }
-                                            } else { //slot 3 (hidden ability)
-                                                if let ability = ability["name"] as? String {
-                                                    self._abilities.setHiddenAbility(to: ability)
-                                                }
+                                        if let slotNum = abilities[i]["slot"] as? Int, let ability = abilities[i]["ability"] as? DictionarySS, let name = ability["name"] {
+                                            switch slotNum {
+                                            case 1:
+                                                self._abilities.setFirstAbility(name: name)
+                                            case 2:
+                                                self._abilities.setSecondAbility(name: name)
+                                            case 3:
+                                                self._abilities.setHiddenAbility(name: name)
+                                            default:
+                                                print("Ability slot number is \(slotNum): requires 1, 2, or 3")
                                             }
                                         }
                                     }
@@ -171,8 +157,8 @@ class Pokemon {
                                 // Parse Summary
                                 if let url = URL(string: self._summaryURL) {
                                     let data = try Data(contentsOf: url)
-                                    let speciesJson = try JSONSerialization.jsonObject(with: data, options: []) as! SADictionary
-                                    if let summaries = speciesJson["flavor_text_entries"] as? [SADictionary], let summary = summaries[1]["flavor_text"] as? String { //[1] is the english version
+                                    let speciesJson = try JSONSerialization.jsonObject(with: data, options: []) as! DictionarySA
+                                    if let summaries = speciesJson["flavor_text_entries"] as? [DictionarySA], let summary = summaries[1]["flavor_text"] as? String { //[1] is the english version
                                         self._summary = summary.replacingOccurrences(of: "\n", with: " ")
                                     }
                                 }//end parsing summary
@@ -208,12 +194,12 @@ class PokemonTypes {
     }
     
     
-    func setPrimaryType(type: String) {
-        _primary = type.capitalized
+    func setPrimaryType(name: String) {
+        _primary = name.capitalized
     }
     
-    func setSecondaryType(type: String) {
-        _secondary = type.capitalized
+    func setSecondaryType(name: String) {
+        _secondary = name.capitalized
     }
 }
 
@@ -237,16 +223,16 @@ class PokemonAbilities {
     }
     
     
-    func setFirstAbility(to ability: String) {
-        _firstAbility = ability.toAbilityFormat() //capitalized when call toAbilityFormat()
+    func setFirstAbility(name: String) {
+        _firstAbility = name.toAbilityFormat() //capitalized when call toAbilityFormat()
     }
     
-    func setSecondAbility(to ability: String) {
-        _secondAbility = ability.toAbilityFormat()
+    func setSecondAbility(name: String) {
+        _secondAbility = name.toAbilityFormat()
     }
     
-    func setHiddenAbility(to ability: String) {
-        _hiddenAbility = ability.toAbilityFormat()
+    func setHiddenAbility(name: String) {
+        _hiddenAbility = name.toAbilityFormat()
     }
 }
 
