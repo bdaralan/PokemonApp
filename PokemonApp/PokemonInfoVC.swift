@@ -104,25 +104,24 @@ class PokemonInfoVC: UIViewController {
     
     func updateUIWithLocalData() {
         
-        // Sort pokemonEvolution
-        if pokemonEvolution.count == 4 { //remove one pokemon from pokemonEvolution, keep only 3 for the 3 UIImageView
-            if pokemon.pokedexID == pokemonEvolution[3].pokedexID {
-                pokemonEvolution.remove(at: 2)
-            } else {
-                pokemonEvolution.removeLast()
-            }
-        } else if pokemonEvolution.count > 4 { // MARK - MUST Implement: pokemon evolution case 5+
-            for _ in 0 ..< pokemonEvolution.count - 3 {
-                pokemonEvolution.removeLast()
-            }
-        }
+        sortPokemonEvolution()
         
-        // Update some IBOutlets
+        // Update main UIImage, measurements, and types
         self.navigationItem.title = pokemon.name
         pokemonImg.image = UIImage(named: "\(pokemon.pokedexID)")
         pokemonPokedexIdLbl.text = pokemon.pokedexID.toIDOutputFormat()
+        
         pokemonHeight.text = pokemon.height.toMeterOutputFormat()
         pokemonWeight.text = pokemon.weight.toKiloOutputForat()
+        
+        pokemonType01Lbl.text = self.pokemon.types.primary
+        pokemonType01Lbl.backgroundColor = self.pokemon.types.primary.toUIColor()
+        
+        if pokemon.hasSecondType {
+            pokemonType02Lbl.text = self.pokemon.types.secondary
+            pokemonType02Lbl.isHidden = false
+            pokemonType02Lbl.backgroundColor = self.pokemon.types.secondary.toUIColor()
+        }
         
         // Update evolution UIImageView
         for i in 0 ..< pokemonEvolution.count {
@@ -186,18 +185,6 @@ class PokemonInfoVC: UIViewController {
         self.pokemonSummaryTxtView.text = self.pokemon.summary
         self.pokemonSummaryTxtView.isHidden = false
         
-        if self.pokemon.hasPrimaryType {
-            self.pokemonType01Lbl.text = self.pokemon.types.primary
-            self.pokemonType01Lbl.isHidden = false
-            self.pokemonType01Lbl.backgroundColor = self.pokemon.types.primary.toUIColor()
-        }
-        
-        if self.pokemon.hasSecondType {
-            self.pokemonType02Lbl.text = self.pokemon.types.secondary
-            self.pokemonType02Lbl.isHidden = false
-            self.pokemonType02Lbl.backgroundColor = self.pokemon.types.secondary.toUIColor()
-        }
-        
         if self.pokemon.hasFirstAbility {
             self.pokemonAbil01Lbl.text = self.pokemon.abilities.firstAbility
             self.pokemonAbil01Lbl.isHidden = false
@@ -216,7 +203,6 @@ class PokemonInfoVC: UIViewController {
     
     func setItemDefaultSetting() {
         
-        pokemonType01Lbl.isHidden = true
         pokemonType02Lbl.isHidden = true
         pokemonAbil01Lbl.isHidden = true
         pokemonAbil02Lbl.isHidden = true
@@ -237,6 +223,21 @@ class PokemonInfoVC: UIViewController {
             pokemonSpAttPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
             pokemonSpDefPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
             pokemonSpdPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
+        }
+    }
+    
+    func sortPokemonEvolution() {
+        
+        if pokemonEvolution.count == 4 { //remove one pokemon from pokemonEvolution, keep only 3 for the 3 UIImageView
+            if pokemon.pokedexID == pokemonEvolution[3].pokedexID {
+                pokemonEvolution.remove(at: 2)
+            } else {
+                pokemonEvolution.removeLast()
+            }
+        } else if pokemonEvolution.count > 4 { // MARK - MUST Implement: pokemon evolution case 5+
+            for _ in 0 ..< pokemonEvolution.count - 3 {
+                pokemonEvolution.removeLast()
+            }
         }
     }
     

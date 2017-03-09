@@ -76,58 +76,58 @@ extension String {
         
         switch self  {
             
-        case PokeTypes.Normal.rawValue:
+        case "\(PokeTypes.Normal)":
             return COLORS.pokemonType.Normal
             
-        case PokeTypes.Fighting.rawValue:
+        case "\(PokeTypes.Fighting)":
             return COLORS.pokemonType.Fighting
             
-        case PokeTypes.Flying.rawValue:
+        case "\(PokeTypes.Flying)":
             return COLORS.pokemonType.Flying
             
-        case PokeTypes.Poison.rawValue:
+        case "\(PokeTypes.Poison)":
             return COLORS.pokemonType.Poison
             
-        case PokeTypes.Ground.rawValue:
+        case "\(PokeTypes.Ground)":
             return COLORS.pokemonType.Ground
             
-        case PokeTypes.Rock.rawValue:
+        case "\(PokeTypes.Rock)":
             return COLORS.pokemonType.Rock
             
-        case PokeTypes.Bug.rawValue:
+        case "\(PokeTypes.Bug)":
             return COLORS.pokemonType.Bug
             
-        case PokeTypes.Ghost.rawValue:
+        case "\(PokeTypes.Ghost)":
             return COLORS.pokemonType.Ghost
             
-        case PokeTypes.Steel.rawValue:
+        case "\(PokeTypes.Steel)":
             return COLORS.pokemonType.Steel
             
-        case PokeTypes.Fire.rawValue:
+        case "\(PokeTypes.Fire)":
             return COLORS.pokemonType.Fire
             
-        case PokeTypes.Water.rawValue:
+        case "\(PokeTypes.Water)":
             return COLORS.pokemonType.Water
             
-        case PokeTypes.Grass.rawValue:
+        case "\(PokeTypes.Grass)":
             return COLORS.pokemonType.Grass
             
-        case PokeTypes.Electric.rawValue:
+        case "\(PokeTypes.Electric)":
             return COLORS.pokemonType.Electric
             
-        case PokeTypes.Psychic.rawValue:
+        case "\(PokeTypes.Psychic)":
             return COLORS.pokemonType.Psychic
             
-        case PokeTypes.Ice.rawValue:
+        case "\(PokeTypes.Ice)":
             return COLORS.pokemonType.Ice
             
-        case PokeTypes.Dragon.rawValue:
+        case "\(PokeTypes.Dragon)":
             return COLORS.pokemonType.Dragon
             
-        case PokeTypes.Dark.rawValue:
+        case "\(PokeTypes.Dark)":
             return COLORS.pokemonType.Dark
             
-        case PokeTypes.Fairy.rawValue:
+        case "\(PokeTypes.Fairy)":
             return COLORS.pokemonType.Fairy
             
         default:

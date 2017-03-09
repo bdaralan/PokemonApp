@@ -8,25 +8,25 @@
 
 import Foundation
 
-enum PokeTypes: String {
+enum PokeTypes: Int {
     
-    case Normal = "Normal"
-    case Fighting = "Fighting"
-    case Flying = "Flying"
-    case Poison = "Poison"
-    case Ground = "Ground"
-    case Rock = "Rock"
-    case Bug = "Bug"
-    case Ghost = "Ghost"
-    case Steel = "Steel"
-    case Fire = "Fire"
-    case Water = "Water"
-    case Grass = "Grass"
-    case Electric = "Electric"
-    case Psychic = "Psychic"
-    case Ice = "Ice"
-    case Dragon = "Dragon"
-    case Dark = "Dark"
-    case Fairy = "Fairy"
-    case Unknown = "Unknown"
+    case Normal = 1
+    case Fighting
+    case Flying
+    case Poison
+    case Ground
+    case Rock
+    case Bug
+    case Ghost
+    case Steel
+    case Fire
+    case Water
+    case Grass
+    case Electric
+    case Psychic
+    case Ice
+    case Dragon
+    case Dark
+    case Fairy
+    case Unknown
 }

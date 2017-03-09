@@ -10,9 +10,10 @@ import Foundation
 
 func ParsePokemonCSV() -> [Pokemon] {
     
-    var pokemon = [Pokemon]()
+    var pokemons = [Pokemon]()
     
-    if let pokeCSVPath = POKEMON_CSV_PATH {
+    // Parse pokemon basic info
+    if let pokeCSVPath = POKEMON_CSV_PATH, let pokeTypeCSVPath = POKEMON_TYPES_CSV_PATH {
         do {
             let pokemonCSV = try String(contentsOfFile: pokeCSVPath, encoding: String.Encoding.utf8)
             var pokeLineTokens = pokemonCSV.components(separatedBy: "\n")
@@ -26,7 +27,7 @@ func ParsePokemonCSV() -> [Pokemon] {
                 // ["282", "gardevoir", "282", "16", "484", "233", "325", "1"]
                 
                 
-                // the following force unwrap will work, unless csv file is corrupted
+                // the following force unwrap will work, unless pokemon.csv is corrupted
                 let pokedexID = Int(pokeInfoArray[0])!
                 let name = pokeInfoArray[1]
                 
@@ -36,16 +37,49 @@ func ParsePokemonCSV() -> [Pokemon] {
                 }
                 
                 let evolveID = Int(pokeInfoArray[3])!
-                let height = Double(pokeInfoArray[6])!
-                let weight = Double(pokeInfoArray[7])!
+                let height = Double(pokeInfoArray[6])!.toCorrectWeight()
+                let weight = Double(pokeInfoArray[7])!.toCorrectWeight()
                 
                 let newPokemon = Pokemon(name: name, pokedexID: pokedexID, evolveFrom: evolveFrom, evolveID: evolveID, height: height, weight: weight)
-                pokemon.append(newPokemon)
+                pokemons.append(newPokemon)
+            }
+            
+            
+            // Parse pokemon types
+            let pokeTypeCSVContent = try String(contentsOfFile: pokeTypeCSVPath, encoding: String.Encoding.utf8)
+            var pokeTypeCSVContentByLine = pokeTypeCSVContent.components(separatedBy: "\n")
+            pokeTypeCSVContentByLine.removeFirst()
+            
+            var index = 0
+            for i in 0 ..< pokeTypeCSVContentByLine.count {
+                let lineTokens = pokeTypeCSVContentByLine[i].components(separatedBy: ",")
+                
+                // the following force unwrap will work, unless pokemon-types.csv is corrupted
+                let pokedexID = Int(lineTokens[0])!
+                let type = Int(lineTokens[1])!
+                let slot = Int(lineTokens[2])!
+                
+                if index < pokemons.count, pokemons[index].pokedexID != pokedexID {
+                    index += 1
+                }
+                
+                switch slot {
+                case 1:
+                    if let type = PokeTypes(rawValue: type) {
+                        pokemons[index].types.setPrimaryType(name: "\(type)")
+                    }
+                case 2:
+                    if let type = PokeTypes(rawValue: type) {
+                        pokemons[index].types.setSecondaryType(name: "\(type)")
+                    }
+                default:
+                    print("Slot must be 1 or 2, but get \(slot)")
+                }
             }
         } catch {
             print(error)
         }
     }
     
-    return pokemon
+    return pokemons
 }

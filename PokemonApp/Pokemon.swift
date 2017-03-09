@@ -68,8 +68,8 @@ class Pokemon {
         _abilities = PokemonAbilities()
         _evolveFrom = evolveFrom
         _evolveID = evolveID
-        _height = height.toCorrectWeight()
-        _weight = weight.toCorrectWeight()
+        _height = height
+        _weight = weight
         
         _hp = hp
         _speed = speed
@@ -118,22 +118,22 @@ class Pokemon {
                                     }
                                 }//end parsing stats
                                 
-                                // Parse Types
-                                if let types = pokeJson["types"] as? [DictionarySA] {
-                                    
-                                    for i in 0 ..< types.count {
-                                        if let slotNum = types[i]["slot"] as? Int, let type = types[i]["type"] as? DictionarySS, let name = type["name"] {
-                                            switch slotNum {
-                                            case 1:
-                                                self._types.setPrimaryType(name: name)
-                                            case 2:
-                                                self._types.setSecondaryType(name: name)
-                                            default:
-                                                print("Type slot number is \(slotNum): requires 1 or 2")
-                                            }
-                                        }
-                                    }
-                                }//end parsing types
+//                                // Parse Types
+//                                if let types = pokeJson["types"] as? [DictionarySA] {
+//                                    
+//                                    for i in 0 ..< types.count {
+//                                        if let slotNum = types[i]["slot"] as? Int, let type = types[i]["type"] as? DictionarySS, let name = type["name"] {
+//                                            switch slotNum {
+//                                            case 1:
+//                                                self._types.setPrimaryType(name: name)
+//                                            case 2:
+//                                                self._types.setSecondaryType(name: name)
+//                                            default:
+//                                                print("Type slot number is \(slotNum): requires 1 or 2")
+//                                            }
+//                                        }
+//                                    }
+//                                }//end parsing types
                                 
                                 // Parse Abilities
                                 if let abilities = pokeJson["abilities"] as? [DictionarySA] {
