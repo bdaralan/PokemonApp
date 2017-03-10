@@ -194,12 +194,12 @@ class PokemonTypes {
     }
     
     
-    func setPrimaryType(name: String) {
-        _primary = name.capitalized
+    func setPrimaryType(type: String) {
+        _primary = type.capitalized
     }
     
-    func setSecondaryType(name: String) {
-        _secondary = name.capitalized
+    func setSecondaryType(type: String) {
+        _secondary = type.capitalized
     }
 }
 

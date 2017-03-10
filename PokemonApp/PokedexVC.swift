@@ -28,7 +28,7 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         searchBar.returnKeyType = .search
         searchBar.enablesReturnKeyAutomatically = true
         
-        allPokemon = ParsePokemonCSV()
+        allPokemon = parsePokemonCSV()
         pokemon = allPokemon
     }
     

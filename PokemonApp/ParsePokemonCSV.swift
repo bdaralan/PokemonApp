@@ -8,11 +8,10 @@
 
 import Foundation
 
-func ParsePokemonCSV() -> [Pokemon] {
+func parsePokemonCSV() -> [Pokemon] {
     
     var pokemons = [Pokemon]()
     
-    // Parse pokemon basic info
     if let pokeCSVPath = POKEMON_CSV_PATH, let pokeTypeCSVPath = POKEMON_TYPES_CSV_PATH {
         do {
             let pokemonCSV = try String(contentsOfFile: pokeCSVPath, encoding: String.Encoding.utf8)
@@ -27,6 +26,7 @@ func ParsePokemonCSV() -> [Pokemon] {
                 // ["282", "gardevoir", "282", "16", "484", "233", "325", "1"]
                 
                 
+                // Parse pokemon basic info
                 // the following force unwrap will work, unless pokemon.csv is corrupted
                 let pokedexID = Int(pokeInfoArray[0])!
                 let name = pokeInfoArray[1]
@@ -66,11 +66,11 @@ func ParsePokemonCSV() -> [Pokemon] {
                 switch slot {
                 case 1:
                     if let type = PokeTypes(rawValue: type) {
-                        pokemons[index].types.setPrimaryType(name: "\(type)")
+                        pokemons[index].types.setPrimaryType(type: "\(type)")
                     }
                 case 2:
                     if let type = PokeTypes(rawValue: type) {
-                        pokemons[index].types.setSecondaryType(name: "\(type)")
+                        pokemons[index].types.setSecondaryType(type: "\(type)")
                     }
                 default:
                     print("Slot must be 1 or 2, but get \(slot)")
