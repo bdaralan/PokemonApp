@@ -729,7 +729,8 @@
 		530379041E6B9FAB00E7B9A0 /* 98.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 530376331E6B9FAA00E7B9A0 /* 98.m4a */; };
 		530379051E6B9FAB00E7B9A0 /* 99.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 530376341E6B9FAA00E7B9A0 /* 99.m4a */; };
 		530450441E6149C400A8F0E9 /* PokeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530450431E6149C400A8F0E9 /* PokeTypes.swift */; };
-		530C909C1E71EBFA00074A1F /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 530C909B1E71EBFA00074A1F /* pokemon.csv */; };
+		530C909C1E71EBFA00074A1F /* pokemon-old.csv in Resources */ = {isa = PBXBuildFile; fileRef = 530C909B1E71EBFA00074A1F /* pokemon-old.csv */; };
+		531E04B71E73CDFE003054FF /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 531E04B61E73CDFE003054FF /* pokemon.csv */; };
 		5337142C1E70B96D00D497C9 /* StatsDownloadingAIV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5337142B1E70B96D00D497C9 /* StatsDownloadingAIV.swift */; };
 		533E656E1E6D21D7001F7CAE /* MeasurementUILbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533E656D1E6D21D7001F7CAE /* MeasurementUILbl.swift */; };
 		534FFD741E6CF68F00F410BD /* EvolutionFocusUILbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534FFD731E6CF68F00F410BD /* EvolutionFocusUILbl.swift */; };
@@ -1478,7 +1479,8 @@
 		530376331E6B9FAA00E7B9A0 /* 98.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 98.m4a; sourceTree = "<group>"; };
 		530376341E6B9FAA00E7B9A0 /* 99.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 99.m4a; sourceTree = "<group>"; };
 		530450431E6149C400A8F0E9 /* PokeTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeTypes.swift; sourceTree = "<group>"; };
-		530C909B1E71EBFA00074A1F /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
+		530C909B1E71EBFA00074A1F /* pokemon-old.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "pokemon-old.csv"; sourceTree = "<group>"; };
+		531E04B61E73CDFE003054FF /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		5337142B1E70B96D00D497C9 /* StatsDownloadingAIV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsDownloadingAIV.swift; sourceTree = "<group>"; };
 		533E656D1E6D21D7001F7CAE /* MeasurementUILbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementUILbl.swift; sourceTree = "<group>"; };
 		534FFD731E6CF68F00F410BD /* EvolutionFocusUILbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvolutionFocusUILbl.swift; sourceTree = "<group>"; };
@@ -2283,7 +2285,8 @@
 			isa = PBXGroup;
 			children = (
 				530373631E6B9FA400E7B9A0 /* crysounds */,
-				530C909B1E71EBFA00074A1F /* pokemon.csv */,
+				530C909B1E71EBFA00074A1F /* pokemon-old.csv */,
+				531E04B61E73CDFE003054FF /* pokemon.csv */,
 				5380399F1E71F7EC00DF99F2 /* pokemon-types.csv */,
 				53ECC8B51E600EA60095D5C9 /* pokeapi-data.plist */,
 			);
@@ -3104,7 +3107,8 @@
 				530377A91E6B9FAA00E7B9A0 /* 434.m4a in Resources */,
 				530377E11E6B9FAA00E7B9A0 /* 485.m4a in Resources */,
 				530378381E6B9FAB00E7B9A0 /* 563.m4a in Resources */,
-				530C909C1E71EBFA00074A1F /* pokemon.csv in Resources */,
+				530C909C1E71EBFA00074A1F /* pokemon-old.csv in Resources */,
+				531E04B71E73CDFE003054FF /* pokemon.csv in Resources */,
 				530377A61E6B9FAA00E7B9A0 /* 431.m4a in Resources */,
 				530377571E6B9FAA00E7B9A0 /* 360.m4a in Resources */,
 				5303766F1E6B9FAA00E7B9A0 /* 151.m4a in Resources */,

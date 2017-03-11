@@ -29,6 +29,7 @@ class Pokemon {
     
     private var _evolveFrom: Int!
     private var _evolveID: Int!
+    private var _order: Int!
     
     private var _pokemonURL: String!
     private var _summaryURL: String!
@@ -50,6 +51,7 @@ class Pokemon {
     var abilities: PokemonAbilities { return self._abilities }
     var evolveFrom: Int { return _evolveFrom }
     var evolveID: Int { return _evolveID }
+    var order: Int { return _order }
     
     var hasPrimaryType: Bool { return _types.primary != "" }
     var hasSecondType: Bool { return _types.secondary != "" }
@@ -61,13 +63,14 @@ class Pokemon {
     }
     
     
-    init(name: String, pokedexID: Int, evolveFrom: Int, evolveID: Int, hp: Int = 0, speed: Int = 0, attack: Int = 0, defend: Int = 0, spAttack: Int = 0, spDefend: Int = 0, height: Double = 0.0, weight: Double = 0.0, summary: String = "") {
+    init(name: String, pokedexID: Int, evolveFrom: Int, evolveID: Int, order: Int, hp: Int = 0, speed: Int = 0, attack: Int = 0, defend: Int = 0, spAttack: Int = 0, spDefend: Int = 0, height: Double = 0.0, weight: Double = 0.0, summary: String = "") {
         _name = name.capitalized
         _pokedexID = pokedexID
         _types = PokemonTypes()
         _abilities = PokemonAbilities()
         _evolveFrom = evolveFrom
         _evolveID = evolveID
+        _order = order
         _height = height
         _weight = weight
         
@@ -225,73 +228,40 @@ extension Array where Element: Pokemon {
     
     func evolution(of pokemon: Pokemon) -> [Pokemon] {
         
-        var pokemonEvolution = [Pokemon]()
+        var evolution = [Pokemon]()
         
-        let evolutions = self.filter( {$0.evolveID == pokemon.evolveID} ) //get all pokemon of the same evolution id
-        let form = getForm(of: pokemon, baseOn: evolutions)
-        
-        
-        if evolutions.count <= 3 {
-            
-        } else if evolutions.count == 4 {
-            
-        } else if evolutions.count == 5 { //0 -> A, B | A -> AAs, B -> BB
-            
-        } else if evolutions.count == 9 { //eeveelution
-            
-        }
-        
-        switch pokemon.evolveFrom {
-        case 0: //it is a baby or base pokemon
-            pokemonEvolution.append(pokemon)
-            
-        default: //it is not a baby or base pokemon
-            print()
-        }
-        
-        
-        return [Pokemon]()
-    }
-    
-    private func getForm(of pokemon: Pokemon, baseOn evolutions: [Pokemon]) -> Int {
-        //return 0: baby or base form, 1: 1st evolution, 2: 2nd evolution
-        
-        switch pokemon.evolveFrom {
-        case 0: //baby or base form
-            return 0
-        default: //either 1st or 2nd evolution
-            let baseForm = evolutions.filter( {$0.evolveFrom == 0} )[0] //there will only be 1 base pokemon, so can use [0]
-            
-            if pokemon.evolveFrom == baseForm.pokedexID { //thus, must be 2nd form
-                return 2
-            } else { //thus, must be 3rd form
-                return 3
-            }
-        }
-    }
-    
-    private func evolutionChain(of pokemon: Pokemon) -> [Pokemon] {
-        
-        let pokemons = self.filter( {$0.evolveID == pokemon.evolveID} ) //get pokemons of the same evolution id
-        var evolutions = [Pokemon]()
+        var pokemons = self.filter( {$0.evolveID == pokemon.evolveID} ) //get all pokemons of the same evolution id
         
         switch pokemons.count {
-        case 1:
-            evolutions = pokemons
-        default:
-            for i in 0 ..< pokemons.count { //grab the baby pokemon, then append
-                if pokemons[i].evolveFrom == 0 {
-                    evolutions.append(pokemons[i])
-                }
-            }
+        case 1: //no evolution
+            evolution = pokemons
+        default: //has evolutions
+            pokemons = pokemons.sorted(by: {$0.order < $1.order} ) //sorted evolution by order, so the base pokemon is at [0]
+            evolution.append(pokemons[0]) //append the base pokemon
             
-            //grab the rest, in order of its evolutions
-            let notBabies = pokemons.filter( {$0.evolveFrom != 0} ).sorted(by: {$0.pokedexID < $1.pokedexID} )
-            for notBaby in notBabies {
-                evolutions.append(notBaby)
+            pokemons.removeFirst() //remove base pokemon
+            switch pokemons.count {
+            case 1: //base -> poke02
+                evolution.append(pokemons[0])
+            case 2: //SENARIO 1: base -> poke02 and base -> poke03. SENARIO 2: base -> poke02 -> poke03
+                print()
+                if pokemons[0].evolveFrom == pokemons[1].evolveFrom { //SENARIO 1
+                    evolution.append(pokemons[0])
+                } else { //SENARIO 2
+                    for i in 0 ..< pokemons.count {
+                        evolution.append(pokemons[i])
+                    }
+                }
+            default: /// Mark - Fix me later
+                evolution.append(pokemons[0])
+                for i in 1 ..< pokemons.count {
+                    if evolution.count < 3, pokemons[i].pokedexID == pokemon.pokedexID {
+                        evolution.append(pokemons[i])
+                    }
+                }
             }
         }
         
-        return evolutions
+        return evolution
     }
 }

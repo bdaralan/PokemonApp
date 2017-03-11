@@ -104,8 +104,6 @@ class PokemonInfoVC: UIViewController {
     
     func updateUIWithLocalData() {
         
-        sortPokemonEvolution()
-        
         // Update main UIImage, measurements, and types
         self.navigationItem.title = pokemon.name
         pokemonImg.image = UIImage(named: "\(pokemon.pokedexID)")
@@ -223,21 +221,6 @@ class PokemonInfoVC: UIViewController {
             pokemonSpAttPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
             pokemonSpDefPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
             pokemonSpdPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
-        }
-    }
-    
-    func sortPokemonEvolution() {
-        
-        if pokemonEvolution.count == 4 { //remove one pokemon from pokemonEvolution, keep only 3 for the 3 UIImageView
-            if pokemon.pokedexID == pokemonEvolution[3].pokedexID {
-                pokemonEvolution.remove(at: 2)
-            } else {
-                pokemonEvolution.removeLast()
-            }
-        } else if pokemonEvolution.count > 4 { // MARK - MUST Implement: pokemon evolution case 5+
-            for _ in 0 ..< pokemonEvolution.count - 3 {
-                pokemonEvolution.removeLast()
-            }
         }
     }
     

@@ -35,8 +35,9 @@ func parsePokemonCSV() -> [Pokemon] {
                 let evolveID = Int(pokeInfoArray[3])!
                 let height = Double(pokeInfoArray[6])!.toCorrectWeight()
                 let weight = Double(pokeInfoArray[7])!.toCorrectWeight()
+                let order = Int(pokeInfoArray[9])!
                 
-                let newPokemon = Pokemon(name: name, pokedexID: pokedexID, evolveFrom: evolveFrom, evolveID: evolveID, height: height, weight: weight)
+                let newPokemon = Pokemon(name: name, pokedexID: pokedexID, evolveFrom: evolveFrom, evolveID: evolveID, order: order, height: height, weight: weight)
                 pokemons.append(newPokemon)
             }
             
