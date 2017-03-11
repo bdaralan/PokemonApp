@@ -116,24 +116,7 @@ class Pokemon {
                                     if let hp = stats[5]["base_stat"] as? Int {
                                         self._hp = hp
                                     }
-                                }//end parsing stats
-                                
-//                                // Parse Types
-//                                if let types = pokeJson["types"] as? [DictionarySA] {
-//                                    
-//                                    for i in 0 ..< types.count {
-//                                        if let slotNum = types[i]["slot"] as? Int, let type = types[i]["type"] as? DictionarySS, let name = type["name"] {
-//                                            switch slotNum {
-//                                            case 1:
-//                                                self._types.setPrimaryType(name: name)
-//                                            case 2:
-//                                                self._types.setSecondaryType(name: name)
-//                                            default:
-//                                                print("Type slot number is \(slotNum): requires 1 or 2")
-//                                            }
-//                                        }
-//                                    }
-//                                }//end parsing types
+                                }
                                 
                                 // Parse Abilities
                                 if let abilities = pokeJson["abilities"] as? [DictionarySA] {
@@ -152,7 +135,7 @@ class Pokemon {
                                             }
                                         }
                                     }
-                                }//end parsing abilities
+                                }
                                 
                                 // Parse Summary
                                 if let url = URL(string: self._summaryURL) {
@@ -161,7 +144,7 @@ class Pokemon {
                                     if let summaries = speciesJson["flavor_text_entries"] as? [DictionarySA], let summary = summaries[1]["flavor_text"] as? String { //[1] is the english version
                                         self._summary = summary.replacingOccurrences(of: "\n", with: " ")
                                     }
-                                }//end parsing summary
+                                }
                             }
                             
                             downloadCompleted()
@@ -241,6 +224,53 @@ class PokemonAbilities {
 extension Array where Element: Pokemon {
     
     func evolution(of pokemon: Pokemon) -> [Pokemon] {
+        
+        var pokemonEvolution = [Pokemon]()
+        
+        let evolutions = self.filter( {$0.evolveID == pokemon.evolveID} ) //get all pokemon of the same evolution id
+        let form = getForm(of: pokemon, baseOn: evolutions)
+        
+        
+        if evolutions.count <= 3 {
+            
+        } else if evolutions.count == 4 {
+            
+        } else if evolutions.count == 5 { //0 -> A, B | A -> AAs, B -> BB
+            
+        } else if evolutions.count == 9 { //eeveelution
+            
+        }
+        
+        switch pokemon.evolveFrom {
+        case 0: //it is a baby or base pokemon
+            pokemonEvolution.append(pokemon)
+            
+        default: //it is not a baby or base pokemon
+            print()
+        }
+        
+        
+        return [Pokemon]()
+    }
+    
+    private func getForm(of pokemon: Pokemon, baseOn evolutions: [Pokemon]) -> Int {
+        //return 0: baby or base form, 1: 1st evolution, 2: 2nd evolution
+        
+        switch pokemon.evolveFrom {
+        case 0: //baby or base form
+            return 0
+        default: //either 1st or 2nd evolution
+            let baseForm = evolutions.filter( {$0.evolveFrom == 0} )[0] //there will only be 1 base pokemon, so can use [0]
+            
+            if pokemon.evolveFrom == baseForm.pokedexID { //thus, must be 2nd form
+                return 2
+            } else { //thus, must be 3rd form
+                return 3
+            }
+        }
+    }
+    
+    private func evolutionChain(of pokemon: Pokemon) -> [Pokemon] {
         
         let pokemons = self.filter( {$0.evolveID == pokemon.evolveID} ) //get pokemons of the same evolution id
         var evolutions = [Pokemon]()

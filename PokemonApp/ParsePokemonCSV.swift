@@ -21,10 +21,6 @@ func parsePokemonCSV() -> [Pokemon] {
             
             for i in 0 ..< pokeLineTokens.count {
                 let pokeInfoArray = pokeLineTokens[i].components(separatedBy: ",")
-                // pokemonInfo output is an array of:
-                // ["id", "identifier", "species_id", "height", "weight", "base_experience", "order", "is_default"]
-                // ["282", "gardevoir", "282", "16", "484", "233", "325", "1"]
-                
                 
                 // Parse pokemon basic info
                 // the following force unwrap will work, unless pokemon.csv is corrupted
@@ -43,7 +39,6 @@ func parsePokemonCSV() -> [Pokemon] {
                 let newPokemon = Pokemon(name: name, pokedexID: pokedexID, evolveFrom: evolveFrom, evolveID: evolveID, height: height, weight: weight)
                 pokemons.append(newPokemon)
             }
-            
             
             // Parse pokemon types
             let pokeTypeCSVContent = try String(contentsOfFile: pokeTypeCSVPath, encoding: String.Encoding.utf8)
