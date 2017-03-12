@@ -24,7 +24,7 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
-        
+
         searchBar.returnKeyType = .search
         searchBar.enablesReturnKeyAutomatically = true
         
@@ -57,7 +57,7 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     /*-- Protocol Functions --*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "PokemonInfoVC", sender: pokemon[indexPath.row])
-        tableView.deselectRow(at: indexPath, animated: false)
+        tableView.deselectRow(at: indexPath, animated: true)
         searchBar.resignFirstResponder()
     }
     
@@ -127,6 +127,6 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     @IBAction func settingsTapped(_ sender: Any) {
-        performSegue(withIdentifier: "SettingsVC", sender: nil)
+        performSegue(withIdentifier: "SettingsTVC", sender: nil)
     }
 }
