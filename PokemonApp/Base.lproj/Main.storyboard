@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4AX-Ke-oXU" id="KIH-ve-Og8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokeball-op30" translatesAutoresizingMaskIntoConstraints="NO" id="KAH-HC-enN">
@@ -78,6 +78,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pokedex" id="4gx-ph-dve">
+                        <barButtonItem key="leftBarButtonItem" id="AIO-eo-3ls">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Br6-a6-Wxb" userLabel="Setting">
+                                <rect key="frame" x="16" y="-1" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="setting"/>
+                                <state key="highlighted" image="setting-tapped"/>
+                                <connections>
+                                    <action selector="settingsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nZB-XB-IjJ"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <segue destination="Yzs-dL-5aC" kind="show" identifier="SettingsVC" id="7dG-3l-kku"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="eMa-dV-JIA">
                             <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="nCd-Pb-Pey" customClass="SortSC" customModule="PokemonApp" customModuleProvider="target">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
@@ -103,6 +117,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="853.60000000000002" y="688.60569715142435"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="v1E-aN-2fR">
+            <objects>
+                <viewController id="Yzs-dL-5aC" customClass="SettingsVC" customModule="PokemonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyY-Jo-BVe"/>
+                        <viewControllerLayoutGuide type="bottom" id="AWF-Tk-f1C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fnt-Tx-0Mz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y1z-Du-0aC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="853.60000000000002" y="1394.7526236881561"/>
         </scene>
         <!--Pokemon-->
         <scene sceneID="6p1-aH-3Dk">
@@ -408,11 +440,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Pokemon" id="HO4-8f-NNH">
                         <barButtonItem key="rightBarButtonItem" id="oVR-gu-Kv1">
-                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gPZ-rh-CYZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gPZ-rh-CYZ" userLabel="Pokemon Cry">
                                 <rect key="frame" x="309" y="-3" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="ralts-note"/>
-                                <state key="highlighted" image="ralts-note-tapped"/>
+                                <state key="normal" image="cry"/>
+                                <state key="highlighted" image="cry-tapped"/>
                                 <connections>
                                     <action selector="pokeCryBtnClicked:" destination="6fH-JT-nEc" eventType="touchUpInside" id="2DK-r7-DVF"/>
                                 </connections>
@@ -477,9 +509,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cry" width="128" height="128"/>
+        <image name="cry-tapped" width="128" height="128"/>
         <image name="evolve-arrow" width="150" height="80"/>
         <image name="pokeball-op30" width="150" height="150"/>
-        <image name="ralts-note" width="128" height="128"/>
-        <image name="ralts-note-tapped" width="128" height="128"/>
+        <image name="setting" width="150" height="150"/>
+        <image name="setting-tapped" width="150" height="150"/>
     </resources>
 </document>

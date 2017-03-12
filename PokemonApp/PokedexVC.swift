@@ -125,4 +125,8 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
         tableView.reloadData()
     }
+    
+    @IBAction func settingsTapped(_ sender: Any) {
+        performSegue(withIdentifier: "SettingsVC", sender: nil)
+    }
 }
