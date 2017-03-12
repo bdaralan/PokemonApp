@@ -52,21 +52,21 @@ func parsePokemonCSV() -> [Pokemon] {
                 
                 // the following force unwrap will work, unless pokemon-types.csv is corrupted
                 let pokedexID = Int(lineTokens[0])!
-                let type = Int(lineTokens[1])!
-                let slot = Int(lineTokens[2])!
+                let type = lineTokens[1]
+                let slot = lineTokens[2]
                 
                 if index < pokemons.count, pokemons[index].pokedexID != pokedexID {
                     index += 1
                 }
                 
                 switch slot {
-                case 1:
-                    if let type = PokeTypes(rawValue: type) {
-                        pokemons[index].types.setPrimaryType(type: "\(type)")
+                case "1":
+                    if let type = PokeType(rawValue: type) {
+                        pokemons[index].types.setPrimaryType(type: type)
                     }
-                case 2:
-                    if let type = PokeTypes(rawValue: type) {
-                        pokemons[index].types.setSecondaryType(type: "\(type)")
+                case "2":
+                    if let type = PokeType(rawValue: type) {
+                        pokemons[index].types.setSecondaryType(type: type)
                     }
                 default:
                     print("Slot must be 1 or 2, but get \(slot)")

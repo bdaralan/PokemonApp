@@ -112,11 +112,11 @@ class PokemonInfoVC: UIViewController {
         pokemonHeight.text = pokemon.height.toMeterOutputFormat()
         pokemonWeight.text = pokemon.weight.toKiloOutputForat()
         
-        pokemonType01Lbl.text = self.pokemon.types.primary
+        pokemonType01Lbl.text = self.pokemon.types.primary.toString()
         pokemonType01Lbl.backgroundColor = self.pokemon.types.primary.toUIColor()
         
         if pokemon.hasSecondType {
-            pokemonType02Lbl.text = self.pokemon.types.secondary
+            pokemonType02Lbl.text = self.pokemon.types.secondary.toString()
             pokemonType02Lbl.isHidden = false
             pokemonType02Lbl.backgroundColor = self.pokemon.types.secondary.toUIColor()
         }

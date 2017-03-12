@@ -53,8 +53,8 @@ class Pokemon {
     var evolveID: Int { return _evolveID }
     var order: Int { return _order }
     
-    var hasPrimaryType: Bool { return _types.primary != "" }
-    var hasSecondType: Bool { return _types.secondary != "" }
+    var hasPrimaryType: Bool { return _types.primary != .Unknown }
+    var hasSecondType: Bool { return _types.secondary != .Unknown }
     var hasFirstAbility: Bool { return _abilities.firstAbility != "" }
     var hasSecondAbility: Bool { return _abilities.secondAbility != "" }
     var hasHiddenAbility: Bool { return _abilities.hiddenAbility != "" }
@@ -167,25 +167,25 @@ class Pokemon {
 /**-- Pokemon Type --**/
 class PokemonTypes {
     
-    private var _primary: String!
-    private var _secondary: String!
+    private var _primary: PokeType!
+    private var _secondary: PokeType!
     
-    var primary: String { return _primary }
-    var secondary: String { return _secondary }
+    var primary: PokeType { return _primary }
+    var secondary: PokeType { return _secondary }
     
     
-    init(primary: String = "", secondary: String = "") {
-        _primary = primary.capitalized
-        _secondary = secondary.capitalized
+    init(primary: PokeType = .Unknown, secondary: PokeType = .Unknown) {
+        _primary = primary
+        _secondary = secondary
     }
     
     
-    func setPrimaryType(type: String) {
-        _primary = type.capitalized
+    func setPrimaryType(type: PokeType) {
+        _primary = type
     }
     
-    func setSecondaryType(type: String) {
-        _secondary = type.capitalized
+    func setSecondaryType(type: PokeType) {
+        _secondary = type
     }
 }
 
@@ -233,23 +233,45 @@ extension Array where Element: Pokemon {
         var pokemons = self.filter( {$0.evolveID == pokemon.evolveID} ) //get all pokemons of the same evolution id
         
         switch pokemons.count {
+            
         case 1: //no evolution
             evolution = pokemons
+            
         default: //has evolutions
             pokemons = pokemons.sorted(by: {$0.order < $1.order} ) //sorted evolution by order, so the base pokemon is at [0]
-            evolution.append(pokemons[0]) //append the base pokemon
             
-            pokemons.removeFirst() //remove base pokemon
+            evolution.append(pokemons[0]) //append the base pokemon
+            pokemons.removeFirst() //pop the base pokemon, dont need anymore
+            
             switch pokemons.count {
+                
             case 1: //base -> poke02
                 evolution.append(pokemons[0])
-            case 2: //SENARIO 1: base -> poke02 and base -> poke03. SENARIO 2: base -> poke02 -> poke03
-                print()
-                if pokemons[0].evolveFrom == pokemons[1].evolveFrom { //SENARIO 1
+            
+            case 2:
+                if pokemons[0].evolveFrom == pokemons[1].evolveFrom { //SENARIO 1: base -> poke02 and base -> poke03
+                    if pokemon.pokedexID == pokemons[0].pokedexID {
+                        evolution.append(pokemon)
+                    } else {
+                        evolution.append(pokemons[1])
+                    }
+                } else { //SENARIO 2: base -> poke02 -> poke03
                     evolution.append(pokemons[0])
-                } else { //SENARIO 2
-                    for i in 0 ..< pokemons.count {
-                        evolution.append(pokemons[i])
+                    evolution.append(pokemons[1])
+                }
+            case 3:
+                if pokemons[0].evolveFrom == pokemons[1].evolveFrom, pokemons[0].evolveFrom == pokemons[2].evolveFrom { //SENARIO 1: poke01 -> poke02 or poke03
+                    for i in 0 ..< pokemons.count where evolution.count < 2 { //append the one user tapped on
+                        if pokemon.pokedexID == pokemons[i].pokedexID {
+                            evolution.append(pokemon)
+                        }
+                    }
+                } else if pokemons[1].evolveFrom == pokemons[2].evolveFrom { //SENARIO 2:
+                    evolution.append(pokemons[0])
+                    pokemons.removeFirst()
+                    
+                    for i in 0 ..< pokemons.count where evolution.count < 3 {
+                        
                     }
                 }
             default: /// Mark - Fix me later
