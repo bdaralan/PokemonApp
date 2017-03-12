@@ -15,7 +15,6 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     @IBOutlet weak var sortSC: UISegmentedControl!
     
     var pokemon = [Pokemon]()
-    var allPokemon = [Pokemon]()
     var inSearchMode = false
     
     override func viewDidLoad() {
@@ -28,22 +27,21 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         searchBar.returnKeyType = .search
         searchBar.enablesReturnKeyAutomatically = true
         
-        allPokemon = parsePokemonCSV()
-        pokemon = allPokemon
+        pokemon = ALL_POKEMON
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if inSearchMode {
-            searchBar.becomeFirstResponder()
-            searchBar.resignFirstResponder()
-        }
+//        if inSearchMode {
+//            searchBar.becomeFirstResponder()
+//            searchBar.resignFirstResponder()
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PokemonInfoVC" {
             if let sender = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {
                 pokemonInfoVC.pokemon = sender
-                pokemonInfoVC.allPokemon = self.allPokemon
+                pokemonInfoVC.allPokemon = ALL_POKEMON
             }
         }
     }
@@ -56,16 +54,22 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     /*-- Protocol Functions --*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         performSegue(withIdentifier: "PokemonInfoVC", sender: pokemon[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
-        searchBar.resignFirstResponder()
+        
+        if inSearchMode {
+            resignSearchBar()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return pokemon.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if let pokeCell = tableView.dequeueReusableCell(withIdentifier: "PokeCell") as? PokeCell {
             pokeCell.configureCell(pokemon: pokemon[indexPath.row])
             
@@ -76,45 +80,56 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
         searchBar.setShowsCancelButton(true, animated: true)
         searchBar.placeholder = "Search by name or id"
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
         searchBar.placeholder = ""
+        resignSearchBar()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         if searchText != "" {
             inSearchMode = true
-            pokemon = allPokemon.filter({ $0.name.range(of: searchText, options: .caseInsensitive) != nil || $0.pokedexID.toIDOutputFormat().range(of: searchText) != nil })
+            pokemon = ALL_POKEMON.filter({ $0.name.range(of: searchText, options: .caseInsensitive) != nil || $0.pokedexID.toIDOutputFormat().range(of: searchText) != nil })
         } else {
             inSearchMode = false
-            pokemon = allPokemon
+            pokemon = ALL_POKEMON
         }
         
         sortSCSwitched(self)
     }
-
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) { //returnKeyClicked
-        searchBar.resignFirstResponder()
-        if searchBar.text == "" {
-            searchBar.setShowsCancelButton(false, animated: true)
-        }
+        
+        resignSearchBar()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(false, animated: true)
-        searchBar.resignFirstResponder()
+        
+        resignSearchBar()
         searchBar.text = ""
         inSearchMode = false
-        pokemon = allPokemon
+        pokemon = ALL_POKEMON
         sortSCSwitched(self)
+    }
+    
+    
+    /*-- Functions --*/
+    func resignSearchBar() {
+        
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
     }
     
     
     /*-- Button --*/
     @IBAction func sortSCSwitched(_ sender: Any) {
+        
         switch sortSC.selectedSegmentIndex {
         case 0:
             pokemon = pokemon.sorted(by: {$0.pokedexID < $1.pokedexID})

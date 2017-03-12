@@ -1,5 +1,5 @@
 //
-//  MenuTVC.swift
+//  HomeTVC.swift
 //  PokemonApp
 //
 //  Created by Dara on 3/12/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuTVC: UITableViewController {
+class HomeTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,26 +29,45 @@ class MenuTVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        switch section {
+        case 0:
+            return 4
+        case 1:
+            return 3
+        default:
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "PokedexVC", sender: nil)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                performSegue(withIdentifier: "PokedexVC", sender: nil)
+            case 1: ()
+            case 2: ()
+            default: ()
+            }
+        case 1: ()
+        default: ()
+        }
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath)
-
-        cell.textLabel?.text = "Pokedex"
-
-        return cell
+        
+        // configure cell...
     }
+    */
 
     /*
     // Override to support conditional editing of the table view.
