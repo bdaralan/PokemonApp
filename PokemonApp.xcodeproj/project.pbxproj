@@ -739,6 +739,7 @@
 		5355A4731E62AED90093A372 /* SectionTagUILbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5355A4721E62AED90093A372 /* SectionTagUILbl.swift */; };
 		535F23311E60A640005FCF34 /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F23301E60A640005FCF34 /* PokeCell.swift */; };
 		538039A01E71F7EC00DF99F2 /* pokemon-types.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5380399F1E71F7EC00DF99F2 /* pokemon-types.csv */; };
+		53A43C0C1E7599B60037FAEC /* MenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A43C0B1E7599B60037FAEC /* MenuTVC.swift */; };
 		53A8AE771E654525001922A6 /* NavBarUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A8AE761E654525001922A6 /* NavBarUIController.swift */; };
 		53AC64CF1E6A5A9F00233B2F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AC64CE1E6A5A9F00233B2F /* Colors.swift */; };
 		53D218C31E67D2FC00A3A92F /* SortSC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D218C21E67D2FC00A3A92F /* SortSC.swift */; };
@@ -1490,6 +1491,7 @@
 		5355A4721E62AED90093A372 /* SectionTagUILbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTagUILbl.swift; sourceTree = "<group>"; };
 		535F23301E60A640005FCF34 /* PokeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCell.swift; sourceTree = "<group>"; };
 		5380399F1E71F7EC00DF99F2 /* pokemon-types.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "pokemon-types.csv"; sourceTree = "<group>"; };
+		53A43C0B1E7599B60037FAEC /* MenuTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTVC.swift; sourceTree = "<group>"; };
 		53A8AE761E654525001922A6 /* NavBarUIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarUIController.swift; sourceTree = "<group>"; };
 		53AC64CE1E6A5A9F00233B2F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		53D218C21E67D2FC00A3A92F /* SortSC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortSC.swift; sourceTree = "<group>"; };
@@ -2316,6 +2318,7 @@
 		53ECC8AE1E600DD50095D5C9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				53A43C0B1E7599B60037FAEC /* MenuTVC.swift */,
 				53E858F91E7581F500D508C1 /* SettingsTVC.swift */,
 				53ECC8B11E600E250095D5C9 /* PokedexVC.swift */,
 				53ECC8B71E600F010095D5C9 /* PokemonInfoVC.swift */,
@@ -3164,6 +3167,7 @@
 				53ECC8B21E600E250095D5C9 /* PokedexVC.swift in Sources */,
 				53A8AE771E654525001922A6 /* NavBarUIController.swift in Sources */,
 				534FFD741E6CF68F00F410BD /* EvolutionFocusUILbl.swift in Sources */,
+				53A43C0C1E7599B60037FAEC /* MenuTVC.swift in Sources */,
 				53ECC89A1E600DB50095D5C9 /* AppDelegate.swift in Sources */,
 				53ECC8C01E60100F0095D5C9 /* Constants.swift in Sources */,
 				5355A4731E62AED90093A372 /* SectionTagUILbl.swift in Sources */,
