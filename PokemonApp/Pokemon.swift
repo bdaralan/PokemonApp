@@ -226,62 +226,60 @@ class PokemonAbilities {
 /**-- Extension --**/
 extension Array where Element: Pokemon {
     
-    func evolution(of pokemon: Pokemon) -> [Pokemon] {
+    func evolution(of sender: Pokemon) -> [Pokemon] {
         
+        //get all pokemons of the same evolution id, then sort them by order
+        var pokemons = self.filter({$0.evolveID == sender.evolveID}).sorted(by: {$0.order < $1.order})
         var evolution = [Pokemon]()
         
-        var pokemons = self.filter( {$0.evolveID == pokemon.evolveID} ) //get all pokemons of the same evolution id
-        
-        switch pokemons.count {
-            
-        case 1: //no evolution
+        if pokemons.count <= 2 {
             evolution = pokemons
             
-        default: //has evolutions
-            pokemons = pokemons.sorted(by: {$0.order < $1.order} ) //sorted evolution by order, so the base pokemon is at [0]
-            
-            evolution.append(pokemons[0]) //append the base pokemon
-            pokemons.removeFirst() //pop the base pokemon, dont need anymore
-            
-            switch pokemons.count {
-                
-            case 1: //base -> poke02
-                evolution.append(pokemons[0])
-            
-            case 2:
-                if pokemons[0].evolveFrom == pokemons[1].evolveFrom { //SENARIO 1: base -> poke02 and base -> poke03
-                    if pokemon.pokedexID == pokemons[0].pokedexID {
-                        evolution.append(pokemon)
-                    } else {
-                        evolution.append(pokemons[1])
-                    }
-                } else { //SENARIO 2: base -> poke02 -> poke03
-                    evolution.append(pokemons[0])
-                    evolution.append(pokemons[1])
+        } else if pokemons.count == 3 {
+            if pokemons[1].evolveFrom == pokemons[2].evolveFrom { //if [1] and [2] evolve from [0]
+                if sender.pokedexID == pokemons[0].pokedexID { // MARK - Possible update for better feature
+                    pokemons.removeLast()
+                    evolution = pokemons
+                } else {
+                    evolution = [pokemons[0], sender]
                 }
-            case 3:
-                if pokemons[0].evolveFrom == pokemons[1].evolveFrom, pokemons[0].evolveFrom == pokemons[2].evolveFrom { //SENARIO 1: poke01 -> poke02 or poke03
-                    for i in 0 ..< pokemons.count where evolution.count < 2 { //append the one user tapped on
-                        if pokemon.pokedexID == pokemons[i].pokedexID {
-                            evolution.append(pokemon)
-                        }
-                    }
-                } else if pokemons[1].evolveFrom == pokemons[2].evolveFrom { //SENARIO 2:
-                    evolution.append(pokemons[0])
-                    pokemons.removeFirst()
-                    
-                    for i in 0 ..< pokemons.count where evolution.count < 3 {
-                        
-                    }
+            } else {
+                evolution = pokemons
+            }
+            
+        } else if pokemons.count == 4 {
+            let baseID = pokemons[0].pokedexID
+            if pokemons[1].evolveFrom == baseID, pokemons[2].evolveFrom == baseID, pokemons[3].evolveFrom == baseID { //if [1], [2], and [3] evolve from [0]
+                if sender.pokedexID == pokemons[0].pokedexID {
+                    evolution = [pokemons[0], pokemons[1]]
+                } else {
+                    evolution = [pokemons[0], sender]
                 }
-            default: /// Mark - Fix me later
-                evolution.append(pokemons[0])
-                for i in 1 ..< pokemons.count {
-                    if evolution.count < 3, pokemons[i].pokedexID == pokemon.pokedexID {
-                        evolution.append(pokemons[i])
-                    }
+            } else { //else [2] and [3] evolve  from [1]
+                if sender.pokedexID == pokemons[0].pokedexID || sender.pokedexID == pokemons[1].pokedexID {
+                    pokemons.removeLast()
+                    evolution = pokemons
+                } else {
+                    evolution = [pokemons[0], pokemons[1], sender]
                 }
             }
+            
+        } else if pokemons.count == 5 { //must be [1] and [2] evolve from [0], AND [3]
+            if sender.pokedexID == pokemons[3].pokedexID || sender.pokedexID == pokemons[4].pokedexID {
+                evolution = [pokemons[0], pokemons[3], pokemons[4]]
+            } else {
+                evolution = [pokemons[0], pokemons[1], pokemons[2]]
+            }
+            
+        } else if pokemons.count == 9 { // NOTE - Eevee evolution case, right now there is 9 eevee forms
+            if sender.pokedexID == pokemons[0].pokedexID {
+                evolution = [pokemons[0], pokemons[1]]
+            } else {
+                evolution = [pokemons[0], sender]
+            }
+            
+        } else {
+            print("Evolution count is < 1 or New Evolution Case")
         }
         
         return evolution
