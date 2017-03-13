@@ -33,7 +33,7 @@ extension Int {
 extension Double {
     
     /// Convert pokemon's arbitrary weight from csv to actual weight
-    func toCorrectWeight() -> Double {
+    func toCorrectWeightOrHeight() -> Double {
         return self / 10.0
     }
     
@@ -70,5 +70,21 @@ extension String {
     
     func removeHiddenCharacter() -> String {
         return String(self.characters.filter( { !"\r".characters.contains($0) } ))
+    }
+    
+    func toInt() -> Int {
+        if let int = Int(self) {
+            return int
+        } else {
+            return -1
+        }
+    }
+    
+    func toDouble() -> Double {
+        if let double = Double(self) {
+            return double
+        } else {
+            return -1.0
+        }
     }
 }

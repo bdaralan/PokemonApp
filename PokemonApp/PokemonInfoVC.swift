@@ -77,7 +77,7 @@ class PokemonInfoVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     
     /*-- Functions --*/
     func configureImageTapGesture() {
@@ -137,10 +137,8 @@ class PokemonInfoVC: UIViewController {
         
         // Set evolution arrow
         switch pokemonEvolution.count {
-        case 1:
-            print("No Evolution")
-        case 2:
-            evolutionArrow01.isHidden = false
+        case 1: () //no evolution
+        case 2: evolutionArrow01.isHidden = false
         case 3:
             evolutionArrow01.isHidden = false
             evolutionArrow02.isHidden = false

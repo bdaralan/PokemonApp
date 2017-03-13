@@ -1,4 +1,4 @@
-pokemon_id,type_id,slot
+[0]pokemon_id,[1]type_id,[2]slot
 1,12,1
 1,4,2
 2,12,1
