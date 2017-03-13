@@ -33,7 +33,6 @@ class Pokemon {
     
     private var _pokemonURL: String!
     private var _summaryURL: String!
-    private var _evolutionURL: String!
     
     
     var name: String { return _name }
@@ -84,7 +83,6 @@ class Pokemon {
         
         _pokemonURL = "\(API.baseURL)\(API.versionURL)\(API.pokemonURL)/\(pokedexID)"
         _summaryURL = "\(API.baseURL)\(API.versionURL)\(API.summaryURL)/\(pokedexID)"
-        _evolutionURL = "\(API.baseURL)\(API.versionURL)\(API.evolutionURL)/\(pokedexID)"
     }
     
     

@@ -8,22 +8,24 @@
 
 import UIKit
 
-enum HomeSection: Int {
-    case Pokemon
-    case Bag
-}
-
-enum PokemonSectionRow {
-    case Pokedex
-    case Types
-    case Abilities
-    case Moves
-}
-
-enum BagSectionRow {
-    case Items
-    case Berries
-    case TMs
+struct Settings {
+    enum HomeSection: Int {
+        case Pokemon
+        case Bag
+    }
+    
+    enum PokemonSectionRow: Int {
+        case Pokedex
+        case Types
+        case Abilities
+        case Moves
+    }
+    
+    enum BagSectionRow: Int {
+        case Items
+        case Berries
+        case TMs
+    }
 }
 
 class HomeTVC: UITableViewController {
@@ -48,13 +50,10 @@ class HomeTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let section = HomeSection(rawValue: section) {
+        if let section = Settings.HomeSection.init(rawValue: section) {
             switch section {
-            case .Pokemon: //Pokemon
-                return 4
-                
-            case .Bag: //Bag
-                return 3
+            case .Pokemon: return 4
+            case .Bag: return 3
             }
         }
         
@@ -65,23 +64,55 @@ class HomeTVC: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        switch indexPath.section {
-        case 0:
-            switch indexPath.row {
-            case 0:
-                performSegue(withIdentifier: "PokedexVC", sender: nil)
+        if let section = Settings.HomeSection(rawValue: indexPath.section) {
+            switch section {
                 
-            case 1: ()
-                
-            case 2: ()
-                
-            default: ()
+            case .Pokemon:
+                if let sectionRow = Settings.PokemonSectionRow(rawValue: indexPath.row) {
+                    switch sectionRow {
+                        
+                    case .Pokedex:
+                        performSegue(withIdentifier: "PokedexVC", sender: nil)
+                        
+                    case .Types:
+                        performSegue(withIdentifier: "TypesAbilitiesMoves", sender: Settings.PokemonSectionRow.Types)
+                        
+                    case .Abilities:
+                        performSegue(withIdentifier: "TypesAbilitiesMoves", sender: Settings.PokemonSectionRow.Abilities)
+                        
+                    case .Moves:
+                        performSegue(withIdentifier: "TypesAbilitiesMoves", sender: Settings.PokemonSectionRow.Moves)
+                    }
+                }
+
+            case .Bag: ()
             }
-            
-        case 1: ()
-            
-        default: ()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        if segue.identifier == "TypesAbilitiesMoves" {
+            
+            if let sender = sender as? Settings.PokemonSectionRow, let typesAbilitiesMoves = segue.destination as? TypesAbilitesMovesTVC {
+                
+                switch sender {
+                    
+                case .Types:
+                    typesAbilitiesMoves.title = "Types"
+                    
+                case .Abilities:
+                    typesAbilitiesMoves.title = "Abilities"
+                    
+                case .Moves:
+                    typesAbilitiesMoves.title = "Moves"
+                    
+                case .Pokedex: ()
+                }
+                
+            }
+        }
+        // Pass the selected object to the new view controller.
     }
 
     /*
@@ -126,15 +157,6 @@ class HomeTVC: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     /*-- Buttons --*/
     @IBAction func settingsTapped(_ sender: Any) {

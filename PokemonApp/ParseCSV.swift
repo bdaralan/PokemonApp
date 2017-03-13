@@ -54,3 +54,11 @@ func parsePokemonCSV() -> [Pokemon] {
     
     return pokemons
 }
+
+func parseMoveCSV() {
+    
+}
+
+func parseItemCSV() {
+    
+}
