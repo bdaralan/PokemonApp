@@ -8,21 +8,21 @@
 
 import UIKit
 
-enum Setting: Int {
-    case Display
-    case Developer
-    case Share
-}
-
-enum SettingRow {
-    case Disclaimer
-    case SendFeedback
-    case GitHub
-    case ShareOnTwitter
-    case ShareOnFacebook
-}
-
 class SettingTVC: UITableViewController {
+    
+    enum Setting: Int {
+        case Display
+        case Developer
+        case Share
+    }
+    
+    enum SettingRow {
+        case Disclaimer
+        case SendFeedback
+        case GitHub
+        case ShareOnTwitter
+        case ShareOnFacebook
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

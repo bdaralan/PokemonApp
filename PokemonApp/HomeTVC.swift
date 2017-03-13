@@ -14,14 +14,14 @@ struct Settings {
         case Bag
     }
     
-    enum PokemonSectionRow: Int {
+    enum PokemonSection: Int {
         case Pokedex
         case Types
         case Abilities
         case Moves
     }
     
-    enum BagSectionRow: Int {
+    enum BagSection: Int {
         case Items
         case Berries
         case TMs
@@ -29,6 +29,8 @@ struct Settings {
 }
 
 class HomeTVC: UITableViewController {
+    
+    let settings = Settings()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,24 +66,24 @@ class HomeTVC: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let section = Settings.HomeSection(rawValue: indexPath.section) {
-            switch section {
+        if let homeSection = Settings.HomeSection(rawValue: indexPath.section) {
+            switch homeSection {
                 
             case .Pokemon:
-                if let sectionRow = Settings.PokemonSectionRow(rawValue: indexPath.row) {
-                    switch sectionRow {
+                if let pokemonSection = Settings.PokemonSection(rawValue: indexPath.row) {
+                    switch pokemonSection {
                         
                     case .Pokedex:
                         performSegue(withIdentifier: "PokedexVC", sender: nil)
                         
                     case .Types:
-                        performSegue(withIdentifier: "TypesAbilitiesMoves", sender: Settings.PokemonSectionRow.Types)
+                        performSegue(withIdentifier: "TypesAbilitiesMoves", sender: Settings.PokemonSection.Types)
                         
                     case .Abilities:
-                        performSegue(withIdentifier: "TypesAbilitiesMoves", sender: Settings.PokemonSectionRow.Abilities)
+                        performSegue(withIdentifier: "TypesAbilitiesMoves", sender: Settings.PokemonSection.Abilities)
                         
                     case .Moves:
-                        performSegue(withIdentifier: "TypesAbilitiesMoves", sender: Settings.PokemonSectionRow.Moves)
+                        performSegue(withIdentifier: "TypesAbilitiesMoves", sender: Settings.PokemonSection.Moves)
                     }
                 }
 
@@ -94,21 +96,24 @@ class HomeTVC: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         if segue.identifier == "TypesAbilitiesMoves" {
             
-            if let sender = sender as? Settings.PokemonSectionRow, let typesAbilitiesMoves = segue.destination as? TypesAbilitesMovesTVC {
+            let typesAbilitiesMovesTVC = segue.destination as! TypesAbilitesMovesTVC
+            
+            if let sender = sender as? Settings.PokemonSection {
                 
                 switch sender {
                     
                 case .Types:
-                    typesAbilitiesMoves.title = "Types"
+                    typesAbilitiesMovesTVC.sender = Settings.PokemonSection.Types
                     
                 case .Abilities:
-                    typesAbilitiesMoves.title = "Abilities"
+                    typesAbilitiesMovesTVC.sender = Settings.PokemonSection.Abilities
                     
                 case .Moves:
-                    typesAbilitiesMoves.title = "Moves"
+                    typesAbilitiesMovesTVC.sender = Settings.PokemonSection.Moves
                     
                 case .Pokedex: ()
                 }
+            } else { //sender = sender as Setting.BagSection
                 
             }
         }

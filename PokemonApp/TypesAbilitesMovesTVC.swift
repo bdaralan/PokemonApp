@@ -9,23 +9,13 @@
 import UIKit
 
 class TypesAbilitesMovesTVC: UITableViewController {
+    
+    var sender: Any! //must be passed when perform segue
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -34,8 +24,19 @@ class TypesAbilitesMovesTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if self.title == "Types" {
-            return 18
+        if let sender = sender as? Settings.PokemonSection {
+            
+            switch sender {
+            case .Types:
+                self.title = "\(Settings.PokemonSection.Types)"
+                return 18
+            case .Moves: self.title = "\(Settings.PokemonSection.Moves)"
+            case .Abilities: self.title = "\(Settings.PokemonSection.Abilities)"
+            case .Pokedex: ()
+            }
+            
+        } else { //sender = sender as? Setting.BagSection
+            
         }
         
         return 0
@@ -43,11 +44,18 @@ class TypesAbilitesMovesTVC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "TypesAbilitesMovesCell", for: indexPath)
 
-        cell.textLabel?.text = "Types #\(indexPath.row + 1)"
+        if let type = PokeType(rawValue: "\(indexPath.row + 1)") {
+            cell.textLabel?.text = type.toString()
+        }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     /*
