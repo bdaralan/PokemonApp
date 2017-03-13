@@ -8,40 +8,57 @@
 
 import UIKit
 
-class HomeTVC: UITableViewController {
+enum HomeSection: Int {
+    case Pokemon
+    case Bag
+}
 
+enum PokemonSectionRow {
+    case Pokedex
+    case Types
+    case Abilities
+    case Moves
+}
+
+enum BagSectionRow {
+    case Items
+    case Berries
+    case TMs
+}
+
+class HomeTVC: UITableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        switch section {
-        case 0:
-            return 4
-        case 1:
-            return 3
-        default:
-            return 0
+        
+        if let section = HomeSection(rawValue: section) {
+            switch section {
+            case .Pokemon: //Pokemon
+                return 4
+                
+            case .Bag: //Bag
+                return 3
+            }
         }
+        
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -53,11 +70,16 @@ class HomeTVC: UITableViewController {
             switch indexPath.row {
             case 0:
                 performSegue(withIdentifier: "PokedexVC", sender: nil)
+                
             case 1: ()
+                
             case 2: ()
+                
             default: ()
             }
+            
         case 1: ()
+            
         default: ()
         }
     }
@@ -116,6 +138,6 @@ class HomeTVC: UITableViewController {
 
     /*-- Buttons --*/
     @IBAction func settingsTapped(_ sender: Any) {
-        performSegue(withIdentifier: "SettingsTVC", sender: nil)
+        performSegue(withIdentifier: "SettingTVC", sender: nil)
     }
 }

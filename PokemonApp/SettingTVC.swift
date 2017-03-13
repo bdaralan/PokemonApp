@@ -1,5 +1,5 @@
 //
-//  SettingsTVC.swift
+//  SettingTVC.swift
 //  PokemonApp
 //
 //  Created by Dara on 3/12/17.
@@ -8,11 +8,25 @@
 
 import UIKit
 
-class SettingsTVC: UITableViewController {
+enum Setting: Int {
+    case Display
+    case Developer
+    case Share
+}
+
+enum SettingRow {
+    case Disclaimer
+    case SendFeedback
+    case GitHub
+    case ShareOnTwitter
+    case ShareOnFacebook
+}
+
+class SettingTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,22 +47,22 @@ class SettingsTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        switch section {
-        case 0:
-            return 3
-        case 1:
-            return 3
-        case 2:
-            return 2
-        default:
-            print("Section is not specified")
-            return 0
+        
+        if let section = Setting(rawValue: section) {
+            switch section {
+            case .Display: return 3
+            case .Developer: return 3
+            case .Share: return 2
+            }
         }
+        
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
+        
     }
 
     /*
