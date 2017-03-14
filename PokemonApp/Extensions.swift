@@ -48,28 +48,34 @@ extension Double {
 
 extension String {
     
-    var toAbilityFormat: String { // Replace '-' in ability string to space ' '
+    var toPokeTypeColor: UIColor {
         
-        if self.contains("-") {
-            var sep = ""
-            var formated = ""
-            let unformated = self.components(separatedBy: "-")
-            
-            if unformated.count > 1 {
-                sep = " "
-                for i in 0 ..< unformated.count {
-                    formated += (sep + unformated[i].capitalized)
-                }
-            }
-            
-            return formated
+        switch self {
+        case "\(PokeType.Bug)": return COLORS.pokemonType.Normal
+        case "\(PokeType.Dark)": return COLORS.pokemonType.Bug
+        case "\(PokeType.Dragon)": return COLORS.pokemonType.Dragon
+        case "\(PokeType.Electric)": return COLORS.pokemonType.Electric
+        case "\(PokeType.Fairy)": return COLORS.pokemonType.Fairy
+        case "\(PokeType.Fighting)": return COLORS.pokemonType.Fighting
+        case "\(PokeType.Fire)": return COLORS.pokemonType.Fire
+        case "\(PokeType.Flying)": return COLORS.pokemonType.Flying
+        case "\(PokeType.Ghost)": return COLORS.pokemonType.Ghost
+        case "\(PokeType.Grass)": return COLORS.pokemonType.Grass
+        case "\(PokeType.Ground)": return COLORS.pokemonType.Ground
+        case "\(PokeType.Ice)": return COLORS.pokemonType.Ice
+        case "\(PokeType.Normal)": return COLORS.pokemonType.Normal
+        case "\(PokeType.Poison)": return COLORS.pokemonType.Poison
+        case "\(PokeType.Psychic)": return COLORS.pokemonType.Psychic
+        case "\(PokeType.Rock)": return COLORS.pokemonType.Rock
+        case "\(PokeType.Steel)": return COLORS.pokemonType.Steel
+        case "\(PokeType.Water)": return COLORS.pokemonType.Water
+        default: return COLORS.pokemonType.Unknown
         }
-        
-        return self.capitalized
     }
     
-    func removeHiddenCharacter() -> String {
-        return String(self.characters.filter( { !"\r".characters.contains($0) } ))
+    var toAbilityFormat: String { // Replace '-' in ability string to space ' '
+        
+        return self.replacingOccurrences(of: "-", with: " ").capitalized
     }
     
     var toInt: Int {

@@ -2321,9 +2321,9 @@
 			isa = PBXGroup;
 			children = (
 				53A43C0B1E7599B60037FAEC /* HomeTVC.swift */,
+				53E858F91E7581F500D508C1 /* SettingTVC.swift */,
 				53ECC8B11E600E250095D5C9 /* PokedexVC.swift */,
 				53ECC8B71E600F010095D5C9 /* PokemonInfoVC.swift */,
-				53E858F91E7581F500D508C1 /* SettingTVC.swift */,
 				53BBA5561E765D3600C09ED2 /* TypesAbilitesMovesTVC.swift */,
 			);
 			name = Controller;

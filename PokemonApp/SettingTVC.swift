@@ -26,8 +26,6 @@ private enum SettingSection: Int {
 
 class SettingTVC: UITableViewController {
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         

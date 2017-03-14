@@ -58,8 +58,7 @@ extension PokeType {
         case .Dragon: return COLORS.pokemonType.Dragon
         case .Dark: return COLORS.pokemonType.Dark
         case .Fairy: return COLORS.pokemonType.Fairy
-        default: return COLORS.pokemonType.Unknown
-        
+        case .Unknown: return COLORS.pokemonType.Unknown
         }
     }
 }

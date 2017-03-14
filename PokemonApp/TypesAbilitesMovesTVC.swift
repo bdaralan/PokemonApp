@@ -31,7 +31,6 @@ class TypesAbilitesMovesTVC: UITableViewController {
         let label = createLabel(inside: cell, text: pokemonTypes[indexPath.row])
         
         cell.addSubview(label)
-        cell.bringSubview(toFront: label)
         cell.textLabel?.text = pokemonTypes[indexPath.row]
         
         return cell
@@ -55,17 +54,18 @@ class TypesAbilitesMovesTVC: UITableViewController {
     }
     
     func createLabel(inside cell: UITableViewCell, text: String) -> UILabel {
-        let w = CGFloat(75)
-        let h = CGFloat(21)
-        let x = cell.frame.width - CGFloat(w) - CGFloat(15)
-        let y = (cell.frame.height - CGFloat(h)) / CGFloat(2)
+        let w: CGFloat = 75
+        let h: CGFloat = 21
+        let x: CGFloat = cell.frame.width - w - 15
+        let y: CGFloat = (cell.frame.height - h) / 2
         
         let label = UILabel(frame: CGRect(x: x, y: y, width: w, height: h))
-        label.backgroundColor = UIColor.black
+        label.backgroundColor = text.toPokeTypeColor
         
         label.layer.cornerRadius = 10.0
         label.clipsToBounds = true
         label.textColor = UIColor.white
+        label.highlightedTextColor? = UIColor.clear
         label.textAlignment = .center
         label.text = text
         
