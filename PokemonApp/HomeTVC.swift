@@ -8,29 +8,18 @@
 
 import UIKit
 
-struct Settings {
-    enum HomeSection: Int {
-        case Pokemon
-        case Bag
-    }
+private enum HomeMenu: String { //String = "\(indexPath.section)\(indexPath.row)"
+    case Pokedex = "00"
+    case Types = "01"
+    case Abilites = "02"
+    case Moves = "03"
     
-    enum PokemonSection: Int {
-        case Pokedex
-        case Types
-        case Abilities
-        case Moves
-    }
-    
-    enum BagSection: Int {
-        case Items
-        case Berries
-        case TMs
-    }
+    case Items = "10"
+    case Berries = "11"
+    case TMs = "12"
 }
 
 class HomeTVC: UITableViewController {
-    
-    let settings = Settings()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,42 +41,26 @@ class HomeTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let section = Settings.HomeSection.init(rawValue: section) {
-            switch section {
-            case .Pokemon: return 4
-            case .Bag: return 3
-            }
+        switch section {
+        case 0: return 4
+        case 1: return 3
+        default: return 0
         }
-        
-        return 0
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let homeSection = Settings.HomeSection(rawValue: indexPath.section) {
-            switch homeSection {
-                
-            case .Pokemon:
-                if let pokemonSection = Settings.PokemonSection(rawValue: indexPath.row) {
-                    switch pokemonSection {
-                        
-                    case .Pokedex:
-                        performSegue(withIdentifier: "PokedexVC", sender: nil)
-                        
-                    case .Types:
-                        performSegue(withIdentifier: "TypesAbilitiesMoves", sender: Settings.PokemonSection.Types)
-                        
-                    case .Abilities:
-                        performSegue(withIdentifier: "TypesAbilitiesMoves", sender: Settings.PokemonSection.Abilities)
-                        
-                    case .Moves:
-                        performSegue(withIdentifier: "TypesAbilitiesMoves", sender: Settings.PokemonSection.Moves)
-                    }
-                }
-
-            case .Bag: ()
+        if let selectedRow = HomeMenu(rawValue: "\(indexPath.section)\(indexPath.row)") {
+            switch selectedRow {
+            case .Pokedex: performSegue(withIdentifier: "PokedexVC", sender: nil)
+            case .Types: performSegue(withIdentifier: "TypesAbilitiesMoves", sender: "Types")
+            case .Abilites: ()
+            case .Moves: ()
+            case .Items: ()
+            case .Berries: ()
+            case .TMs: print()
             }
         }
     }
@@ -96,28 +69,13 @@ class HomeTVC: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         if segue.identifier == "TypesAbilitiesMoves" {
             
-            let typesAbilitiesMovesTVC = segue.destination as! TypesAbilitesMovesTVC
-            
-            if let sender = sender as? Settings.PokemonSection {
+            if let typesAbilitiesMovesTVC = segue.destination as? TypesAbilitesMovesTVC {
                 
-                switch sender {
-                    
-                case .Types:
-                    typesAbilitiesMovesTVC.sender = Settings.PokemonSection.Types
-                    
-                case .Abilities:
-                    typesAbilitiesMovesTVC.sender = Settings.PokemonSection.Abilities
-                    
-                case .Moves:
-                    typesAbilitiesMovesTVC.sender = Settings.PokemonSection.Moves
-                    
-                case .Pokedex: ()
-                }
-            } else { //sender = sender as Setting.BagSection
+                typesAbilitiesMovesTVC.sender = "Types" 
                 
             }
+            // Pass the selected object to the new view controller.
         }
-        // Pass the selected object to the new view controller.
     }
 
     /*

@@ -8,21 +8,25 @@
 
 import UIKit
 
+private enum SettingMenu: String { //String = "\(indexPath.section)\(indexPath.row)"
+    case Disclaimer = "10"
+    case SendFeedback = "11"
+    case GitHub = "12"
+    
+    case ShareOnTwitter = "20"
+    case ShareOnFacebook = "21"
+}
+
+private enum SettingSection: Int {
+    case Display
+    case Developer
+    case Share
+}
+
+
 class SettingTVC: UITableViewController {
     
-    enum Setting: Int {
-        case Display
-        case Developer
-        case Share
-    }
     
-    enum SettingRow {
-        case Disclaimer
-        case SendFeedback
-        case GitHub
-        case ShareOnTwitter
-        case ShareOnFacebook
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +51,10 @@ class SettingTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if let section = Setting(rawValue: section) {
+
+        if let section = SettingSection(rawValue: section) {
             switch section {
-            case .Display: return 3
+            case .Display: return 1
             case .Developer: return 3
             case .Share: return 2
             }
@@ -62,7 +66,6 @@ class SettingTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
     }
 
     /*

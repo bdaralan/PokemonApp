@@ -11,51 +11,65 @@ import UIKit
 class TypesAbilitesMovesTVC: UITableViewController {
     
     var sender: Any! //must be passed when perform segue
+    var pokemonTypes = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 1
+        populatePokemonTypes()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let sender = sender as? Settings.PokemonSection {
-            
-            switch sender {
-            case .Types:
-                self.title = "\(Settings.PokemonSection.Types)"
-                return 18
-            case .Moves: self.title = "\(Settings.PokemonSection.Moves)"
-            case .Abilities: self.title = "\(Settings.PokemonSection.Abilities)"
-            case .Pokedex: ()
-            }
-            
-        } else { //sender = sender as? Setting.BagSection
-            
-        }
-        
-        return 0
+        return pokemonTypes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TypesAbilitesMovesCell", for: indexPath)
-
-        if let type = PokeType(rawValue: "\(indexPath.row + 1)") {
-            cell.textLabel?.text = type.toString()
-        }
-
+        let label = createLabel(inside: cell, text: pokemonTypes[indexPath.row])
+        
+        cell.addSubview(label)
+        cell.bringSubview(toFront: label)
+        cell.textLabel?.text = pokemonTypes[indexPath.row]
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    /*-- Functions --*/
+    func populatePokemonTypes() {
+        
+        for i in 1 ... 18 {
+            if let type = PokeType(rawValue: "\(i)") {
+                pokemonTypes.append(type.toString())
+            }
+        }
+        
+        pokemonTypes.sort()
+    }
+    
+    func createLabel(inside cell: UITableViewCell, text: String) -> UILabel {
+        let w = CGFloat(75)
+        let h = CGFloat(21)
+        let x = cell.frame.width - CGFloat(w) - CGFloat(15)
+        let y = (cell.frame.height - CGFloat(h)) / CGFloat(2)
+        
+        let label = UILabel(frame: CGRect(x: x, y: y, width: w, height: h))
+        label.backgroundColor = UIColor.black
+        
+        label.layer.cornerRadius = 10.0
+        label.clipsToBounds = true
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.text = text
+        
+        return label
     }
 
     /*
