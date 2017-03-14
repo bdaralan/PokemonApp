@@ -12,12 +12,12 @@ import UIKit
 extension Int {
     
     // Add one or at most two zero (ex: 009)
-    func toIDOutputFormat() -> String {
+    var toIDOutputFormat: String {
         return String(format: "#%03d", self)
     }
     
     // Convert to fraction from 0.0 to 0.9
-    func toProgress() -> Float {
+    var toProgress: Float {
         var progress: Float
         
         if self == 0 {
@@ -37,18 +37,18 @@ extension Double {
         return self / 10.0
     }
     
-    func toMeterOutputFormat() -> String {
+    var toMeterOutputFormat: String {
         return "\(self)m"
     }
     
-    func toKiloOutputForat() -> String {
+    var toKiloOutputForat: String {
         return "\(self)kg"
     }
 }
 
 extension String {
     
-    func toAbilityFormat() -> String { // Replace '-' in ability string to space ' '
+    var toAbilityFormat: String { // Replace '-' in ability string to space ' '
         
         if self.contains("-") {
             var sep = ""
@@ -72,7 +72,7 @@ extension String {
         return String(self.characters.filter( { !"\r".characters.contains($0) } ))
     }
     
-    func toInt() -> Int {
+    var toInt: Int {
         if let int = Int(self) {
             return int
         } else {
@@ -80,7 +80,7 @@ extension String {
         }
     }
     
-    func toDouble() -> Double {
+    var toDouble: Double {
         if let double = Double(self) {
             return double
         } else {

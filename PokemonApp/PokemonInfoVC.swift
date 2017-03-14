@@ -107,10 +107,10 @@ class PokemonInfoVC: UIViewController {
         // Update main UIImage, measurements, and types
         self.navigationItem.title = pokemon.name
         pokemonImg.image = UIImage(named: "\(pokemon.pokedexID)")
-        pokemonPokedexIdLbl.text = pokemon.pokedexID.toIDOutputFormat()
+        pokemonPokedexIdLbl.text = pokemon.pokedexID.toIDOutputFormat
         
-        pokemonHeight.text = pokemon.height.toMeterOutputFormat()
-        pokemonWeight.text = pokemon.weight.toKiloOutputForat()
+        pokemonHeight.text = pokemon.height.toMeterOutputFormat
+        pokemonWeight.text = pokemon.weight.toKiloOutputForat
         
         pokemonType01Lbl.text = self.pokemon.types.primary.toString()
         pokemonType01Lbl.backgroundColor = self.pokemon.types.primary.toUIColor()
@@ -171,12 +171,12 @@ class PokemonInfoVC: UIViewController {
         self.pokemonDefLbl.text = "\(self.pokemon.defend)"
         self.pokemonSpDefLbl.text = "\(self.pokemon.spDefend)"
         
-        self.pokemonHpPV.setProgress(self.pokemon.hp.toProgress(), animated: true)
-        self.pokemonSpdPV.setProgress(self.pokemon.speed.toProgress(), animated: true)
-        self.pokemonAttPV.setProgress(self.pokemon.attack.toProgress(), animated: true)
-        self.pokemonSpAttPV.setProgress(self.pokemon.spAttack.toProgress(), animated: true)
-        self.pokemonDefPV.setProgress(self.pokemon.defend.toProgress(), animated: true)
-        self.pokemonSpDefPV.setProgress(self.pokemon.spDefend.toProgress(), animated: true)
+        self.pokemonHpPV.setProgress(self.pokemon.hp.toProgress, animated: true)
+        self.pokemonSpdPV.setProgress(self.pokemon.speed.toProgress, animated: true)
+        self.pokemonAttPV.setProgress(self.pokemon.attack.toProgress, animated: true)
+        self.pokemonSpAttPV.setProgress(self.pokemon.spAttack.toProgress, animated: true)
+        self.pokemonDefPV.setProgress(self.pokemon.defend.toProgress, animated: true)
+        self.pokemonSpDefPV.setProgress(self.pokemon.spDefend.toProgress, animated: true)
         
         self.pokemonSummaryTxtView.text = self.pokemon.summary
         self.pokemonSummaryTxtView.isHidden = false

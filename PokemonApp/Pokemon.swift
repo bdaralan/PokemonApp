@@ -208,15 +208,15 @@ class PokemonAbilities {
     
     
     func setFirstAbility(name: String) {
-        _firstAbility = name.toAbilityFormat() //capitalized when call toAbilityFormat()
+        _firstAbility = name.toAbilityFormat //capitalized when call toAbilityFormat()
     }
     
     func setSecondAbility(name: String) {
-        _secondAbility = name.toAbilityFormat()
+        _secondAbility = name.toAbilityFormat
     }
     
     func setHiddenAbility(name: String) {
-        _hiddenAbility = name.toAbilityFormat()
+        _hiddenAbility = name.toAbilityFormat
     }
 }
 

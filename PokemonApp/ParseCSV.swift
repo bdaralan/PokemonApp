@@ -16,12 +16,12 @@ func parsePokemonCSV() -> [Pokemon] {
     let pokemonDict = CSVToDictionary(contentsOfFile: POKEMON_CSV_PATH) //parse basic info
     for pokemon in pokemonDict {
         if let name = pokemon["identifier"],
-            let pokedexID = pokemon["id"]?.toInt(),
-            let evolFrom = pokemon["evolves_from_species_id"]?.toInt(),
-            let evolveID = pokemon["evolution_chain_id"]?.toInt(),
-            let order = pokemon["order"]?.toInt(),
-            let height = pokemon["height"]?.toDouble().toCorrectWeightOrHeight(),
-            let weight = pokemon["weight"]?.toDouble().toCorrectWeightOrHeight() {
+            let pokedexID = pokemon["id"]?.toInt,
+            let evolFrom = pokemon["evolves_from_species_id"]?.toInt,
+            let evolveID = pokemon["evolution_chain_id"]?.toInt,
+            let order = pokemon["order"]?.toInt,
+            let height = pokemon["height"]?.toDouble.toCorrectWeightOrHeight(),
+            let weight = pokemon["weight"]?.toDouble.toCorrectWeightOrHeight() {
             
             let newPokemon = Pokemon(name: name, pokedexID: pokedexID, evolveFrom: evolFrom, evolveID: evolveID, order: order,  height: height, weight: weight)
             
@@ -32,7 +32,7 @@ func parsePokemonCSV() -> [Pokemon] {
     let typeDict = CSVToDictionary(contentsOfFile: POKEMON_TYPES_CSV_PATH) //parse types
     var index = 0
     for types in typeDict {
-        if let pokedexID = types["pokemon_id"]?.toInt(), let type = types["type_id"], let slot = types["slot"] {
+        if let pokedexID = types["pokemon_id"]?.toInt, let type = types["type_id"], let slot = types["slot"] {
             
             if index < pokemons.count, pokemons[index].pokedexID != pokedexID {
                 index += 1

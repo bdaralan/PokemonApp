@@ -95,7 +95,7 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         
         if searchText != "" {
             inSearchMode = true
-            pokemon = ALL_POKEMON.filter({ $0.name.range(of: searchText, options: .caseInsensitive) != nil || $0.pokedexID.toIDOutputFormat().range(of: searchText) != nil })
+            pokemon = ALL_POKEMON.filter({ $0.name.range(of: searchText, options: .caseInsensitive) != nil || $0.pokedexID.toIDOutputFormat.range(of: searchText) != nil })
         } else {
             inSearchMode = false
             pokemon = ALL_POKEMON
