@@ -14,5 +14,6 @@ class SortSC: UISegmentedControl {
         self.layer.cornerRadius = 15.0
         self.layer.borderWidth = 1.0
         self.layer.masksToBounds = true
+        self.tintColor = UIColor.black
     }
 }
