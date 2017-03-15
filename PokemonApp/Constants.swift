@@ -15,6 +15,7 @@ typealias DictionarySS = Dictionary<String, String>
 
 let POKEMON_CSV_PATH = Bundle.main.path(forResource: "pokemon", ofType: "csv")
 let POKEMON_TYPES_CSV_PATH = Bundle.main.path(forResource: "pokemon-types", ofType: "csv")
+let POKEMON_ABILITIES_CSV_PATH = Bundle.main.path(forResource: "abilities", ofType: "csv")
 
 let DEFAULT_PROGRESS_VALUE = Float(0.01)
 

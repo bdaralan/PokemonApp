@@ -12,6 +12,7 @@ class TypesAbilitiesMovesTVC: UITableViewController {
     
     var homeMenu: HomeMenu! //must be passed when perform segue
     var pokemonTypes = [String]()
+    var pokemonAbilities = [Ability]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,10 @@ class TypesAbilitiesMovesTVC: UITableViewController {
                 
             case .Types:
                 return pokemonTypes.count
+                
+            case .Abilities:
+                pokemonAbilities = parseAbilitiesCSV()
+                return pokemonAbilities.count
                 
             default: ()
             }
@@ -45,7 +50,7 @@ class TypesAbilitiesMovesTVC: UITableViewController {
                 return cell
                 
             case .Abilities:
-                cell.configureAbilityCell(ability: "Ability")
+                cell.configureAbilityCell(ability: pokemonAbilities[indexPath.row].name)
                 return cell
                 
             default: ()

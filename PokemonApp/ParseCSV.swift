@@ -55,8 +55,22 @@ func parsePokemonCSV() -> [Pokemon] {
     return pokemons
 }
 
-func parseMoveCSV() {
+func parseAbilitiesCSV() -> [Ability] {
     
+    var abilities = [Ability]()
+    
+    let abilityDict = CSVToDictionary(contentsOfFile: POKEMON_ABILITIES_CSV_PATH)
+    for ability in abilityDict {
+       
+        if let name = ability["name"], let description = ability["description"], let pokemon = ability["pokemon"], let generation = ability["generation"] {
+            
+            let newAbility = Ability(name: name, description: description, pokemon: pokemon, generation: generation)
+            
+            abilities.append(newAbility)
+        }
+    }
+    
+    return abilities
 }
 
 func parseItemCSV() {
