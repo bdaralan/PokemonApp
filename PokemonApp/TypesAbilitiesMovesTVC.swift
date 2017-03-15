@@ -1,5 +1,5 @@
 //
-//  TypesAbilitesMovesTVC.swift
+//  TypesAbilitiesMovesTVC.swift
 //  PokemonApp
 //
 //  Created by Dara on 3/12/17.
@@ -8,32 +8,53 @@
 
 import UIKit
 
-class TypesAbilitesMovesTVC: UITableViewController {
+class TypesAbilitiesMovesTVC: UITableViewController {
     
-    var sender: Any! //must be passed when perform segue
+    var homeMenu: HomeMenu! //must be passed when perform segue
     var pokemonTypes = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        populatePokemonTypes()
+        prepareData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return pokemonTypes.count
+        if let homeMenu = homeMenu {
+            switch  homeMenu {
+                
+            case .Types:
+                return pokemonTypes.count
+                
+            default: ()
+            }
+        }
+        
+        return 0
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TypesAbilitesMovesCell", for: indexPath)
-        let label = createLabel(inside: cell, text: pokemonTypes[indexPath.row])
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "TypesAbilitiesMovesCell") as? TypesAbilitiesMovesCell, let homeMenu = homeMenu {
         
-        cell.addSubview(label)
-        cell.textLabel?.text = pokemonTypes[indexPath.row]
+            switch homeMenu {
+                
+            case .Types:
+                cell.configureTypeCell(type: pokemonTypes[indexPath.row])
+                return cell
+                
+            case .Abilities:
+                cell.configureAbilityCell(ability: "Ability")
+                return cell
+                
+            default: ()
+                
+            }
+            
+        }
         
-        return cell
+        return TypesAbilitiesMovesCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -42,6 +63,21 @@ class TypesAbilitesMovesTVC: UITableViewController {
     
     
     /*-- Functions --*/
+    func prepareData() {
+        
+        if let homeMenu = homeMenu {
+            switch homeMenu {
+                
+            case .Types:
+                navigationItem.title = "\(homeMenu)"
+                populatePokemonTypes()
+                
+            default: ()
+                
+            }
+        }
+    }
+    
     func populatePokemonTypes() {
         
         for i in 1 ... 18 {
@@ -51,25 +87,6 @@ class TypesAbilitesMovesTVC: UITableViewController {
         }
         
         pokemonTypes.sort()
-    }
-    
-    func createLabel(inside cell: UITableViewCell, text: String) -> UILabel {
-        let w: CGFloat = 75
-        let h: CGFloat = 21
-        let x: CGFloat = cell.frame.width - w - 15
-        let y: CGFloat = (cell.frame.height - h) / 2
-        
-        let label = UILabel(frame: CGRect(x: x, y: y, width: w, height: h))
-        label.backgroundColor = text.toPokeTypeColor
-        
-        label.layer.cornerRadius = 10.0
-        label.clipsToBounds = true
-        label.textColor = UIColor.white
-        label.highlightedTextColor? = UIColor.clear
-        label.textAlignment = .center
-        label.text = text
-        
-        return label
     }
 
     /*

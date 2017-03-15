@@ -8,10 +8,10 @@
 
 import UIKit
 
-private enum HomeMenu: String { //String = "\(indexPath.section)\(indexPath.row)"
+enum HomeMenu: String { //String = "\(indexPath.section)\(indexPath.row)"
     case Pokedex = "00"
     case Types = "01"
-    case Abilites = "02"
+    case Abilities = "02"
     case Moves = "03"
     
     case Items = "10"
@@ -52,26 +52,33 @@ class HomeTVC: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let selectedRow = HomeMenu(rawValue: "\(indexPath.section)\(indexPath.row)") {
-            switch selectedRow {
-            case .Pokedex: performSegue(withIdentifier: "PokedexVC", sender: nil)
-            case .Types: performSegue(withIdentifier: "TypesAbilitiesMoves", sender: "Types")
-            case .Abilites: ()
-            case .Moves: ()
-            case .Items: ()
-            case .Berries: ()
-            case .TMs: print()
+        if let selectedMenu = HomeMenu(rawValue: "\(indexPath.section)\(indexPath.row)") {
+            switch selectedMenu {
+            case .Pokedex:
+                performSegue(withIdentifier: "PokedexVC", sender: selectedMenu)
+            case .Types:
+                performSegue(withIdentifier: "TypesAbilitiesMoves", sender: selectedMenu)
+            case .Abilities:
+                performSegue(withIdentifier: "TypesAbilitiesMoves", sender: selectedMenu)
+            case .Moves:
+                performSegue(withIdentifier: "TypesAbilitiesMoves", sender: selectedMenu)
+            case .Items:
+                performSegue(withIdentifier: "TypesAbilitiesMoves", sender: selectedMenu)
+            case .Berries:
+                performSegue(withIdentifier: "TypesAbilitiesMoves", sender: selectedMenu)
+            case .TMs:
+                performSegue(withIdentifier: "TypesAbilitiesMoves", sender: selectedMenu)
             }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        if segue.identifier == "TypesAbilitiesMoves" {
+        if segue.identifier == "TypesAbilitiesMoves", let homeMenu = sender as? HomeMenu {
             
-            if let typesAbilitiesMovesTVC = segue.destination as? TypesAbilitesMovesTVC {
+            if let typesAbilitiesMovesTVC = segue.destination as? TypesAbilitiesMovesTVC {
                 
-                typesAbilitiesMovesTVC.sender = "Types" 
+                typesAbilitiesMovesTVC.homeMenu = homeMenu
                 
             }
             // Pass the selected object to the new view controller.
