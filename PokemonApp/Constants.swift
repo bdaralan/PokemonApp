@@ -22,4 +22,6 @@ let DEFAULT_PROGRESS_VALUE = Float(0.01)
 let API = APIData()
 let COLORS = Colors()
 
-let ALL_POKEMON = parsePokemonCSV()
+let ALL_TYPE: [String] = populatePokeType()
+let ALL_POKEMON: [Pokemon] = parsePokemonCSV()
+let ALL_ABILITY: [Ability] = parseAbilitiesCSV()

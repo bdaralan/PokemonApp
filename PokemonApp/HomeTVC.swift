@@ -57,31 +57,30 @@ class HomeTVC: UITableViewController {
             case .Pokedex:
                 performSegue(withIdentifier: "PokedexVC", sender: selectedMenu)
             case .Types:
-                performSegue(withIdentifier: "TypesAbilitiesMoves", sender: selectedMenu)
+                performSegue(withIdentifier: "TypesAbilitiesMovesVC", sender: selectedMenu)
             case .Abilities:
-                performSegue(withIdentifier: "TypesAbilitiesMoves", sender: selectedMenu)
+                performSegue(withIdentifier: "TypesAbilitiesMovesVC", sender: selectedMenu)
             case .Moves:
-                performSegue(withIdentifier: "TypesAbilitiesMoves", sender: selectedMenu)
+                performSegue(withIdentifier: "TypesAbilitiesMovesVC", sender: selectedMenu)
             case .Items:
-                performSegue(withIdentifier: "TypesAbilitiesMoves", sender: selectedMenu)
+                performSegue(withIdentifier: "TypesAbilitiesMovesVC", sender: selectedMenu)
             case .Berries:
-                performSegue(withIdentifier: "TypesAbilitiesMoves", sender: selectedMenu)
+                performSegue(withIdentifier: "TypesAbilitiesMovesVC", sender: selectedMenu)
             case .TMs:
-                performSegue(withIdentifier: "TypesAbilitiesMoves", sender: selectedMenu)
+                performSegue(withIdentifier: "TypesAbilitiesMovesVC", sender: selectedMenu)
             }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        if segue.identifier == "TypesAbilitiesMoves", let homeMenu = sender as? HomeMenu {
+        if segue.identifier == "TypesAbilitiesMovesVC", let selectedMenu = sender as? HomeMenu {
             
-            if let typesAbilitiesMovesTVC = segue.destination as? TypesAbilitiesMovesTVC {
+            if let typesAbilitiesMovesVC = segue.destination as? TypesAbilitiesMovesVC {
                 
-                typesAbilitiesMovesTVC.homeMenu = homeMenu
+                typesAbilitiesMovesVC.selectedMenu = selectedMenu
                 
             }
-            // Pass the selected object to the new view controller.
         }
     }
 
