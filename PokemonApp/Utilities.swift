@@ -13,8 +13,9 @@ func populatePokeType() -> [String] {
     var types = [String]()
     
     for i in 1 ... 18 {
-        let type = PokeType(rawValue: "\(i)")
-        types.append("\(type)")
+        if let type = PokeType(rawValue: "\(i)") {
+            types.append("\(type)")
+        }
     }
     
     return types

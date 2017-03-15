@@ -102,6 +102,8 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
+        searchBar.text = ""
+        searchBar.placeholder = ""
         resignSearchBar()
     }
     
@@ -148,6 +150,7 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
     func prepareData() {
         
         let selelctedMenu = self.selectedMenu!
+        
         navigationItem.title = "\(selelctedMenu)"
         
         switch selelctedMenu {
