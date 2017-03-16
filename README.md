@@ -9,10 +9,15 @@
 
 ## Preview
 <div>
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/screenshot/IMG_1420.jpg" alt="Pokemon Info" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/screenshot/IMG_1418.jpg" alt="Pokedex" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/screenshot/IMG_1419.jpg" alt="Search" height="360px">
-<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/screenshot/IMG_1417.jpg" alt="App Icon" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/pokemon-view.png" alt="Pokemon Info" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/pokedex-view.png" alt="Pokedex" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/search-view.png" alt="Search" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/home-view.png" alt="Home" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/types-view.png" alt="Types" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/abilities-view.png" alt="Abilites" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/moves-view.png" alt="Moves" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/setting.png" alt="Setting" height="360px">
+<img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/preview/app-icon.png" alt="App Icon" height="360px">
 </div>
 
 ## Usage:
