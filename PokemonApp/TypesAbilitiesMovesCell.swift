@@ -9,7 +9,9 @@
 import UIKit
 
 class TypesAbilitiesMovesCell: UITableViewCell {
-        
+    
+    var categoryImg: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -48,19 +50,25 @@ class TypesAbilitiesMovesCell: UITableViewCell {
     }
     
     func configureMoveCell(move: Move) {
-        
+                
         textLabel?.text = move.name
         
-        let width: CGFloat = 50
-        let height: CGFloat = 21
-        let x: CGFloat = self.frame.width - width - 10
-        let y: CGFloat = (self.frame.height - height) / 2
-        
-        let categoryImg = UIImageView(frame: CGRect(x: x, y: y, width: width, height: height))
-        categoryImg.layer.cornerRadius = 10.0
-        categoryImg.clipsToBounds = true
-        categoryImg.image = UIImage(named: move.category.lowercased())
-        
-        self.addSubview(categoryImg)
+        if move.category.isEmpty {
+            if categoryImg != nil {
+                categoryImg.removeFromSuperview()
+            }
+        } else {
+            let width: CGFloat = 50
+            let height: CGFloat = 21
+            let x: CGFloat = self.frame.width - width - 10
+            let y: CGFloat = (self.frame.height - height) / 2
+            
+            categoryImg = UIImageView(frame: CGRect(x: x, y: y, width: width, height: height))
+            categoryImg.layer.cornerRadius = 10.0
+            categoryImg.clipsToBounds = true
+            categoryImg.image = UIImage(named: move.category.lowercased())
+            
+            self.addSubview(categoryImg)
+        }
     }
 }

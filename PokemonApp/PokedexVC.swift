@@ -30,13 +30,6 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         pokemon = ALL_POKEMON
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-//        if inSearchMode {
-//            searchBar.becomeFirstResponder()
-//            searchBar.resignFirstResponder()
-//        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PokemonInfoVC" {
             if let sender = sender as? Pokemon, let pokemonInfoVC = segue.destination as? PokemonInfoVC {

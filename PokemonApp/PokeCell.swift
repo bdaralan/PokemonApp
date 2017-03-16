@@ -14,8 +14,6 @@ class PokeCell: UITableViewCell {
     @IBOutlet weak var pokemonNameLbl: UILabel!
     @IBOutlet weak var pokemonIDLbl: UILabel!
     
-    var pokemon: Pokemon! //will be passed from PokedexVC
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,11 +27,9 @@ class PokeCell: UITableViewCell {
     
     func configureCell(pokemon: Pokemon) {
         
-        self.pokemon = pokemon
-        
-        pokemonImg.image = UIImage(named: "\(self.pokemon.pokedexID)")
-        pokemonNameLbl.text = self.pokemon.name
-        pokemonIDLbl.text = self.pokemon.pokedexID.toIDOutputFormat
+        pokemonImg.image = UIImage(named: "\(pokemon.pokedexID)")
+        pokemonNameLbl.text = pokemon.name
+        pokemonIDLbl.text = pokemon.pokedexID.toIDOutputFormat
     }
 
 }
