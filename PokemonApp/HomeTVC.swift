@@ -21,18 +21,18 @@ enum HomeMenu: String { //String = "\(indexPath.section)\(indexPath.row)"
 
 class HomeTVC: UITableViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        
+        tableView.setContentOffset(CGPoint.init(x: 0, y: searchBar.frame.height), animated: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         

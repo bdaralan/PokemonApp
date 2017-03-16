@@ -46,6 +46,7 @@ class TypesAbilitiesMovesCell: UITableViewCell {
     }
     
     func configureAbilityCell(ability: Ability) {
+        
         textLabel?.text = ability.name
     }
     
