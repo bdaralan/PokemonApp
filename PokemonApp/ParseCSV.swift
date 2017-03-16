@@ -55,22 +55,51 @@ func parsePokemonCSV() -> [Pokemon] {
     return pokemons
 }
 
-func parseAbilitiesCSV() -> [Ability] {
+//func parseAbilitiesCSV() -> [Ability] {
+//    
+//    var abilities = [Ability]()
+//    
+//    let abilityDict = CSVToDictionary(contentsOfFile: POKEMON_ABILITIES_CSV_PATH)
+//    //let abilityDict = CSVToDictionary(contentsOfFile: POKEMON_ABILITIES_CSV_PATH, withRowDelimiter: "\n", withFieldDelimiter: "\t")
+//    for ability in abilityDict {
+//       
+//        if let name = ability["name"], let description = ability["description"], let pokemon = ability["pokemon"], let generation = ability["generation"] {
+//            
+//            abilities.append(Ability(name: name, description: description, pokemon: pokemon, generation: generation))
+//        }
+//    }
+//    
+//    return abilities
+//}
+
+func parseItemCSV() {
+    
+}
+
+func parseJSON() -> [Ability] {
     
     var abilities = [Ability]()
     
-    let abilityDict = CSVToDictionary(contentsOfFile: POKEMON_ABILITIES_CSV_PATH)
-    for ability in abilityDict {
-       
-        if let name = ability["name"], let description = ability["description"], let pokemon = ability["pokemon"], let generation = ability["generation"] {
+    if let path = Bundle.main.path(forResource: "abilities", ofType: "json") {
+        
+        if let data = NSData(contentsOfFile: path) as? Data {
             
-            abilities.append(Ability(name: name, description: description, pokemon: pokemon, generation: generation))
+            do {
+                if let jsonDict = try JSONSerialization.jsonObject(with: data, options: []) as? [Dictionary<String, AnyObject>] {
+                    
+                    for json in jsonDict {
+                        
+                        if let name = json["name"] as? String, let pokemon = json["pokemon"] as? Int, let description = json["description"] as? String, let generation = json["generation"] as? Int {
+                            
+                            abilities.append(Ability(name: name, description: description, pokemon: pokemon, generation: generation))
+                        }
+                    }
+                }
+            } catch {
+                
+            }
         }
     }
     
     return abilities
-}
-
-func parseItemCSV() {
-    
 }

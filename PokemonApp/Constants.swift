@@ -24,4 +24,4 @@ let COLORS = Colors()
 
 let ALL_TYPE: [String] = populatePokeType()
 let ALL_POKEMON: [Pokemon] = parsePokemonCSV()
-let ALL_ABILITY: [Ability] = parseAbilitiesCSV()
+let ALL_ABILITY: [Ability] = parseJSON()

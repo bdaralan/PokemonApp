@@ -12,10 +12,10 @@ class Ability {
     
     private var _name: String
     private var _description: String
-    private var _pokemon: String
-    private var _generation: String
+    private var _pokemon: Int
+    private var _generation: Int
     
-    init(name: String, description: String, pokemon: String, generation: String) {
+    init(name: String, description: String, pokemon: Int, generation: Int) {
         _name = name
         _description = description
         _pokemon = pokemon
@@ -24,6 +24,6 @@ class Ability {
     
     var name: String { return _name }
     var description: String { return _description }
-    var pokemon: String { return _pokemon }
-    var generation: String { return _generation }
+    var pokemon: Int { return _pokemon }
+    var generation: Int { return _generation }
 }

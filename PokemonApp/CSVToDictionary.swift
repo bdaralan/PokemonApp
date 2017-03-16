@@ -15,7 +15,7 @@ func CSVToDictionary(contentsOfFile path: String?, withRowDelimiter rDeli: Strin
     if let path = path {
         
         do {
-            let csvContent = try String(contentsOfFile: path)
+            let csvContent = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
             var csvContentByLine = csvContent.components(separatedBy: rDeli)
             
             let keys = csvContentByLine[0].components(separatedBy: fDeli)
