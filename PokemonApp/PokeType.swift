@@ -8,27 +8,27 @@
 
 import UIKit
 
-enum PokeType: String {
+enum PokeType: Int {
     
-    case Normal = "1"
-    case Fighting = "2"
-    case Flying = "3"
-    case Poison = "4"
-    case Ground = "5"
-    case Rock = "6"
-    case Bug = "7"
-    case Ghost = "8"
-    case Steel = "9"
-    case Fire = "10"
-    case Water = "11"
-    case Grass = "12"
-    case Electric = "13"
-    case Psychic = "14"
-    case Ice = "15"
-    case Dragon = "16"
-    case Dark = "17"
-    case Fairy = "18"
-    case Unknown = "-1"
+    case Unknown = 0
+    case Normal
+    case Fighting
+    case Flying
+    case Poison
+    case Ground
+    case Rock
+    case Bug
+    case Ghost
+    case Steel
+    case Fire
+    case Water
+    case Grass
+    case Electric
+    case Psychic
+    case Ice
+    case Dragon
+    case Dark
+    case Fairy
 }
 
 
@@ -40,6 +40,7 @@ extension PokeType {
         
         switch self  {
             
+        case .Unknown: return COLORS.pokemonType.Unknown
         case .Normal: return COLORS.pokemonType.Normal
         case .Fighting: return COLORS.pokemonType.Fighting
         case .Flying: return COLORS.pokemonType.Flying
@@ -58,7 +59,6 @@ extension PokeType {
         case .Dragon: return COLORS.pokemonType.Dragon
         case .Dark: return COLORS.pokemonType.Dark
         case .Fairy: return COLORS.pokemonType.Fairy
-        case .Unknown: return COLORS.pokemonType.Unknown
         }
     }
 }

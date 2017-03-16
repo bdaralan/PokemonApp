@@ -16,6 +16,7 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
     var selectedMenu: HomeMenu! //must be passed when perform segue
     var types = [String]()
     var abilities = [Ability]()
+    var moves = [Move]()
     var inSearchMode = false
 
     
@@ -46,6 +47,9 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
         case .Abilities:
             return abilities.count
             
+        case .Moves:
+            return moves.count
+            
         default: ()
         }
         
@@ -65,8 +69,11 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
                 return cell
                 
             case .Abilities:
-                abilities = ALL_ABILITY
-                cell.configureAbilityCell(ability: abilities[indexPath.row].name)
+                cell.configureAbilityCell(ability: abilities[indexPath.row])
+                return cell
+                
+            case .Moves:
+                cell.configureMoveCell(move: moves[indexPath.row])
                 return cell
                 
             default: ()
@@ -90,10 +97,13 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
         switch selectedMenu {
             
         case .Types:
-            searchBar.placeholder = "Enter type"
+            searchBar.placeholder = "Search pokemon type"
             
         case .Abilities:
-            searchBar.placeholder = "Enter name"
+            searchBar.placeholder = "Search ability name"
+            
+        case .Moves:
+            searchBar.placeholder = "Search move name"
             
         default: ()
             
@@ -102,14 +112,29 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
-        searchBar.text = ""
         searchBar.placeholder = ""
         resignSearchBar()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
+        let selectedMenu = self.selectedMenu!
+        
+        switch selectedMenu {
+        case .Types:
+            types = ALL_TYPE
+            
+        case .Abilities:
+            abilities = ALL_ABILITY
+            
+        case .Moves:
+            moves = ALL_MOVE
+            
+        default:()
+        }
+        
         resignSearchBar()
+        tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -137,7 +162,16 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
                 abilities = ALL_ABILITY
             } else {
                 inSearchMode = true
-                abilities = ALL_ABILITY.filter({$0.name.range(of: searchText, options: .caseInsensitive) != nil})
+                abilities = ALL_ABILITY.filter({$0.name.range(of: searchText) != nil})
+            }
+            
+        case .Moves:
+            if searchText == "" {
+                inSearchMode = false
+                moves = ALL_MOVE
+            } else {
+                inSearchMode = true
+                moves = ALL_MOVE.filter({$0.name.range(of: searchText) != nil})
             }
             
         default: ()
@@ -160,6 +194,9 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
             
         case .Abilities:
             abilities = ALL_ABILITY
+            
+        case .Moves:
+            moves = ALL_MOVE
             
         default: ()
         }

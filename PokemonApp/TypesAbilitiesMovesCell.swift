@@ -31,7 +31,7 @@ class TypesAbilitiesMovesCell: UITableViewCell {
         let y: CGFloat = (self.frame.height - height) / 2
         
         let typeLbl = UILabel(frame: CGRect(x: x, y: y, width: width, height: height))
-        typeLbl.layer.cornerRadius = 10
+        typeLbl.layer.cornerRadius = 10.0
         typeLbl.clipsToBounds = true
         typeLbl.font = UIFont(name: "Gill Sans", size: 17)
         typeLbl.textColor = UIColor.white
@@ -43,7 +43,24 @@ class TypesAbilitiesMovesCell: UITableViewCell {
         self.addSubview(typeLbl)
     }
     
-    func configureAbilityCell(ability: String) {
-        textLabel?.text = ability
+    func configureAbilityCell(ability: Ability) {
+        textLabel?.text = ability.name
+    }
+    
+    func configureMoveCell(move: Move) {
+        
+        textLabel?.text = move.name
+        
+        let width: CGFloat = 50
+        let height: CGFloat = 21
+        let x: CGFloat = self.frame.width - width - 10
+        let y: CGFloat = (self.frame.height - height) / 2
+        
+        let categoryImg = UIImageView(frame: CGRect(x: x, y: y, width: width, height: height))
+        categoryImg.layer.cornerRadius = 10.0
+        categoryImg.clipsToBounds = true
+        categoryImg.image = UIImage(named: move.category.lowercased())
+        
+        self.addSubview(categoryImg)
     }
 }

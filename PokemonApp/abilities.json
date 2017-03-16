@@ -18,75 +18,75 @@
     "generation": 4
   },
   {
-    "name": "Air",
+    "name": "Air Lock",
     "pokemon": 1,
-    "description": "Lock Eliminates the effects of weather.",
+    "description": "Eliminates the effects of weather.",
     "generation": 3
   },
   {
     "name": "Analytic",
     "pokemon": 12,
-    "description": "Boosts move power when the Pokemon moves last.",
+    "description": "Boosts move power when the Pok�mon moves last.",
     "generation": 5
   },
   {
-    "name": "Anger",
+    "name": "Anger Point",
     "pokemon": 9,
-    "description": "Point Maxes Attack after taking a critical hit.",
+    "description": "Maxes Attack after taking a critical hit.",
     "generation": 4
   },
   {
     "name": "Anticipation",
     "pokemon": 10,
-    "description": "Senses a foes dangerous moves.",
+    "description": "Senses a foe's dangerous moves.",
     "generation": 4
   },
   {
-    "name": "Arena",
+    "name": "Arena Trap",
     "pokemon": 3,
-    "description": "Trap Prevents the foe from fleeing.",
+    "description": "Prevents the foe from fleeing.",
     "generation": 3
   },
   {
-    "name": "Aroma",
+    "name": "Aroma Veil",
     "pokemon": 2,
-    "description": "Veil Protects allies from attacks that limit their move choices.",
+    "description": "Protects allies from attacks that limit their move choices.",
     "generation": 6
   },
   {
-    "name": "Aura",
+    "name": "Aura Break",
     "pokemon": 2,
-    "description": "Break The effects of Aura Abilities are reversed.",
+    "description": "The effects of �Aura� Abilities are reversed.",
     "generation": 6
   },
   {
-    "name": "Bad",
+    "name": "Bad Dreams",
     "pokemon": 1,
-    "description": "Dreams Reduces a sleeping foes HP.",
+    "description": "Reduces a sleeping foe's HP.",
     "generation": 4
   },
   {
     "name": "Battery",
     "pokemon": 1,
-    "description": "Raises power of teammates Special moves.",
+    "description": "Raises power of teammates' Special moves.",
     "generation": 7
   },
   {
-    "name": "Battle",
+    "name": "Battle Armor",
     "pokemon": 9,
-    "description": "Armor The Pokemon is protected against critical hits.",
+    "description": "The Pok�mon is protected against critical hits.",
     "generation": 3
   },
   {
-    "name": "Battle",
+    "name": "Battle Bond",
     "pokemon": 1,
-    "description": "Bond Transform into Ash-Greninja after causing opponent to faint.",
+    "description": "Transform into Ash-Greninja after causing opponent to faint.",
     "generation": 7
   },
   {
-    "name": "Beast",
+    "name": "Beast Boost",
     "pokemon": 7,
-    "description": "Boost The Pokemon boosts its most proficient stat each time it knocks out a Pokemon.",
+    "description": "The Pok�mon boosts its most proficient stat each time it knocks out a Pok�mon.",
     "generation": 7
   },
   {
@@ -96,9 +96,9 @@
     "generation": 7
   },
   {
-    "name": "Big",
+    "name": "Big Pecks",
     "pokemon": 12,
-    "description": "Pecks Protects the Pokemon from Defense-lowering attacks.",
+    "description": "Protects the Pok�mon from Defense-lowering attacks.",
     "generation": 5
   },
   {
@@ -110,37 +110,37 @@
   {
     "name": "Bulletproof",
     "pokemon": 6,
-    "description": "Protects the Pokemon from ball and bomb moves.",
+    "description": "Protects the Pok�mon from ball and bomb moves.",
     "generation": 6
   },
   {
-    "name": "Cheek",
+    "name": "Cheek Pouch",
     "pokemon": 3,
-    "description": "Pouch Restores additional HP when a Berry is consumed.",
+    "description": "Restores additional HP when a Berry is consumed.",
     "generation": 6
   },
   {
     "name": "Chlorophyll",
     "pokemon": 35,
-    "description": "Boosts the Pokemons Speed in sunshine.",
+    "description": "Boosts the Pok�mon's Speed in sunshine.",
     "generation": 3
   },
   {
-    "name": "Clear",
+    "name": "Clear Body",
     "pokemon": 13,
-    "description": "Body Prevents other Pokemon from lowering its stats.",
+    "description": "Prevents other Pok�mon from lowering its stats.",
     "generation": 3
   },
   {
-    "name": "Cloud",
+    "name": "Cloud Nine",
     "pokemon": 7,
-    "description": "Nine Eliminates the effects of weather.",
+    "description": "Eliminates the effects of weather.",
     "generation": 3
   },
   {
-    "name": "Color",
+    "name": "Color Change",
     "pokemon": 1,
-    "description": "Change Changes the Pokemons type to the foes move.",
+    "description": "Changes the Pok�mon's type to the foe's move.",
     "generation": 3
   },
   {
@@ -152,13 +152,13 @@
   {
     "name": "Competitive",
     "pokemon": 8,
-    "description": "Raises Special Attack when the Pokemons stats are lowered.",
+    "description": "Raises Special Attack when the Pok�mon's stats are lowered.",
     "generation": 6
   },
   {
-    "name": "Compound",
+    "name": "Compound Eyes",
     "pokemon": 9,
-    "description": "Eyes The Pokemons accuracy is boosted.",
+    "description": "The Pok�mon's accuracy is boosted.",
     "generation": 3
   },
   {
@@ -170,19 +170,19 @@
   {
     "name": "Corrosion",
     "pokemon": 2,
-    "description": "The Pokemon can poison Steel and Poison types.",
+    "description": "The Pok�mon can poison Steel and Poison types.",
     "generation": 7
   },
   {
-    "name": "Cursed",
+    "name": "Cursed Body",
     "pokemon": 7,
-    "description": "Body May disable a move used on the Pokemon.",
+    "description": "May disable a move used on the Pok�mon.",
     "generation": 5
   },
   {
-    "name": "Cute",
+    "name": "Cute Charm",
     "pokemon": 14,
-    "description": "Charm Contact with the Pokemon may cause infatuation.",
+    "description": "Contact with the Pok�mon may cause infatuation.",
     "generation": 3
   },
   {
@@ -194,19 +194,19 @@
   {
     "name": "Dancer",
     "pokemon": 4,
-    "description": "Copies the foes Dance moves.",
+    "description": "Copies the foe's Dance moves.",
     "generation": 7
   },
   {
-    "name": "Dark",
+    "name": "Dark Aura",
     "pokemon": 1,
-    "description": "Aura Raises power of Dark type moves for all Pokemon in battle.",
+    "description": "Raises power of Dark type moves for all Pok�mon in battle.",
     "generation": 6
   },
   {
     "name": "Dazzling",
     "pokemon": 1,
-    "description": "Protects the Pokemon from high-priority moves.",
+    "description": "Protects the Pok�mon from high-priority moves.",
     "generation": 7
   },
   {
@@ -222,15 +222,15 @@
     "generation": 5
   },
   {
-    "name": "Delta",
+    "name": "Delta Stream",
     "pokemon": 1,
-    "description": "Stream Creates strong winds when the ability activates.",
+    "description": "Creates strong winds when the ability activates.",
     "generation": 6
   },
   {
-    "name": "Desolate",
+    "name": "Desolate Land",
     "pokemon": 1,
-    "description": "Land Turns the sunlight extremely harsh when the ability activates.",
+    "description": "Turns the sunlight extremely harsh when the ability activates.",
     "generation": 6
   },
   {
@@ -242,55 +242,55 @@
   {
     "name": "Download",
     "pokemon": 4,
-    "description": "Adjusts power according to a foes defenses.",
+    "description": "Adjusts power according to a foe's defenses.",
     "generation": 4
   },
   {
     "name": "Drizzle",
     "pokemon": 3,
-    "description": "The Pokemon makes it rain when it enters a battle.",
+    "description": "The Pok�mon makes it rain when it enters a battle.",
     "generation": 3
   },
   {
     "name": "Drought",
     "pokemon": 5,
-    "description": "Turns the sunlight harsh when the Pokemon enters a battle.",
+    "description": "Turns the sunlight harsh when the Pok�mon enters a battle.",
     "generation": 3
   },
   {
-    "name": "Dry",
+    "name": "Dry Skin",
     "pokemon": 7,
-    "description": "Skin Reduces HP if it is hot. Water restores HP.",
+    "description": "Reduces HP if it is hot. Water restores HP.",
     "generation": 4
   },
   {
-    "name": "Early",
+    "name": "Early Bird",
     "pokemon": 15,
-    "description": "Bird The Pokemon awakens quickly from sleep.",
+    "description": "The Pok�mon awakens quickly from sleep.",
     "generation": 3
   },
   {
-    "name": "Effect",
+    "name": "Effect Spore",
     "pokemon": 9,
-    "description": "Spore Contact may poison or cause paralysis or sleep.",
+    "description": "Contact may poison or cause paralysis or sleep.",
     "generation": 3
   },
   {
-    "name": "Electric",
+    "name": "Electric Surge",
     "pokemon": 1,
-    "description": "Surge The Pokemon creates an Electric Terrain when it enters a battle.",
+    "description": "The Pok�mon creates an Electric Terrain when it enters a battle.",
     "generation": 7
   },
   {
-    "name": "Emergency",
+    "name": "Emergency Exit",
     "pokemon": 1,
-    "description": "Exit The Pokemon",
-    "generation": "sensing danger"
+    "description": "The Pok�mon, sensing danger, switches out when its HP becomes half or less.",
+    "generation": 7
   },
   {
-    "name": "Fairy",
+    "name": "Fairy Aura",
     "pokemon": 1,
-    "description": "Aura Raises power of Fairy type moves for all Pokemon in battle.",
+    "description": "Raises power of Fairy type moves for all Pok�mon in battle.",
     "generation": 6
   },
   {
@@ -300,40 +300,40 @@
     "generation": 4
   },
   {
-    "name": "Flame",
+    "name": "Flame Body",
     "pokemon": 16,
-    "description": "Body Contact with the Pokemon may burn the attacker.",
+    "description": "Contact with the Pok�mon may burn the attacker.",
     "generation": 3
   },
   {
-    "name": "Flare",
+    "name": "Flare Boost",
     "pokemon": 2,
-    "description": "Boost Powers up special attacks when burned.",
+    "description": "Powers up special attacks when burned.",
     "generation": 5
   },
   {
-    "name": "Flash",
+    "name": "Flash Fire",
     "pokemon": 17,
-    "description": "Fire It powers up Fire-type moves if its hit by one.",
+    "description": "It powers up Fire-type moves if it's hit by one.",
     "generation": 3
   },
   {
-    "name": "Flower",
+    "name": "Flower Gift",
     "pokemon": 1,
-    "description": "Gift Powers up party Pokemon when it is sunny.",
+    "description": "Powers up party Pok�mon when it is sunny.",
     "generation": 4
   },
   {
-    "name": "Flower",
+    "name": "Flower Veil",
     "pokemon": 4,
-    "description": "Veil Prevents lowering of ally Grass-type Pokemons stats.",
+    "description": "Prevents lowering of ally Grass-type Pok�mon's stats.",
     "generation": 6
   },
   {
     "name": "Fluffy",
     "pokemon": 2,
-    "description": "Reduces damage from contact moves",
-    "generation": "but doubles damage from Fire-type moves."
+    "description": "Reduces damage from contact moves, but doubles damage from Fire-type moves.",
+    "generation": 7
   },
   {
     "name": "Forecast",
@@ -348,33 +348,33 @@
     "generation": 4
   },
   {
-    "name": "Friend",
+    "name": "Friend Guard",
     "pokemon": 8,
-    "description": "Guard Reduces damage done to allies.",
+    "description": "Reduces damage done to allies.",
     "generation": 5
   },
   {
     "name": "Frisk",
     "pokemon": 27,
-    "description": "The Pokemon can check a foes held item.",
+    "description": "The Pok�mon can check a foe's held item.",
     "generation": 4
   },
   {
-    "name": "Full",
+    "name": "Full Metal Body",
     "pokemon": 1,
-    "description": "Metal Body Prevents other Pokemon from lowering its stats.",
+    "description": "Prevents other Pok�mon from lowering its stats.",
     "generation": 7
   },
   {
-    "name": "Fur",
+    "name": "Fur Coat",
     "pokemon": 2,
-    "description": "Coat Reduces damage from physical moves.",
+    "description": "Reduces damage from physical moves.",
     "generation": 6
   },
   {
-    "name": "Gale",
+    "name": "Gale Wings",
     "pokemon": 3,
-    "description": "Wings Gives priority to Flying-type moves.",
+    "description": "Gives priority to Flying-type moves.",
     "generation": 6
   },
   {
@@ -392,19 +392,19 @@
   {
     "name": "Gooey",
     "pokemon": 3,
-    "description": "Contact with the Pokemon lowers the attackers Speed stat.",
+    "description": "Contact with the Pok�mon lowers the attacker's Speed stat.",
     "generation": 6
   },
   {
-    "name": "Grass",
+    "name": "Grass Pelt",
     "pokemon": 2,
-    "description": "Pelt Boosts the Defense stat in Grassy Terrain.",
+    "description": "Boosts the Defense stat in Grassy Terrain.",
     "generation": 6
   },
   {
-    "name": "Grassy",
+    "name": "Grassy Surge",
     "pokemon": 1,
-    "description": "Surge The Pokemon creates a Grassy Terrain when it enters a battle.",
+    "description": "The Pok�mon creates a Grassy Terrain when it enters a battle.",
     "generation": 7
   },
   {
@@ -422,7 +422,7 @@
   {
     "name": "Healer",
     "pokemon": 8,
-    "description": "May heal an allys status conditions.",
+    "description": "May heal an ally's status conditions.",
     "generation": 5
   },
   {
@@ -432,28 +432,28 @@
     "generation": 4
   },
   {
-    "name": "Heavy",
+    "name": "Heavy Metal",
     "pokemon": 5,
-    "description": "Metal Doubles the Pokemons weight.",
+    "description": "Doubles the Pok�mon's weight.",
     "generation": 5
   },
   {
-    "name": "Honey",
+    "name": "Honey Gather",
     "pokemon": 4,
-    "description": "Gather The Pokemon may gather Honey from somewhere.",
+    "description": "The Pok�mon may gather Honey from somewhere.",
     "generation": 4
   },
   {
-    "name": "Huge",
+    "name": "Huge Power",
     "pokemon": 6,
-    "description": "Power Raises the Pokemons Attack stat.",
+    "description": "Raises the Pok�mon's Attack stat.",
     "generation": 3
   },
   {
     "name": "Hustle",
     "pokemon": 20,
-    "description": "Boosts the Attack stat",
-    "generation": "but lowers accuracy."
+    "description": "Boosts the Attack stat, but lowers accuracy.",
+    "generation": 3
   },
   {
     "name": "Hydration",
@@ -462,81 +462,81 @@
     "generation": 4
   },
   {
-    "name": "Hyper",
+    "name": "Hyper Cutter",
     "pokemon": 11,
-    "description": "Cutter Prevents other Pokemon from lowering Attack stat.",
+    "description": "Prevents other Pok�mon from lowering Attack stat.",
     "generation": 3
   },
   {
-    "name": "Ice",
+    "name": "Ice Body",
     "pokemon": 14,
-    "description": "Body The Pokemon gradually regains HP in a hailstorm.",
+    "description": "The Pok�mon gradually regains HP in a hailstorm.",
     "generation": 4
   },
   {
     "name": "Illuminate",
     "pokemon": 8,
-    "description": "Raises the likelihood of meeting wild Pokemon.",
+    "description": "Raises the likelihood of meeting wild Pok�mon.",
     "generation": 3
   },
   {
     "name": "Illusion",
     "pokemon": 2,
-    "description": "Comes out disguised as the Pokemon in back.",
+    "description": "Comes out disguised as the Pok�mon in back.",
     "generation": 5
   },
   {
     "name": "Immunity",
     "pokemon": 3,
-    "description": "Prevents the Pokemon from getting poisoned.",
+    "description": "Prevents the Pok�mon from getting poisoned.",
     "generation": 3
   },
   {
     "name": "Imposter",
     "pokemon": 1,
-    "description": "It transforms itself into the Pokemon it is facing.",
+    "description": "It transforms itself into the Pok�mon it is facing.",
     "generation": 5
   },
   {
     "name": "Infiltrator",
     "pokemon": 21,
-    "description": "Passes through the foes barrier and strikes.",
+    "description": "Passes through the foe's barrier and strikes.",
     "generation": 5
   },
   {
-    "name": "Innards",
+    "name": "Innards Out",
     "pokemon": 1,
-    "description": "Out Deals damage upon fainting.",
+    "description": "Deals damage upon fainting.",
     "generation": 7
   },
   {
-    "name": "Inner",
+    "name": "Inner Focus",
     "pokemon": 33,
-    "description": "Focus The Pokemon is protected from flinching.",
+    "description": "The Pok�mon is protected from flinching.",
     "generation": 3
   },
   {
     "name": "Insomnia",
     "pokemon": 20,
-    "description": "Prevents the Pokemon from falling asleep.",
+    "description": "Prevents the Pok�mon from falling asleep.",
     "generation": 3
   },
   {
     "name": "Intimidate",
     "pokemon": 32,
-    "description": "Lowers the foes Attack stat.",
+    "description": "Lowers the foe's Attack stat.",
     "generation": 3
   },
   {
-    "name": "Iron",
+    "name": "Iron Barbs",
     "pokemon": 3,
-    "description": "Barbs Inflicts damage to the Pokemon on contact.",
+    "description": "Inflicts damage to the Pok�mon on contact.",
     "generation": 5
   },
   {
-    "name": "Iron",
+    "name": "Iron Fist",
     "pokemon": 14,
-    "description": "Fist Boosts the power of punching moves.",
+    "description": "Boosts the power of punching moves.",
     "generation": 4
   },
   {
@@ -546,21 +546,21 @@
     "generation": 5
   },
   {
-    "name": "Keen",
+    "name": "Keen Eye",
     "pokemon": 38,
-    "description": "Eye Prevents other Pokemon from lowering accuracy.",
+    "description": "Prevents other Pok�mon from lowering accuracy.",
     "generation": 3
   },
   {
     "name": "Klutz",
     "pokemon": 9,
-    "description": "The Pokemon cant use any held items.",
+    "description": "The Pok�mon can't use any held items.",
     "generation": 4
   },
   {
-    "name": "Leaf",
+    "name": "Leaf Guard",
     "pokemon": 19,
-    "description": "Guard Prevents problems with status in sunny weather.",
+    "description": "Prevents problems with status in sunny weather.",
     "generation": 4
   },
   {
@@ -570,105 +570,105 @@
     "generation": 3
   },
   {
-    "name": "Light",
+    "name": "Light Metal",
     "pokemon": 5,
-    "description": "Metal Halves the Pokemons weight.",
+    "description": "Halves the Pok�mon's weight.",
     "generation": 5
   },
   {
-    "name": "Lightning",
+    "name": "Lightning Rod",
     "pokemon": 18,
-    "description": "Rod Draws in all Electric-type moves to up Sp. Attack.",
+    "description": "Draws in all Electric-type moves to up Sp. Attack.",
     "generation": 3
   },
   {
     "name": "Limber",
     "pokemon": 12,
-    "description": "The Pokemon is protected from paralysis.",
+    "description": "The Pok�mon is protected from paralysis.",
     "generation": 3
   },
   {
-    "name": "Liquid",
+    "name": "Liquid Ooze",
     "pokemon": 4,
-    "description": "Ooze Damages attackers using any draining move.",
+    "description": "Damages attackers using any draining move.",
     "generation": 3
   },
   {
-    "name": "Liquid",
+    "name": "Liquid Voice",
     "pokemon": 3,
-    "description": "Voice All sound-based moves become Water-type moves.",
+    "description": "All sound-based moves become Water-type moves.",
     "generation": 7
   },
   {
-    "name": "Long",
+    "name": "Long Reach",
     "pokemon": 3,
-    "description": "Reach The Pokemon uses its moves without making contact with the target.",
+    "description": "The Pok�mon uses its moves without making contact with the target.",
     "generation": 7
   },
   {
-    "name": "Magic",
+    "name": "Magic Bounce",
     "pokemon": 6,
-    "description": "Bounce Reflects status- changing moves.",
+    "description": "Reflects status- changing moves.",
     "generation": 5
   },
   {
-    "name": "Magic",
+    "name": "Magic Guard",
     "pokemon": 10,
-    "description": "Guard The Pokemon only takes damage from attacks.",
+    "description": "The Pok�mon only takes damage from attacks.",
     "generation": 4
   },
   {
     "name": "Magician",
     "pokemon": 6,
-    "description": "The Pokemon steals the held item of a Pokemon it hits with a move.",
+    "description": "The Pok�mon steals the held item of a Pok�mon it hits with a move.",
     "generation": 6
   },
   {
-    "name": "Magma",
+    "name": "Magma Armor",
     "pokemon": 3,
-    "description": "Armor Prevents the Pokemon from becoming frozen.",
+    "description": "Prevents the Pok�mon from becoming frozen.",
     "generation": 3
   },
   {
-    "name": "Magnet",
+    "name": "Magnet Pull",
     "pokemon": 8,
-    "description": "Pull Prevents Steel-type Pokemon from escaping.",
+    "description": "Prevents Steel-type Pok�mon from escaping.",
     "generation": 3
   },
   {
-    "name": "Marvel",
+    "name": "Marvel Scale",
     "pokemon": 3,
-    "description": "Scale Ups Defense if there is a status problem.",
+    "description": "Ups Defense if there is a status problem.",
     "generation": 3
   },
   {
-    "name": "Mega",
+    "name": "Mega Launcher",
     "pokemon": 3,
-    "description": "Launcher Boosts the power of aura and pulse moves.",
+    "description": "Boosts the power of aura and pulse moves.",
     "generation": 6
   },
   {
     "name": "Merciless",
     "pokemon": 2,
-    "description": "The Pokemons attacks become critical hits if the target is poisoned.",
+    "description": "The Pok�mon�s attacks become critical hits if the target is poisoned.",
     "generation": 7
   },
   {
     "name": "Minus",
     "pokemon": 6,
-    "description": "Ups Sp. Atk if another Pokemon has Plus or Minus.",
+    "description": "Ups Sp. Atk if another Pok�mon has Plus or Minus.",
     "generation": 3
   },
   {
-    "name": "Misty",
+    "name": "Misty Surge",
     "pokemon": 1,
-    "description": "Surge The Pokemon creates a Misty Terrain when it enters a battle.",
+    "description": "The Pok�mon creates a Misty Terrain when it enters a battle.",
     "generation": 7
   },
   {
-    "name": "Mold",
+    "name": "Mold Breaker",
     "pokemon": 17,
-    "description": "Breaker Moves can be used regardless of Abilities.",
+    "description": "Moves can be used regardless of Abilities.",
     "generation": 4
   },
   {
@@ -678,15 +678,15 @@
     "generation": 5
   },
   {
-    "name": "Motor",
+    "name": "Motor Drive",
     "pokemon": 4,
-    "description": "Drive Raises Speed if hit by an Electric-type move.",
+    "description": "Raises Speed if hit by an Electric-type move.",
     "generation": 4
   },
   {
     "name": "Moxie",
     "pokemon": 13,
-    "description": "Boosts Attack after knocking out any Pokemon.",
+    "description": "Boosts Attack after knocking out any Pok�mon.",
     "generation": 5
   },
   {
@@ -704,25 +704,25 @@
   {
     "name": "Mummy",
     "pokemon": 2,
-    "description": "Contact with this Pokemon spreads this Ability.",
+    "description": "Contact with this Pok�mon spreads this Ability.",
     "generation": 5
   },
   {
-    "name": "Natural",
+    "name": "Natural Cure",
     "pokemon": 16,
-    "description": "Cure All status problems heal when it switches out.",
+    "description": "All status problems heal when it switches out.",
     "generation": 3
   },
   {
-    "name": "No",
+    "name": "No Guard",
     "pokemon": 10,
-    "description": "Guard Ensures attacks by or against the Pokemon land.",
+    "description": "Ensures attacks by or against the Pok�mon land.",
     "generation": 4
   },
   {
     "name": "Normalize",
     "pokemon": 2,
-    "description": "All the Pokemons moves become the Normal type.",
+    "description": "All the Pok�mon's moves become the Normal type.",
     "generation": 4
   },
   {
@@ -734,7 +734,7 @@
   {
     "name": "Overcoat",
     "pokemon": 22,
-    "description": "Protects the Pokemon from damage from weather.",
+    "description": "Protects the Pok�mon from damage from weather.",
     "generation": 5
   },
   {
@@ -744,27 +744,27 @@
     "generation": 3
   },
   {
-    "name": "Own",
+    "name": "Own Tempo",
     "pokemon": 22,
-    "description": "Tempo Prevents the Pokemon from becoming confused.",
+    "description": "Prevents the Pok�mon from becoming confused.",
     "generation": 3
   },
   {
-    "name": "Parental",
+    "name": "Parental Bond",
     "pokemon": 1,
-    "description": "Bond Allows the Pokemon to attack twice.",
+    "description": "Allows the Pok�mon to attack twice.",
     "generation": 6
   },
   {
     "name": "Pickpocket",
     "pokemon": 7,
-    "description": "Steals an item when hit by another Pokemon.",
+    "description": "Steals an item when hit by another Pok�mon.",
     "generation": 5
   },
   {
     "name": "Pickup",
     "pokemon": 24,
-    "description": "The Pokemon may pick up items.",
+    "description": "The Pok�mon may pick up items.",
     "generation": 3
   },
   {
@@ -776,37 +776,37 @@
   {
     "name": "Plus",
     "pokemon": 8,
-    "description": "Ups Sp. Atk if another Pokemon has Plus or Minus.",
+    "description": "Ups Sp. Atk if another Pok�mon has Plus or Minus.",
     "generation": 3
   },
   {
-    "name": "Poison",
+    "name": "Poison Heal",
     "pokemon": 3,
-    "description": "Heal Restores HP if the Pokemon is poisoned.",
+    "description": "Restores HP if the Pok�mon is poisoned.",
     "generation": 4
   },
   {
-    "name": "Poison",
+    "name": "Poison Point",
     "pokemon": 16,
-    "description": "Point Contact with the Pokemon may poison the attacker.",
+    "description": "Contact with the Pok�mon may poison the attacker.",
     "generation": 3
   },
   {
-    "name": "Poison",
+    "name": "Poison Touch",
     "pokemon": 9,
-    "description": "Touch May poison targets when a Pokemon makes contact.",
+    "description": "May poison targets when a Pok�mon makes contact.",
     "generation": 5
   },
   {
-    "name": "Power",
+    "name": "Power Construct",
     "pokemon": 3,
-    "description": "Construct Changes form when HP drops below half.",
+    "description": "Changes form when HP drops below half.",
     "generation": 7
   },
   {
-    "name": "Power",
+    "name": "Power of Alchemy",
     "pokemon": 2,
-    "description": "of Alchemy The Pokemon copies the Ability of a defeated ally.",
+    "description": "The Pok�mon copies the Ability of a defeated ally.",
     "generation": 7
   },
   {
@@ -818,67 +818,67 @@
   {
     "name": "Pressure",
     "pokemon": 28,
-    "description": "The Pokemon raises the foes PP usage.",
+    "description": "The Pok�mon raises the foe's PP usage.",
     "generation": 3
   },
   {
-    "name": "Primordial",
+    "name": "Primordial Sea",
     "pokemon": 1,
-    "description": "Sea Makes it rain heavily when the ability activates.",
+    "description": "Makes it rain heavily when the ability activates.",
     "generation": 6
   },
   {
-    "name": "Prism",
+    "name": "Prism Armor",
     "pokemon": 1,
-    "description": "Armor Reduces the power of supereffective attacks taken.",
+    "description": "Reduces the power of supereffective attacks taken.",
     "generation": 7
   },
   {
     "name": "Protean",
     "pokemon": 4,
-    "description": "Changes the Pokemons type to its last used move.",
+    "description": "Changes the Pok�mon's type to its last used move.",
     "generation": 6
   },
   {
-    "name": "Psychic",
+    "name": "Psychic Surge",
     "pokemon": 1,
-    "description": "Surge The Pokemon creates a Psychic Terrain when it enters a battle.",
+    "description": "The Pok�mon creates a Psychic Terrain when it enters a battle.",
     "generation": 7
   },
   {
-    "name": "Pure",
+    "name": "Pure Power",
     "pokemon": 3,
-    "description": "Power Raises the Pokemons Attack stat.",
+    "description": "Raises the Pok�mon's Attack stat.",
     "generation": 3
   },
   {
-    "name": "Queenly",
+    "name": "Queenly Majesty",
     "pokemon": 1,
-    "description": "Majesty Prevents use of priority moves.",
+    "description": "Prevents use of priority moves.",
     "generation": 7
   },
   {
-    "name": "Quick",
+    "name": "Quick Feet",
     "pokemon": 9,
-    "description": "Feet Boosts Speed if there is a status problem.",
+    "description": "Boosts Speed if there is a status problem.",
     "generation": 4
   },
   {
-    "name": "Rain",
+    "name": "Rain Dish",
     "pokemon": 13,
-    "description": "Dish The Pokemon gradually regains HP in rain.",
+    "description": "The Pok�mon gradually regains HP in rain.",
     "generation": 3
   },
   {
     "name": "Rattled",
     "pokemon": 13,
-    "description": "Bug",
-    "generation": "Ghost or Dark type moves scare it and boost its Speed."
+    "description": "Bug, Ghost or Dark type moves scare it and boost its Speed.",
+    "generation": 5
   },
   {
     "name": "Receiver",
     "pokemon": 1,
-    "description": "Inherits an allys ability when it faints.",
+    "description": "Inherits an ally's ability when it faints.",
     "generation": 7
   },
   {
@@ -902,61 +902,61 @@
   {
     "name": "Rivalry",
     "pokemon": 18,
-    "description": "Deals more damage to a Pokemon of same gender.",
+    "description": "Deals more damage to a Pok�mon of same gender.",
     "generation": 4
   },
   {
-    "name": "RKS",
+    "name": "RKS System",
     "pokemon": 1,
-    "description": "System Changes type depending on held item.",
+    "description": "Changes type depending on held item.",
     "generation": 7
   },
   {
-    "name": "Rock",
+    "name": "Rock Head",
     "pokemon": 21,
-    "description": "Head Protects the Pokemon from recoil damage.",
+    "description": "Protects the Pok�mon from recoil damage.",
     "generation": 3
   },
   {
-    "name": "Rough",
+    "name": "Rough Skin",
     "pokemon": 6,
-    "description": "Skin Inflicts damage to the attacker on contact.",
+    "description": "Inflicts damage to the attacker on contact.",
     "generation": 3
   },
   {
-    "name": "Run",
+    "name": "Run Away",
     "pokemon": 24,
-    "description": "Away Enables a sure getaway from wild Pokemon.",
+    "description": "Enables a sure getaway from wild Pok�mon.",
     "generation": 3
   },
   {
-    "name": "Sand",
+    "name": "Sand Force",
     "pokemon": 18,
-    "description": "Force Boosts certain moves power in a sandstorm.",
+    "description": "Boosts certain moves' power in a sandstorm.",
     "generation": 5
   },
   {
-    "name": "Sand",
+    "name": "Sand Rush",
     "pokemon": 7,
-    "description": "Rush Boosts the Pokemons Speed in a sandstorm.",
+    "description": "Boosts the Pok�mon's Speed in a sandstorm.",
     "generation": 5
   },
   {
-    "name": "Sand",
+    "name": "Sand Stream",
     "pokemon": 5,
-    "description": "Stream The Pokemon summons a sandstorm in battle.",
+    "description": "The Pok�mon summons a sandstorm in battle.",
     "generation": 3
   },
   {
-    "name": "Sand",
+    "name": "Sand Veil",
     "pokemon": 24,
-    "description": "Veil Boosts the Pokemons evasion in a sandstorm.",
+    "description": "Boosts the Pok�mon's evasion in a sandstorm.",
     "generation": 3
   },
   {
-    "name": "Sap",
+    "name": "Sap Sipper",
     "pokemon": 17,
-    "description": "Sipper Boosts Attack when hit by a Grass-type move.",
+    "description": "Boosts Attack when hit by a Grass-type move.",
     "generation": 5
   },
   {
@@ -968,55 +968,55 @@
   {
     "name": "Scrappy",
     "pokemon": 11,
-    "description": "Enables moves to hit Ghost-type Pokemon.",
+    "description": "Enables moves to hit Ghost-type Pok�mon.",
     "generation": 4
   },
   {
-    "name": "Serene",
+    "name": "Serene Grace",
     "pokemon": 13,
-    "description": "Grace Boosts the likelihood of added effects appearing.",
+    "description": "Boosts the likelihood of added effects appearing.",
     "generation": 3
   },
   {
-    "name": "Shadow",
+    "name": "Shadow Shield",
     "pokemon": 1,
-    "description": "Shield Reduces damage when HP is full.",
+    "description": "Reduces damage when HP is full.",
     "generation": 7
   },
   {
-    "name": "Shadow",
+    "name": "Shadow Tag",
     "pokemon": 6,
-    "description": "Tag Prevents the foe from escaping.",
+    "description": "Prevents the foe from escaping.",
     "generation": 3
   },
   {
-    "name": "Shed",
+    "name": "Shed Skin",
     "pokemon": 16,
-    "description": "Skin The Pokemon may heal its own status problems.",
+    "description": "The Pok�mon may heal its own status problems.",
     "generation": 3
   },
   {
-    "name": "Sheer",
+    "name": "Sheer Force",
     "pokemon": 27,
-    "description": "Force Removes added effects to increase move damage.",
+    "description": "Removes added effects to increase move damage.",
     "generation": 5
   },
   {
-    "name": "Shell",
+    "name": "Shell Armor",
     "pokemon": 23,
-    "description": "Armor The Pokemon is protected against critical hits.",
+    "description": "The Pok�mon is protected against critical hits.",
     "generation": 3
   },
   {
-    "name": "Shield",
+    "name": "Shield Dust",
     "pokemon": 9,
-    "description": "Dust Blocks the added effects of attacks taken.",
+    "description": "Blocks the added effects of attacks taken.",
     "generation": 3
   },
   {
-    "name": "Shields",
+    "name": "Shields Down",
     "pokemon": 2,
-    "description": "Down Changes stats when HP drops below half.",
+    "description": "Changes stats when HP drops below half.",
     "generation": 7
   },
   {
@@ -1026,21 +1026,21 @@
     "generation": 4
   },
   {
-    "name": "Skill",
+    "name": "Skill Link",
     "pokemon": 10,
-    "description": "Link Increases the frequency of multi-strike moves.",
+    "description": "Increases the frequency of multi-strike moves.",
     "generation": 4
   },
   {
-    "name": "Slow",
+    "name": "Slow Start",
     "pokemon": 1,
-    "description": "Start Temporarily halves Attack and Speed.",
+    "description": "Temporarily halves Attack and Speed.",
     "generation": 4
   },
   {
-    "name": "Slush",
+    "name": "Slush Rush",
     "pokemon": 4,
-    "description": "Rush Boosts the Pokemons Speed stat in a hailstorm.",
+    "description": "Boosts the Pok�mon�s Speed stat in a hailstorm.",
     "generation": 7
   },
   {
@@ -1050,27 +1050,27 @@
     "generation": 4
   },
   {
-    "name": "Snow",
+    "name": "Snow Cloak",
     "pokemon": 15,
-    "description": "Cloak Raises evasion in a hailstorm.",
+    "description": "Raises evasion in a hailstorm.",
     "generation": 4
   },
   {
-    "name": "Snow",
+    "name": "Snow Warning",
     "pokemon": 7,
-    "description": "Warning The Pokemon summons a hailstorm in battle.",
+    "description": "The Pok�mon summons a hailstorm in battle.",
     "generation": 4
   },
   {
-    "name": "Solar",
+    "name": "Solar Power",
     "pokemon": 9,
-    "description": "Power In sunshine",
-    "generation": "Sp. Atk is boosted but HP decreases."
+    "description": "In sunshine, Sp. Atk is boosted but HP decreases.",
+    "generation": 4
   },
   {
-    "name": "Solid",
+    "name": "Solid Rock",
     "pokemon": 4,
-    "description": "Rock Reduces damage from supereffective attacks.",
+    "description": "Reduces damage from supereffective attacks.",
     "generation": 4
   },
   {
@@ -1086,21 +1086,21 @@
     "generation": 3
   },
   {
-    "name": "Speed",
+    "name": "Speed Boost",
     "pokemon": 12,
-    "description": "Boost Its Speed stat is gradually boosted.",
+    "description": "Its Speed stat is gradually boosted.",
     "generation": 3
   },
   {
     "name": "Stakeout",
     "pokemon": 2,
-    "description": "Deals double damage to Pokemon switching in.",
+    "description": "Deals double damage to Pok�mon switching in.",
     "generation": 7
   },
   {
     "name": "Stall",
     "pokemon": 1,
-    "description": "The Pokemon moves after all other Pokemon do.",
+    "description": "The Pok�mon moves after all other Pok�mon do.",
     "generation": 4
   },
   {
@@ -1110,21 +1110,21 @@
     "generation": 7
   },
   {
-    "name": "Stance",
+    "name": "Stance Change",
     "pokemon": 2,
-    "description": "Change Changes form depending on moves used.",
+    "description": "Changes form depending on moves used.",
     "generation": 6
   },
   {
     "name": "Static",
     "pokemon": 15,
-    "description": "Contact with the Pokemon may cause paralysis.",
+    "description": "Contact with the Pok�mon may cause paralysis.",
     "generation": 3
   },
   {
     "name": "Steadfast",
     "pokemon": 12,
-    "description": "Raises Speed each time the Pokemon flinches.",
+    "description": "Raises Speed each time the Pok�mon flinches.",
     "generation": 4
   },
   {
@@ -1140,21 +1140,21 @@
     "generation": 3
   },
   {
-    "name": "Sticky",
+    "name": "Sticky Hold",
     "pokemon": 8,
-    "description": "Hold Protects the Pokemon from item theft.",
+    "description": "Protects the Pok�mon from item theft.",
     "generation": 3
   },
   {
-    "name": "Storm",
+    "name": "Storm Drain",
     "pokemon": 7,
-    "description": "Drain Draws in all Water-type moves to up Sp. Attack.",
+    "description": "Draws in all Water-type moves to up Sp. Attack.",
     "generation": 4
   },
   {
-    "name": "Strong",
+    "name": "Strong Jaw",
     "pokemon": 6,
-    "description": "Jaw Boosts the power of biting moves.",
+    "description": "Boosts the power of biting moves.",
     "generation": 6
   },
   {
@@ -1164,21 +1164,21 @@
     "generation": 3
   },
   {
-    "name": "Suction",
+    "name": "Suction Cups",
     "pokemon": 5,
-    "description": "Cups Negates all moves that force switching out.",
+    "description": "Negates all moves that force switching out.",
     "generation": 3
   },
   {
-    "name": "Super",
+    "name": "Super Luck",
     "pokemon": 9,
-    "description": "Luck Heightens the critical-hit ratios of moves.",
+    "description": "Heightens the critical-hit ratios of moves.",
     "generation": 4
   },
   {
-    "name": "Surge",
+    "name": "Surge Surfer",
     "pokemon": 1,
-    "description": "Surfer Doubles Speed during Electric Terrain.",
+    "description": "Doubles Speed during Electric Terrain.",
     "generation": 7
   },
   {
@@ -1188,51 +1188,51 @@
     "generation": 3
   },
   {
-    "name": "Sweet",
+    "name": "Sweet Veil",
     "pokemon": 7,
-    "description": "Veil Prevents the Pokemon and allies from falling asleep.",
+    "description": "Prevents the Pok�mon and allies from falling asleep.",
     "generation": 6
   },
   {
-    "name": "Swift",
+    "name": "Swift Swim",
     "pokemon": 39,
-    "description": "Swim Boosts the Pokemons Speed in rain.",
+    "description": "Boosts the Pok�mon's Speed in rain.",
     "generation": 3
   },
   {
     "name": "Symbiosis",
     "pokemon": 4,
-    "description": "The Pokemon can pass an item to an ally.",
+    "description": "The Pok�mon can pass an item to an ally.",
     "generation": 6
   },
   {
     "name": "Synchronize",
     "pokemon": 15,
-    "description": "Passes a burn",
-    "generation": "poison"
+    "description": "Passes a burn, poison, or paralysis to the foe.",
+    "generation": 3
   },
   {
-    "name": "Tangled",
+    "name": "Tangled Feet",
     "pokemon": 7,
-    "description": "Feet Raises evasion if the Pokemon is confused.",
+    "description": "Raises evasion if the Pok�mon is confused.",
     "generation": 4
   },
   {
-    "name": "Tangling",
+    "name": "Tangling Hair",
     "pokemon": 2,
-    "description": "Hair Contact with the Pokemon lowers the attackers Speed stat.",
+    "description": "Contact with the Pok�mon lowers the attacker�s Speed stat.",
     "generation": 7
   },
   {
     "name": "Technician",
     "pokemon": 18,
-    "description": "Powers up the Pokemons weaker moves.",
+    "description": "Powers up the Pok�mon's weaker moves.",
     "generation": 4
   },
   {
     "name": "Telepathy",
     "pokemon": 21,
-    "description": "Anticipates an allys attack and dodges it.",
+    "description": "Anticipates an ally's attack and dodges it.",
     "generation": 5
   },
   {
@@ -1242,15 +1242,15 @@
     "generation": 5
   },
   {
-    "name": "Thick",
+    "name": "Thick Fat",
     "pokemon": 24,
-    "description": "Fat Ups resistance to Fire- and Ice-type moves.",
+    "description": "Ups resistance to Fire- and Ice-type moves.",
     "generation": 3
   },
   {
-    "name": "Tinted",
+    "name": "Tinted Lens",
     "pokemon": 9,
-    "description": "Lens Powers up not very effective moves.",
+    "description": "Powers up �not very effective� moves.",
     "generation": 4
   },
   {
@@ -1260,21 +1260,21 @@
     "generation": 3
   },
   {
-    "name": "Tough",
+    "name": "Tough Claws",
     "pokemon": 5,
-    "description": "Claws Boosts the power of contact moves.",
+    "description": "Boosts the power of contact moves.",
     "generation": 6
   },
   {
-    "name": "Toxic",
+    "name": "Toxic Boost",
     "pokemon": 1,
-    "description": "Boost Powers up physical attacks when poisoned.",
+    "description": "Powers up physical attacks when poisoned.",
     "generation": 5
   },
   {
     "name": "Trace",
     "pokemon": 6,
-    "description": "The Pokemon copies a foes Ability.",
+    "description": "The Pok�mon copies a foe's Ability.",
     "generation": 3
   },
   {
@@ -1286,7 +1286,7 @@
   {
     "name": "Truant",
     "pokemon": 3,
-    "description": "Pokemon cant attack on consecutive turns.",
+    "description": "Pok�mon can't attack on consecutive turns.",
     "generation": 3
   },
   {
@@ -1298,7 +1298,7 @@
   {
     "name": "Unaware",
     "pokemon": 9,
-    "description": "Ignores any stat changes in the Pokemon.",
+    "description": "Ignores any stat changes in the Pok�mon.",
     "generation": 4
   },
   {
@@ -1314,81 +1314,81 @@
     "generation": 5
   },
   {
-    "name": "Victory",
+    "name": "Victory Star",
     "pokemon": 1,
-    "description": "Star Boosts the accuracy of its allies and itself.",
+    "description": "Boosts the accuracy of its allies and itself.",
     "generation": 5
   },
   {
-    "name": "Vital",
+    "name": "Vital Spirit",
     "pokemon": 14,
-    "description": "Spirit Prevents the Pokemon from falling asleep.",
+    "description": "Prevents the Pok�mon from falling asleep.",
     "generation": 3
   },
   {
-    "name": "Volt",
+    "name": "Volt Absorb",
     "pokemon": 6,
-    "description": "Absorb Restores HP if hit by an Electric-type move.",
+    "description": "Restores HP if hit by an Electric-type move.",
     "generation": 3
   },
   {
-    "name": "Water",
+    "name": "Water Absorb",
     "pokemon": 23,
-    "description": "Absorb Restores HP if hit by a Water-type move.",
+    "description": "Restores HP if hit by a Water-type move.",
     "generation": 3
   },
   {
-    "name": "Water",
+    "name": "Water Bubble",
     "pokemon": 2,
-    "description": "Bubble Lowers the power of Fire-type moves done to the Pokemon and prevents the Pokemon",
+    "description": "Lowers the power of Fire-type moves done to the Pok�mon and prevents the Pok�mon",
     "generation": 7
   },
   {
-    "name": "Water",
+    "name": "Water Compaction",
     "pokemon": 2,
-    "description": "Compaction Sharply raises Defense when hit by a Water-type move.",
+    "description": "Sharply raises Defense when hit by a Water-type move.",
     "generation": 7
   },
   {
-    "name": "Water",
+    "name": "Water Veil",
     "pokemon": 11,
-    "description": "Veil Prevents the Pokemon from getting a burn.",
+    "description": "Prevents the Pok�mon from getting a burn.",
     "generation": 3
   },
   {
-    "name": "Weak",
+    "name": "Weak Armor",
     "pokemon": 18,
-    "description": "Armor Physical attacks lower Defense and raise Speed.",
+    "description": "Physical attacks lower Defense and raise Speed.",
     "generation": 5
   },
   {
-    "name": "White",
+    "name": "White Smoke",
     "pokemon": 2,
-    "description": "Smoke Prevents other Pokemon from lowering its stats.",
+    "description": "Prevents other Pok�mon from lowering its stats.",
     "generation": 3
   },
   {
-    "name": "Wimp",
+    "name": "Wimp Out",
     "pokemon": 1,
-    "description": "Out Switches out when HP drops below half.",
+    "description": "Switches out when HP drops below half.",
     "generation": 7
   },
   {
-    "name": "Wonder",
+    "name": "Wonder Guard",
     "pokemon": 1,
-    "description": "Guard Only supereffective moves will hit.",
+    "description": "Only supereffective moves will hit.",
     "generation": 3
   },
   {
-    "name": "Wonder",
+    "name": "Wonder Skin",
     "pokemon": 5,
-    "description": "Skin Makes status-changing moves more likely to miss.",
+    "description": "Makes status-changing moves more likely to miss.",
     "generation": 5
   },
   {
-    "name": "Zen",
+    "name": "Zen Mode",
     "pokemon": 2,
-    "description": "Mode Changes form when HP drops below half.",
+    "description": "Changes form when HP drops below half.",
     "generation": 5
   }
 ]

@@ -62,7 +62,7 @@ class Pokemon {
     }
     
     
-    init(name: String, pokedexID: Int, evolveFrom: Int, evolveID: Int, order: Int, hp: Int = 0, speed: Int = 0, attack: Int = 0, defend: Int = 0, spAttack: Int = 0, spDefend: Int = 0, height: Double = 0.0, weight: Double = 0.0, summary: String = "") {
+    init(name: String, pokedexID: Int = 0, evolveFrom: Int = 0, evolveID: Int = 0, order: Int, hp: Int = 0, speed: Int = 0, attack: Int = 0, defend: Int = 0, spAttack: Int = 0, spDefend: Int = 0, height: Double = 0.0, weight: Double = 0.0, summary: String = "") {
         _name = name.capitalized
         _pokedexID = pokedexID
         _types = PokemonTypes()

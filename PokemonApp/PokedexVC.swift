@@ -133,10 +133,11 @@ class PokedexVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         switch sortSC.selectedSegmentIndex {
         case 0:
             pokemon = pokemon.sorted(by: {$0.pokedexID < $1.pokedexID})
+            
         case 1:
             pokemon = pokemon.sorted(by: {$0.name < $1.name})
-        default:
-            print("sortSC should never get here")
+            
+        default: ()
         }
         tableView.reloadData()
     }

@@ -28,14 +28,14 @@ extension Int {
         
         return progress
     }
+    
+    /// Convert pokemon's arbitrary weight from json to actual weight
+    func toCorrectWeightOrHeight() -> Double {
+        return Double(self) / 10.0
+    }
 }
 
 extension Double {
-    
-    /// Convert pokemon's arbitrary weight from csv to actual weight
-    func toCorrectWeightOrHeight() -> Double {
-        return self / 10.0
-    }
     
     var toMeterOutputFormat: String {
         return "\(self)m"
