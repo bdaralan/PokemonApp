@@ -8,10 +8,12 @@
 * Storyboard is set for iPhone 6s/7.
 
 ## Preview
+<div>
 <img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/screenshot/IMG_1420.jpg" alt="Pokemon Info" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/screenshot/IMG_1418.jpg" alt="Pokedex" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/screenshot/IMG_1419.jpg" alt="Search" height="360px">
 <img src="https://raw.githubusercontent.com/iDara09/PokemonApp/master/screenshot/IMG_1417.jpg" alt="App Icon" height="360px">
+</div>
 
 ## Usage:
 * You can use this for studying purpose or as a reference guide.
