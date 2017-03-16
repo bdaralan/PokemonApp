@@ -55,7 +55,9 @@ class TypesAbilitiesMovesCell: UITableViewCell {
         
         if move.category.isEmpty {
             if categoryImg != nil {
-                categoryImg.removeFromSuperview()
+                for imgView in self.subviews where imgView.tag == 1 {
+                    imgView.removeFromSuperview()
+                }
             }
         } else {
             let width: CGFloat = 50
@@ -66,6 +68,7 @@ class TypesAbilitiesMovesCell: UITableViewCell {
             categoryImg = UIImageView(frame: CGRect(x: x, y: y, width: width, height: height))
             categoryImg.layer.cornerRadius = 10.0
             categoryImg.clipsToBounds = true
+            categoryImg.tag = 1
             categoryImg.image = UIImage(named: move.category.lowercased())
             
             self.addSubview(categoryImg)
