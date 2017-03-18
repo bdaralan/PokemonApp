@@ -33,7 +33,7 @@ class TypesAbilitiesMovesCell: UITableViewCell {
         let y: CGFloat = (self.frame.height - height) / 2
         
         let typeLbl = UILabel(frame: CGRect(x: x, y: y, width: width, height: height))
-        typeLbl.layer.cornerRadius = 10.0
+        typeLbl.layer.cornerRadius = 10.5
         typeLbl.clipsToBounds = true
         typeLbl.font = UIFont(name: "Gill Sans", size: 17)
         typeLbl.textColor = UIColor.white
