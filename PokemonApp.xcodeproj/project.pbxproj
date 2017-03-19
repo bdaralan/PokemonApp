@@ -2263,6 +2263,18 @@
 			path = crysounds;
 			sourceTree = "<group>";
 		};
+		539196711E7EBA62006EEBFC /* data */ = {
+			isa = PBXGroup;
+			children = (
+				5327CE101E7A607C0034CADA /* moves.json */,
+				5327CE071E7A467C0034CADA /* abilities.json */,
+				5327CE091E7A476D0034CADA /* pokemon.json */,
+				5327CE0A1E7A476D0034CADA /* types.json */,
+				53ECC8B51E600EA60095D5C9 /* pokeapi-data.plist */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
 		53ECC88D1E600DB50095D5C9 = {
 			isa = PBXGroup;
 			children = (
@@ -2301,11 +2313,7 @@
 			isa = PBXGroup;
 			children = (
 				530373631E6B9FA400E7B9A0 /* crysounds */,
-				5327CE101E7A607C0034CADA /* moves.json */,
-				5327CE071E7A467C0034CADA /* abilities.json */,
-				5327CE091E7A476D0034CADA /* pokemon.json */,
-				5327CE0A1E7A476D0034CADA /* types.json */,
-				53ECC8B51E600EA60095D5C9 /* pokeapi-data.plist */,
+				539196711E7EBA62006EEBFC /* data */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
