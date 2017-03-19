@@ -10,8 +10,6 @@ import UIKit
 
 class TypesAbilitiesMovesCell: UITableViewCell {
     
-    var categoryImg: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,58 +19,59 @@ class TypesAbilitiesMovesCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-
     
     func configureTypeCell(type: String) {
         
         textLabel?.text = type
         
-        let width: CGFloat = 70
-        let height: CGFloat = 21
-        let x: CGFloat = self.frame.width - width - 10
-        let y: CGFloat = (self.frame.height - height) / 2
-        
-        let typeLbl = UILabel(frame: CGRect(x: x, y: y, width: width, height: height))
-        typeLbl.layer.cornerRadius = 10.5
-        typeLbl.clipsToBounds = true
-        typeLbl.font = UIFont(name: "Gill Sans", size: 17)
-        typeLbl.textColor = UIColor.white
-        typeLbl.highlightedTextColor = UIColor.clear
-        typeLbl.backgroundColor = type.toPokeTypeColor
-        typeLbl.textAlignment = .center
-        typeLbl.text = type
+        let typeLbl = drawLable(width: 70, height: 21, fontFamily: "Gill Sans", fontSize: 17, textColor: UIColor.white, backgroundColor: type.toPokeTypeColor)
         
         self.addSubview(typeLbl)
+        typeLbl.text = type
     }
     
     func configureAbilityCell(ability: Ability) {
         
         textLabel?.text = ability.name
+        
+        let abilityLbl = drawLable(width: 70, height: 21, fontFamily: "Gill Sans", fontSize: 17, textColor: UIColor.white, backgroundColor: UIColor.darkGray)
+        
+        self.addSubview(abilityLbl)
+        abilityLbl.text = "Gen: \(ability.generation)"
     }
     
     func configureMoveCell(move: Move) {
                 
         textLabel?.text = move.name
         
-        if move.category.isEmpty {
-            if categoryImg != nil {
-                for imgView in self.subviews where imgView.tag == 1 {
-                    imgView.removeFromSuperview()
-                }
-            }
-        } else {
-            let width: CGFloat = 50
-            let height: CGFloat = 21
-            let x: CGFloat = self.frame.width - width - 10
-            let y: CGFloat = (self.frame.height - height) / 2
-            
-            categoryImg = UIImageView(frame: CGRect(x: x, y: y, width: width, height: height))
-            categoryImg.layer.cornerRadius = 10.0
-            categoryImg.clipsToBounds = true
-            categoryImg.tag = 1
-            categoryImg.image = UIImage(named: move.category.lowercased())
-            
-            self.addSubview(categoryImg)
-        }
+        let width: CGFloat = 50
+        let height: CGFloat = 21
+        let x: CGFloat = self.frame.width - width - 10
+        let y: CGFloat = (self.frame.height - height) / 2
+        
+        let categoryImg = UIImageView(frame: CGRect(x: x, y: y, width: width, height: height))
+        self.addSubview(categoryImg)
+        
+        categoryImg.layer.cornerRadius = categoryImg.frame.height / 2
+        categoryImg.clipsToBounds = true
+        categoryImg.tag = 1
+        categoryImg.image = UIImage(named: move.category.isEmpty ? "zmove" : move.category.lowercased())
+    }
+    
+    private func drawLable(width: CGFloat, height: CGFloat, fontFamily: String, fontSize: CGFloat, textColor: UIColor, backgroundColor: UIColor) -> UILabel {
+        
+        let x: CGFloat = self.frame.width - width - 10
+        let y: CGFloat = (self.frame.height - height) / 2
+        
+        let lable = UILabel(frame: CGRect(x: x, y: y, width: width, height: height))
+        lable.layer.cornerRadius = height / 2
+        lable.clipsToBounds = true
+        lable.font = UIFont(name: fontFamily, size: fontSize)
+        lable.textColor = textColor
+        lable.highlightedTextColor = UIColor.clear
+        lable.backgroundColor = backgroundColor
+        lable.textAlignment = .center
+        
+        return lable
     }
 }
