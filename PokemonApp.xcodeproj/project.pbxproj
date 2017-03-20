@@ -741,6 +741,8 @@
 		5355A46F1E6295340093A372 /* PokeTypesUILbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5355A46E1E6295340093A372 /* PokeTypesUILbl.swift */; };
 		5355A4731E62AED90093A372 /* SectionTagUILbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5355A4721E62AED90093A372 /* SectionTagUILbl.swift */; };
 		535F23311E60A640005FCF34 /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F23301E60A640005FCF34 /* PokeCell.swift */; };
+		539196731E7ED424006EEBFC /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539196721E7ED424006EEBFC /* UserDefaults.swift */; };
+		539196751E7EDABF006EEBFC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539196741E7EDABF006EEBFC /* Keys.swift */; };
 		53A43C0C1E7599B60037FAEC /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A43C0B1E7599B60037FAEC /* HomeTVC.swift */; };
 		53A8AE771E654525001922A6 /* NavBarUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A8AE761E654525001922A6 /* NavBarUIController.swift */; };
 		53AC64CF1E6A5A9F00233B2F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AC64CE1E6A5A9F00233B2F /* Colors.swift */; };
@@ -1499,6 +1501,8 @@
 		5355A46E1E6295340093A372 /* PokeTypesUILbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeTypesUILbl.swift; sourceTree = "<group>"; };
 		5355A4721E62AED90093A372 /* SectionTagUILbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTagUILbl.swift; sourceTree = "<group>"; };
 		535F23301E60A640005FCF34 /* PokeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCell.swift; sourceTree = "<group>"; };
+		539196721E7ED424006EEBFC /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		539196741E7EDABF006EEBFC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		53A43C0B1E7599B60037FAEC /* HomeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
 		53A8AE761E654525001922A6 /* NavBarUIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarUIController.swift; sourceTree = "<group>"; };
 		53AC64CE1E6A5A9F00233B2F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -2357,6 +2361,7 @@
 				53ECC8C31E6010F60095D5C9 /* Pokemon.swift */,
 				53BF47341E791AFE00FD0E39 /* Ability.swift */,
 				5327CE0E1E7A5C990034CADA /* Move.swift */,
+				539196741E7EDABF006EEBFC /* Keys.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2382,6 +2387,7 @@
 			isa = PBXGroup;
 			children = (
 				53ECC8B91E600FD00095D5C9 /* Extensions.swift */,
+				539196721E7ED424006EEBFC /* UserDefaults.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -3208,7 +3214,9 @@
 				53E858FA1E7581F500D508C1 /* SettingTVC.swift in Sources */,
 				53ECC8B81E600F010095D5C9 /* PokemonInfoVC.swift in Sources */,
 				53BF47311E78EBEC00FD0E39 /* TypesAbilitiesMovesCell.swift in Sources */,
+				539196731E7ED424006EEBFC /* UserDefaults.swift in Sources */,
 				5355A46F1E6295340093A372 /* PokeTypesUILbl.swift in Sources */,
+				539196751E7EDABF006EEBFC /* Keys.swift in Sources */,
 				535F23311E60A640005FCF34 /* PokeCell.swift in Sources */,
 				53ECC8BA1E600FD00095D5C9 /* Extensions.swift in Sources */,
 			);

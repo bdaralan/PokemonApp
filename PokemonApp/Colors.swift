@@ -12,19 +12,20 @@ import UIKit
 class Colors {
     
     private let _pokemonType: PokeTypeColor!
+    private let _move: PokeMoveColor!
     private let _navigationBar: UIColor!
     private let _sectionTagBackground: UIColor!
     private let _sectionTagText: UIColor!
-    private let _move: PokeMoveColor!
-    
+
     
     init() {
         _pokemonType = PokeTypeColor()
+        _move = PokeMoveColor()
         _navigationBar = UIColor(red:1.00, green:0.87, blue:0.00, alpha:1.0) //FFDD00
         _sectionTagBackground = UIColor(red:0.78, green:0.87, blue:0.85, alpha:0.7) //C7DED9
         _sectionTagText = UIColor(red:0.23, green:0.30, blue:0.31, alpha:1.0) //3B4D4F
-        _move = PokeMoveColor()
     }
+    
     
     var pokemonType: PokeTypeColor { return _pokemonType }
     var navigationBar: UIColor { return _navigationBar }
@@ -35,6 +36,7 @@ class Colors {
 
 /*-- Pokemon Type Color --*/
 struct PokeTypeColor {
+    
     let Normal = UIColor(red:0.66, green:0.66, blue:0.47, alpha:1.0) //A8A878
     let Fighting = UIColor(red:0.75, green:0.19, blue:0.16, alpha:1.0) //C03028
     let Flying = UIColor(red:0.66, green:0.56, blue:0.94, alpha:1.0) //A890F0
@@ -57,8 +59,9 @@ struct PokeTypeColor {
 }
 
 struct PokeMoveColor {
-    lazy var physical = UIColor(red:1.00, green:0.27, blue:0.00, alpha:1.0)
-    lazy var special = UIColor(red:0.13, green:0.40, blue:0.80, alpha:1.0)
-    lazy var status = UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0)
-    lazy var zmove = UIColor(red:0.98, green:0.79, blue:0.05, alpha:1.0)
+    
+    let physical = UIColor(red:1.00, green:0.27, blue:0.00, alpha:1.0)
+    let special = UIColor(red:0.13, green:0.40, blue:0.80, alpha:1.0)
+    let status = UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0)
+    let zMove = UIColor(red:0.98, green:0.79, blue:0.05, alpha:1.0)
 }

@@ -20,6 +20,7 @@ let POKEMON_MOVES_JSON_PATH = Bundle.main.path(forResource: "moves", ofType: "js
 
 let DEFAULT_PROGRESS_VALUE = Float(0.01)
 
+let KEYS = Keys()
 let API = APIData()
 let COLORS = Colors()
 

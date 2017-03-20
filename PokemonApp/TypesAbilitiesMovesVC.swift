@@ -12,6 +12,7 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var moveSort: UISegmentedControl!
     
     var selectedMenu: HomeMenu! //must be passed when perform segue
     var types = [String]()
@@ -27,6 +28,7 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         searchBar.delegate = self
         
+        moveSort.isHidden = true
         searchBar.returnKeyType = .search
         searchBar.enablesReturnKeyAutomatically = true
         
@@ -198,6 +200,7 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
             
         case .Moves:
             moves = ALL_MOVE
+            moveSort.isHidden = false
             
         default: ()
         }
@@ -207,5 +210,21 @@ class TypesAbilitiesMovesVC: UIViewController, UITableViewDelegate, UITableViewD
         
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
+    }
+    
+    
+    /*-- IBActions --*/
+    @IBAction func sortSCSwitched(_ sender: Any) {
+        
+        switch moveSort.selectedSegmentIndex {
+        case 0: moves = ALL_MOVE
+        case 1: moves = ALL_MOVE.filter({$0.category == "Physical"})
+        case 2: moves = ALL_MOVE.filter({$0.category == "Special"})
+        case 3: moves = ALL_MOVE.filter({$0.category == "Status"})
+        case 4: moves = ALL_MOVE.filter({$0.category == ""})
+        default:()
+        }
+        
+        tableView.reloadData()
     }
 }

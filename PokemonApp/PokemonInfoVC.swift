@@ -59,6 +59,8 @@ class PokemonInfoVC: UIViewController {
     var audioPlayer: AVAudioPlayer!
     var audioPlayerIsReadToPlay = false
     
+    var isSIUnit: Bool!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +71,9 @@ class PokemonInfoVC: UIViewController {
         pokemonEvolution = allPokemon.evolution(of: pokemon)
         pokemonSummaryTxtView.alwaysBounceVertical = true
         
-        configureImageTapGesture()
+        isSIUnit = UserDefaults.standard.measurementDidSetToSIUnit
+        
+        configureTapGesture()
         updateUI()
     }
     
@@ -77,21 +81,33 @@ class PokemonInfoVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UserDefaults.standard.setMeasurementUnitToSIUnit(isSIUnit)
+    }
 
     
     /*-- Functions --*/
-    func configureImageTapGesture() {
+    func configureTapGesture() {
         
         let evolutionImg01TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg01Tapped))
-        let evolutionImg02TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg02Tapped))
-        let evolutionImg03TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg03Tapped))
-        
         evolutionImg01.addGestureRecognizer(evolutionImg01TapGesture)
         evolutionImg01.isUserInteractionEnabled = true
+        
+        let evolutionImg02TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg02Tapped))
         evolutionImg02.addGestureRecognizer(evolutionImg02TapGesture)
         evolutionImg02.isUserInteractionEnabled = true
+        
+        let evolutionImg03TapGesture = UITapGestureRecognizer(target: self, action: #selector(evolutionImg03Tapped))
         evolutionImg03.addGestureRecognizer(evolutionImg03TapGesture)
         evolutionImg03.isUserInteractionEnabled = true
+        
+        let weightTapGesture = UITapGestureRecognizer(target: self, action: #selector(toggleMeasurmentUnit))
+        let heightTapGesture = UITapGestureRecognizer(target: self, action: #selector(toggleMeasurmentUnit))
+        pokemonWeight.addGestureRecognizer(weightTapGesture)
+        pokemonWeight.isUserInteractionEnabled = true
+        pokemonHeight.addGestureRecognizer(heightTapGesture)
+        pokemonHeight.isUserInteractionEnabled = true
     }
     
     func updateUI() {
@@ -109,8 +125,8 @@ class PokemonInfoVC: UIViewController {
         pokemonImg.image = UIImage(named: "\(pokemon.pokedexID)")
         pokemonPokedexIdLbl.text = pokemon.pokedexID.toIDOutputFormat
         
-        pokemonHeight.text = pokemon.height.toMeterOutputFormat
-        pokemonWeight.text = pokemon.weight.toKiloOutputForat
+        pokemonHeight.text = pokemon.height.toHeightOutputFormat
+        pokemonWeight.text = pokemon.weight.toWeightOutputForat
         
         pokemonType01Lbl.text = self.pokemon.types.primary.toString()
         pokemonType01Lbl.backgroundColor = self.pokemon.types.primary.toUIColor()
@@ -260,6 +276,22 @@ class PokemonInfoVC: UIViewController {
             pokemon = pokemonEvolution[2]
             updateUI()
         }
+    }
+    
+    func toggleMeasurmentUnit() {
+        
+        let isSIUnit = UserDefaults.standard.measurementDidSetToSIUnit
+        UserDefaults.standard.setMeasurementUnitToSIUnit(!isSIUnit)
+        UserDefaults.standard.synchronize()
+        pokemonHeight.text = pokemon.height.toHeightOutputFormat
+        pokemonWeight.text = pokemon.weight.toWeightOutputForat
+        
+        pokemonHeight.alpha = 0
+        pokemonWeight.alpha = 0
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.pokemonHeight.alpha = 1
+            self.pokemonWeight.alpha = 1
+        }, completion: nil)
     }
     
     

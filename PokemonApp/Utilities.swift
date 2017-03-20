@@ -20,3 +20,12 @@ func populatePokeType() -> [String] {
     
     return types
 }
+
+func meterToFeetInches(meter: Double) -> (Int, Int) {
+    
+    let allInches: Double = meter * 39.37
+    let feet = Int(allInches / 12.0)
+    let inches = Int((allInches - Double(feet * 12)).rounded())
+    
+    return (feet, inches)
+}

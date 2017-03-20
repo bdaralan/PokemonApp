@@ -10,6 +10,8 @@ import UIKit
 
 class TypesAbilitiesMovesCell: UITableViewCell {
     
+    var categoryImg: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -44,26 +46,22 @@ class TypesAbilitiesMovesCell: UITableViewCell {
                 
         textLabel?.text = move.name
         
-        let width: CGFloat = 50
-        let height: CGFloat = 21
-        let x: CGFloat = self.frame.width - width - 10
-        let y: CGFloat = (self.frame.height - height) / 2
-        
-        let categoryImg = UIImageView(frame: CGRect(x: x, y: y, width: width, height: height))
-        self.addSubview(categoryImg)
-        
-        categoryImg.layer.cornerRadius = categoryImg.frame.height / 2
-        categoryImg.clipsToBounds = true
-        categoryImg.tag = 1
-        categoryImg.image = UIImage(named: move.category.isEmpty ? "zmove" : move.category.lowercased())
+        if categoryImg == nil {
+            categoryImg = UIImageView(frame: CGRect(x: self.frame.width - 60, y: self.center.y - (21 / 2), width: 50, height: 21))
+            
+            self.addSubview(categoryImg)
+            
+            categoryImg.layer.cornerRadius = categoryImg.frame.height / 2
+            categoryImg.clipsToBounds = true
+            categoryImg.image = UIImage(named: move.category.isEmpty ? "zmove" : move.category.lowercased())
+        } else {
+            categoryImg.image = UIImage(named: move.category.isEmpty ? "zmove" : move.category.lowercased())
+        }
     }
     
     private func drawLable(width: CGFloat, height: CGFloat, fontFamily: String, fontSize: CGFloat, textColor: UIColor, backgroundColor: UIColor) -> UILabel {
         
-        let x: CGFloat = self.frame.width - width - 10
-        let y: CGFloat = (self.frame.height - height) / 2
-        
-        let lable = UILabel(frame: CGRect(x: x, y: y, width: width, height: height))
+        let lable = UILabel(frame: CGRect(x: self.frame.width - width - 10, y: self.center.y - (height / 2), width: width, height: height))
         lable.layer.cornerRadius = height / 2
         lable.clipsToBounds = true
         lable.font = UIFont(name: fontFamily, size: fontSize)

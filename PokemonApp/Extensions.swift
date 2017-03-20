@@ -37,12 +37,24 @@ extension Int {
 
 extension Double {
     
-    var toMeterOutputFormat: String {
-        return "\(self)m"
+    var toHeightOutputFormat: String {
+        
+        if UserDefaults.standard.measurementDidSetToSIUnit {
+            return "\(self) m"
+        }
+        
+        let (feet, inches) = meterToFeetInches(meter: self)
+        
+        return String(format: "%d' %02d\"", feet, inches)
     }
     
-    var toKiloOutputForat: String {
-        return "\(self)kg"
+    var toWeightOutputForat: String {
+        
+        if UserDefaults.standard.measurementDidSetToSIUnit {
+            return "\(self) kg"
+        }
+        
+        return "\((self * 22.046).rounded() / 10) lb"
     }
 }
 
