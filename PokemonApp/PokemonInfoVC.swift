@@ -126,7 +126,7 @@ class PokemonInfoVC: UIViewController {
         pokemonPokedexIdLbl.text = pokemon.pokedexID.toIDOutputFormat
         
         pokemonHeight.text = pokemon.height.toHeightOutputFormat
-        pokemonWeight.text = pokemon.weight.toWeightOutputForat
+        pokemonWeight.text = pokemon.weight.toWeightOutputFormat
         
         pokemonType01Lbl.text = self.pokemon.types.primary.toString()
         pokemonType01Lbl.backgroundColor = self.pokemon.types.primary.toUIColor()
@@ -135,6 +135,8 @@ class PokemonInfoVC: UIViewController {
             pokemonType02Lbl.text = self.pokemon.types.secondary.toString()
             pokemonType02Lbl.isHidden = false
             pokemonType02Lbl.backgroundColor = self.pokemon.types.secondary.toUIColor()
+        } else {
+            pokemonType01Lbl.frame = CGRect(x: pokemonType01Lbl.frame.origin.x, y: pokemonType01Lbl.frame.origin.y, width: pokemonType01Lbl.frame.width * 2 + 5, height: pokemonType01Lbl.frame.height)
         }
         
         // Update evolution UIImageView
@@ -153,13 +155,12 @@ class PokemonInfoVC: UIViewController {
         
         // Set evolution arrow
         switch pokemonEvolution.count {
-        case 1: () //no evolution
-        case 2: evolutionArrow01.isHidden = false
+        case 2:
+            evolutionArrow01.isHidden = false
         case 3:
             evolutionArrow01.isHidden = false
             evolutionArrow02.isHidden = false
-        default:
-            print("Cannot have more than 2 evolution arrows")
+        default:()
         }
     }
     
@@ -236,6 +237,8 @@ class PokemonInfoVC: UIViewController {
             pokemonSpDefPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
             pokemonSpdPV.setProgress(DEFAULT_PROGRESS_VALUE, animated: true)
         }
+        
+        pokemonType01Lbl.frame = CGRect(x: pokemonType01Lbl.frame.origin.x, y: pokemonType01Lbl.frame.origin.y, width: pokemonType02Lbl.frame.width, height: pokemonType01Lbl.frame.height)
     }
     
     func initAudioPlayer() {
@@ -284,7 +287,7 @@ class PokemonInfoVC: UIViewController {
         UserDefaults.standard.setMeasurementUnitToSIUnit(!isSIUnit)
         UserDefaults.standard.synchronize()
         pokemonHeight.text = pokemon.height.toHeightOutputFormat
-        pokemonWeight.text = pokemon.weight.toWeightOutputForat
+        pokemonWeight.text = pokemon.weight.toWeightOutputFormat
         
         pokemonHeight.alpha = 0
         pokemonWeight.alpha = 0

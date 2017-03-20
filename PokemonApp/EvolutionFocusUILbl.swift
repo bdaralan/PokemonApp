@@ -11,8 +11,8 @@ import UIKit
 class EvolutionFocusUILbl: UILabel {
 
     override func awakeFromNib() {
-        self.layer.cornerRadius = 2.0
-        self.clipsToBounds = true
-        self.backgroundColor = COLORS.sectionTagBackground
+        layer.cornerRadius = frame.height / 2
+        clipsToBounds = true
+        backgroundColor = COLORS.sectionTagBackground
     }
 }

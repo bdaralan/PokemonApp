@@ -48,7 +48,7 @@ extension Double {
         return String(format: "%d' %02d\"", feet, inches)
     }
     
-    var toWeightOutputForat: String {
+    var toWeightOutputFormat: String {
         
         if UserDefaults.standard.measurementDidSetToSIUnit {
             return "\(self) kg"
