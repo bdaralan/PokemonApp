@@ -21,7 +21,7 @@
 </div>
 
 ## Usage:
-* You can use this for studying purpose or as a reference guide.
+* You can use this for studying purpose or as a reference guide. *Happy learning Swift. :)*
 
 ## Disclaimer:
 * This is for practice and learning purposes only. 
