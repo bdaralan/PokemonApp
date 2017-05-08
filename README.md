@@ -3,7 +3,8 @@
 * Using a rest API from https://pokeapi.co/
 
 ## Status: 
-* Still in working progress.
+* Abandoned. Moved to [PokedexApp](https://github.com/iDara09/PokedexApp). 
+  + The API currently only has 721 Pokemons, so I start a new one which will run locally by json data.
 * Have not yet to set constrains.
 * Storyboard is set for iPhone 6s/7.
 
